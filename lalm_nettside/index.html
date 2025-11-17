@@ -41,6 +41,12 @@ body {
       text-decoration: none;
     }
 
+    .topbar-brand img {
+    height: 34px;       /* perfekt høyde for header */
+    width: auto;        /* bevarer proporsjoner */
+    object-fit: contain;
+}
+
     header {
       position: sticky;
       top: 0;
@@ -129,21 +135,19 @@ h2 {
 }
 
     /* HERO */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.8rem;
-  margin-bottom: 2.3rem;
+.hero-logo {
+    display: flex;
+    justify-content: center;
+    margin: 1.4rem 0 0.5rem;
 }
 
-    .hero img {
-      max-width: 240px;
-      width: 100%;
-      filter: drop-shadow(0 0 20px rgba(255, 122, 0, 0.3));
-      justify-self: center;
-    }
+.hero-logo img {
+    height: 50px;     /* større og tydelig */
+    width: auto;
+    object-fit: contain;
+    opacity: 0.95;    /* litt smooth */
+}
+
 
     .hero-badge {
       display: inline-block;
@@ -770,6 +774,7 @@ h2 {
 
 </body>
 </html>
+
 
 
 
