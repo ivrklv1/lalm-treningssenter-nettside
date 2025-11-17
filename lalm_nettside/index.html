@@ -318,7 +318,8 @@ h2 {
 /* Sørg for at punktene havner nederst,
    slik at knappene havner på samme høyde */
 .membership-benefits {
-  margin-top: auto;          /* <- fyller all ledig plass over punktene */
+  text-align: left;
+  padding-left: 0; 
 }
 
 
@@ -374,24 +375,28 @@ h2 {
   margin-top: auto;
 }
 
-    .membership-benefits ul {
-      margin: 0.3rem 0 0;
-      padding-left: 1rem;
-    }
+.membership-benefits ul {
+  list-style: none;      /* fjern vanlige punkter */
+  margin: 0;
+  padding: 0;
+}
 
-    .membership-benefits li {
-      margin-bottom: 0.15rem;
-    }
+.membership-benefits li {
+  position: relative;
+  padding-left: 1.6rem;  /* plass til hakemerke */
+  margin-bottom: 0.55rem;
+}
 
-    .membership-note {
-      margin-top: 1.2rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
+/* Grønne haker (samme stil som Feel24) */
+.membership-benefits li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  color: #2ecc71;        /* pen grønn farge */
+  font-weight: 700;
+}
 
-    .membership-note strong {
-      color: var(--accent);
-    }
 
     /* INFO / VILKÅR / PERSONVERN */
     .info-grid,
@@ -757,6 +762,7 @@ h2 {
 
 </body>
 </html>
+
 
 
 
