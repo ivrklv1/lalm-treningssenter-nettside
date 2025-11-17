@@ -472,17 +472,113 @@ footer {
 
 /* RESPONSIVE */
 
-@media (max-width: 800px) {
-  nav {
-    display: none;
+/* RESPONSIVE */
+
+/* Nettbrett og mindre */
+@media (max-width: 900px) {
+  main {
+    padding: 1.8rem 1.2rem 2.5rem;
   }
 
-  .hero {
-    padding-top: 0.5rem;
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-note,
+  .hero p {
+    max-width: 95%;
+  }
+
+  .membership-grid {
+    gap: 1.2rem;
   }
 }
 
+/* Mobil stående / små skjermer */
+@media (max-width: 800px) {
+  /* Header */
+  .nav {
+    padding: 0.6rem 0.9rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .nav-logo img {
+    height: 48px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.2rem;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-right: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 1.2rem;
+    gap: 1.4rem;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.7rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero-note {
+    padding: 1rem 1.1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-logo img {
+    height: 140px;
+  }
+
+  /* Medlemskap */
+  .membership-section {
+    padding: 1.8rem 0.6rem 2.2rem;
+  }
+
+  .membership-header p {
+    font-size: 0.9rem;
+  }
+
+  .membership-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .membership-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5rem 1.3rem;
+  }
+}
+
+/* Små mobiler (ca. < 600px) */
 @media (max-width: 600px) {
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-logo img {
+    height: 120px;
+  }
+
   .membership-tabs {
     width: 100%;
     justify-content: space-between;
@@ -492,8 +588,28 @@ footer {
   .tab-button {
     flex: 1 1 auto;
     text-align: center;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.4rem;
+  }
+
+  .tab-button span {
+    font-size: 0.7rem;
+  }
+
+  .membership-price {
+    font-size: 2.1rem;
+  }
+
+  .cta-inner {
+    padding: 1.1rem 1rem 1.3rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 1.2rem;
   }
 }
+
   </style>
 </head>
 
@@ -776,6 +892,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
