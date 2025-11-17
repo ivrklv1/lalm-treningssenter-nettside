@@ -264,16 +264,15 @@ h2 {
 /* Kortene: fleks-kolonne */
 .membership-card {
   background: #ffffff;
-  color: #181818;
   padding: 1.8rem 1.6rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;    /* <- viktig for at vi kan “dytte” innhold ned */
-  gap: 0.8rem;
+  border-radius: 18px;
+  border: 1px solid #e6e0d9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   width: 320px;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
     .membership-card {
   transition: border-color 0.25s ease, 
@@ -307,8 +306,15 @@ h2 {
 }
 
     .membership-card h3,
-.membership-tagline,
-.membership-meta,
+/* Sørger for at intro-teksten over prisen tar like mye plass i alle kort,
+   slik at prislinja starter på samme høyde */
+.membership-tagline {
+  min-height: 3.2rem;       /* <-- juster opp/ned hvis du trenger */
+  display: flex;
+  align-items: flex-end;
+  color: #6b6b6b;
+  font-size: 0.92rem;
+}
 /* Sørg for at punktene havner nederst,
    slik at knappene havner på samme høyde */
 .membership-benefits {
@@ -332,11 +338,13 @@ h2 {
       color: var(--text-muted);
     }
 
-    .membership-price {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 0.3rem;
-    }
+/* PRIS-blokk med fast høyde */
+.membership-price {
+  min-height: 3.4rem;       /* <-- sikrer at pris + “per måned” flukter */
+  display: flex;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
 
     .membership-price span {
       font-size: 0.9rem;
@@ -352,21 +360,19 @@ h2 {
 
 /* Knapp venstrejustert, men samme plass i alle kort */
 .membership-button {
-  align-self: flex-start;
+  align-self: flex-start; /* venstrestilt */
+  margin-top: 0.4rem;
   background: #ffe9d6;
   border: 2px solid #ff7a00;
   padding: 0.7rem 1.3rem;
   border-radius: 40px;
-  cursor: default;
   font-weight: 600;
-  color: #111;
+  cursor: default;
 }
 
-    .membership-benefits {
-      margin-top: 0.7rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
+.membership-benefits {
+  margin-top: auto;
+}
 
     .membership-benefits ul {
       margin: 0.3rem 0 0;
@@ -747,6 +753,7 @@ h2 {
 
 </body>
 </html>
+
 
 
 
