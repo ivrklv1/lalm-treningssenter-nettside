@@ -252,25 +252,26 @@ h2 {
       display: block;
     }
 
+/* Grid for medlemskap – alle kort like høye */
 .membership-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;   /* midtstiller radene */
+  justify-content: center;
+  align-items: stretch;      /* <- gjør at kortene blir like høye i raden */
   gap: 1.5rem;
 }
 
+/* Kortene: fleks-kolonne */
 .membership-card {
   background: #ffffff;
   color: #181818;
-  padding: 1.4rem 1.3rem;
+  padding: 1.8rem 1.6rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   display: flex;
-  flex-direction: column;
+  flex-direction: column;    /* <- viktig for at vi kan “dytte” innhold ned */
   gap: 0.8rem;
-  text-align: left;
-  align-items: flex-start;   /* <-- alt venstrejusteres */
   width: 320px;
   max-width: 100%;
 }
@@ -308,9 +309,10 @@ h2 {
     .membership-card h3,
 .membership-tagline,
 .membership-meta,
+/* Sørg for at punktene havner nederst,
+   slik at knappene havner på samme høyde */
 .membership-benefits {
-  text-align: left;
-  width: 100%;
+  margin-top: auto;          /* <- fyller all ledig plass over punktene */
 }
 
 
@@ -348,16 +350,17 @@ h2 {
       color: var(--text-muted);
     }
 
-    .membership-button {
-      margin-top: 0.6rem;
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 122, 0, 0.5);
-      background: rgba(255, 122, 0, 0.12);
-      font-size: 0.85rem;
-      text-align: center;
-      text-transform: none;
-    }
+/* Knapp venstrejustert, men samme plass i alle kort */
+.membership-button {
+  align-self: flex-start;
+  background: #ffe9d6;
+  border: 2px solid #ff7a00;
+  padding: 0.7rem 1.3rem;
+  border-radius: 40px;
+  cursor: default;
+  font-weight: 600;
+  color: #111;
+}
 
     .membership-benefits {
       margin-top: 0.7rem;
@@ -744,6 +747,7 @@ h2 {
 
 </body>
 </html>
+
 
 
 
