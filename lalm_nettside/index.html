@@ -255,12 +255,6 @@ body {
 }
 
 .membership-card {
-  width: 320px;              /* fast “kortbredde” på stor skjerm */
-  max-width: 100%;           /* krymper fint på mobil */
-}
-
-
-.membership-card {
   background: #ffffff;
   color: #181818;
   padding: 1.4rem 1.3rem;
@@ -269,21 +263,30 @@ body {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  text-align: left;          /* <-- viktig: tekst venstrejustert */
-  align-items: flex-start;   /* <-- innhold starter til venstre */
+  gap: 0.8rem;
+  text-align: left;
+  align-items: flex-start;   /* <-- alt venstrejusteres */
+  width: 320px;
+  max-width: 100%;
 }
+
+.membership-button {
+  align-self: flex-start;     /* <-- knappen til venstre */
+  background: #ffe9d6;
+  border: 2px solid #ff7a00;
+  padding: 0.7rem 1.3rem;
+  border-radius: 40px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #111;
+}
+
     .membership-card h3,
 .membership-tagline,
 .membership-meta,
 .membership-benefits {
   text-align: left;
   width: 100%;
-}
-
-/* knappen skal fortsatt være midt i kortet */
-.membership-button {
-  align-self: center;
 }
 
 
@@ -682,6 +685,7 @@ body {
 
 </body>
 </html>
+
 
 
 
