@@ -4,69 +4,172 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vilkår – Lalm Treningssenter</title>
+  <link rel="icon" href="images/lalm-il-logo.png" />
   <style>
     body {
       background: #ffffff;
-      color: #111;
+      color: #111111;
       font-family: system-ui, sans-serif;
       line-height: 1.6;
       margin: 0;
-      padding: 0;
+    }
+    header {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0.7rem 1rem;
+    }
+    .nav {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+    }
+    .nav-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    nav a {
+      margin-left: 0.8rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 2rem 1.2rem 3rem;
     }
     h1 {
-      margin-bottom: 1rem;
       text-align: center;
+      margin-bottom: 1rem;
     }
-    a {
+    h2 {
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+    a.back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
       color: #ff7a00;
       text-decoration: none;
+      font-size: 0.9rem;
+    }
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+    footer {
+      border-top: 1px solid #e5e5e5;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    footer a {
+      color: #ff7a00;
+      text-decoration: none;
+      margin: 0 0.4rem;
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Vilkår for medlemskap</h1>
+<header>
+  <div class="nav">
+    <div class="nav-logo">
+      <img src="images/lalm-il-logo.png" alt="Lalm IL logo">
+      <div class="nav-title">LALM TRENingssenter</div>
+    </div>
+    <nav>
+      <a href="index.html">Forside</a>
+      <a href="praktisk-info.html">Praktisk info</a>
+      <a href="vilkar.html">Vilkår</a>
+      <a href="personvern.html">Personvern</a>
+    </nav>
+  </div>
+</header>
 
-    <p><a href="index.html">← Tilbake til forsiden</a></p>
+<main>
+  <a href="index.html" class="back-link">← Tilbake til forsiden</a>
+  <h1>Vilkår for medlemskap</h1>
 
-    <h2>1. Medlemskap og bindingstid</h2>
-    <p>
-      Bindingstid gjelder for medlemskap med 12 måneders avtale. Etter endt bindingstid
-      løper medlemskapet videre med 2 måneders gjeldende oppsigelsestid.
-    </p>
+  <p>
+    Disse vilkårene gjelder for alle medlemmer ved Lalm Treningssenter, drevet av Lalm Idrettslag.
+  </p>
 
-    <h2>2. Priser og betaling</h2>
-    <p>
-      Alle priser per måned. Årlig administrasjonsgebyr faktureres én gang pr år per aktivt medlemskap.
-      Betaling skjer i Lalm Treningssenter-appen.
-    </p>
+  <h2>1. Medlemskap og bindingstid</h2>
+  <p>
+    Medlemskap med binding har 12 måneders avtaleperiode fra innmeldingsdato.
+    Etter bindingstidens utløp løper medlemskapet videre som løpende avtale
+    med ordinær oppsigelsestid.
+  </p>
 
-    <h2>3. Tilgang til senteret</h2>
-    <p>
-      Tilgang gis gjennom QR-kode i appen. Tilgangen er personlig og kan ikke deles.
-    </p>
+  <h2>2. Medlemskap uten binding</h2>
+  <p>
+    Medlemskap uten binding har løpende avtale. Oppsigelsestiden er løpende måned
+    + 1 måned fra den dato oppsigelsen registreres.
+  </p>
 
-    <h2>4. Ansvar og HMS</h2>
-    <p>
-      All trening skjer på eget ansvar. Medlem skal følge senterets ordensregler.
-    </p>
+  <h2>3. Priser og gebyrer</h2>
+  <p>
+    Alle priser oppgis per måned. I tillegg faktureres det et årlig
+    administrasjonsgebyr per aktivt medlemskap.
+  </p>
 
-    <h2>5. Oppsigelse</h2>
-    <p>
-      Oppsigelse gjøres i appen. Oppsigelsestiden er 2 betalende måneder.
-    </p>
+  <h2>4. Betaling</h2>
+  <p>
+    Betaling skjer via Lalm Treningssenter-appen. Ved manglende betaling kan
+    adgangen til treningssenteret stenges inntil utestående er gjort opp.
+  </p>
 
-    <h2>6. Misbruk</h2>
-    <p>
-      Deling av tilgang eller brudd på vilkår kan føre til utestengelse uten refusjon.
-    </p>
+  <h2>5. Tilgang og bruk av senteret</h2>
+  <p>
+    Adgang til senteret gis via personlig QR-kode i appen. Tilgangen er personlig
+    og skal ikke deles med andre. Alle som trener må ha gyldig medlemskap
+    eller drop-in.
+  </p>
 
-  </main>
+  <h2>6. Ordensregler og sikkerhet</h2>
+  <p>
+    Medlemmer skal følge senterets ordensregler, inkludert rydding av utstyr,
+    bruk av håndkle på benker/apparater og hensyn til andre medlemmer.
+  </p>
+
+  <h2>7. Ansvar</h2>
+  <p>
+    Trening skjer på eget ansvar. Medlemmet plikter å bruke utstyr på en
+    forsvarlig måte og melde fra om skader eller feil ved utstyr.
+  </p>
+
+  <h2>8. Misbruk og utestengelse</h2>
+  <p>
+    Ved brudd på vilkår eller gjentatt mislighold kan medlemmet utestenges
+    midlertidig eller permanent, uten krav på refusjon av betalt treningsavgift.
+  </p>
+</main>
+
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> Lalm Treningssenter –
+  <a href="index.html">Forside</a> ·
+  <a href="praktisk-info.html">Praktisk info</a> ·
+  <a href="vilkar.html">Vilkår</a> ·
+  <a href="personvern.html">Personvern</a>
+</footer>
 </body>
 </html>
+
 
