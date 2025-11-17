@@ -16,8 +16,8 @@
   --bg-alt: #f7f7f7;
   --card-bg: #ffffff;
   --accent: #ff7a00;
-  --text: #181818;
-  --text-muted: #595959;
+  --text: #222222;        /* mørkere */
+  --text-muted: #6b6b6b;  /* litt mørkere enn nå */
   --border: #e5e5e5;
   --radius: 18px;
 }
@@ -114,20 +114,20 @@ body {
       padding: 2rem 1.2rem 3rem;
     }
 
-    h1,
-    h2 {
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.02em;
-    }
+h1,
+h2 {
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+}
 
-    h1 {
-      font-size: 2.1rem;
-    }
+h1 {
+  font-size: 2.2rem;
+}
 
-    h2 {
-      margin-top: 2.5rem;
-      font-size: 1.6rem;
-    }
+h2 {
+  margin-top: 2.4rem;
+  font-size: 1.5rem;
+}
 
     /* HERO */
 .hero {
@@ -173,10 +173,14 @@ body {
 }
 
     /* FANEMENY FOR MEDLEMSKAP */
-    .membership-section {
-      margin-top: 2rem;
-      text-align: center;
-    }
+.membership-section {
+  text-align: center;
+  padding: 3rem 1.2rem 3.5rem;
+  margin: 0 -1.2rem;       /* trekker litt ut til kant */
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
 
 .membership-header {
   text-align: center;
@@ -445,6 +449,33 @@ body {
         text-align: center;
       }
     }
+    /* CTA-strip nederst */
+.cta-strip {
+  border-top: 1px solid #f0f0f0;
+  background: #ffffff;
+}
+
+.cta-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.4rem 1.2rem 1.6rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.cta-text strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.cta-text span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
   </style>
 </head>
 
@@ -675,6 +706,14 @@ body {
 
 
 </main>
+<section class="cta-strip">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <strong>Bli medlem i appen</strong>
+      <span>Velg medlemskap, betal og få tilgang med QR-kode på få minutter.</span>
+    </div>
+  </div>
+</section>
 
 <footer>
   © <script>document.write(new Date().getFullYear())</script>
@@ -706,6 +745,7 @@ body {
 
 </body>
 </html>
+
 
 
 
