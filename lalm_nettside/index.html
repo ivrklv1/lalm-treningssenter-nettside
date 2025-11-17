@@ -248,11 +248,17 @@ body {
     }
 
 .membership-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* midtstiller radene */
   gap: 1.5rem;
 }
+
+.membership-card {
+  width: 320px;              /* fast “kortbredde” på stor skjerm */
+  max-width: 100%;           /* krymper fint på mobil */
+}
+
 
 .membership-card {
   background: #ffffff;
@@ -264,7 +270,22 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-align: left;          /* <-- viktig: tekst venstrejustert */
+  align-items: flex-start;   /* <-- innhold starter til venstre */
 }
+    .membership-card h3,
+.membership-tagline,
+.membership-meta,
+.membership-benefits {
+  text-align: left;
+  width: 100%;
+}
+
+/* knappen skal fortsatt være midt i kortet */
+.membership-button {
+  align-self: center;
+}
+
 
 .membership-card.highlight {
   border-color: var(--accent);
@@ -661,6 +682,7 @@ body {
 
 </body>
 </html>
+
 
 
 
