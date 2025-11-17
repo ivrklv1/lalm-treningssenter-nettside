@@ -4,70 +4,163 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personvern – Lalm Treningssenter</title>
+  <link rel="icon" href="images/lalm-il-logo.png" />
   <style>
     body {
       background: #ffffff;
-      color: #111;
+      color: #111111;
       font-family: system-ui, sans-serif;
       line-height: 1.6;
       margin: 0;
-      padding: 0;
+    }
+    header {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0.7rem 1rem;
+    }
+    .nav {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+    }
+    .nav-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    nav a {
+      margin-left: 0.8rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 2rem 1.2rem 3rem;
     }
     h1 {
-      margin-bottom: 1rem;
       text-align: center;
+      margin-bottom: 1rem;
     }
-    a {
+    h2 {
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+    a.back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
       color: #ff7a00;
       text-decoration: none;
+      font-size: 0.9rem;
+    }
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+    footer {
+      border-top: 1px solid #e5e5e5;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    footer a {
+      color: #ff7a00;
+      text-decoration: none;
+      margin: 0 0.4rem;
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Personvernerklæring</h1>
+<header>
+  <div class="nav">
+    <div class="nav-logo">
+      <img src="images/lalm-il-logo.png" alt="Lalm IL logo">
+      <div class="nav-title">LALM TRENingssenter</div>
+    </div>
+    <nav>
+      <a href="index.html">Forside</a>
+      <a href="praktisk-info.html">Praktisk info</a>
+      <a href="vilkar.html">Vilkår</a>
+      <a href="personvern.html">Personvern</a>
+    </nav>
+  </div>
+</header>
 
-    <p><a href="index.html">← Tilbake til forsiden</a></p>
+<main>
+  <a href="index.html" class="back-link">← Tilbake til forsiden</a>
+  <h1>Personvernerklæring</h1>
 
-    <h2>1. Behandlingsansvarlig</h2>
-    <p>
-      Lalm Idrettslag er ansvarlig for behandling av personopplysninger i forbindelse
-      med drift av Lalm Treningssenter.
-    </p>
+  <h2>1. Behandlingsansvarlig</h2>
+  <p>
+    Lalm Idrettslag er behandlingsansvarlig for personopplysninger som behandles
+    i forbindelse med drift av Lalm Treningssenter.
+  </p>
 
-    <h2>2. Hvilke data som lagres</h2>
-    <p>
-      Vi lagrer kun nødvendige opplysninger for medlemskap og adgangskontroll:
-      navn, e-post, telefonnummer og medlemskapstype.
-    </p>
+  <h2>2. Hvilke opplysninger vi behandler</h2>
+  <p>
+    Vi behandler kun opplysninger som er nødvendige for å administrere medlemskap
+    og adgang til senteret: navn, kontaktinformasjon, fødselsdato, valgt
+    medlemskapstype, betalingsinformasjon og adgangslogg (inn/ut).
+  </p>
 
-    <h2>3. Formål</h2>
-    <p>
-      Opplysningene brukes til administrasjon av medlemskap, betaling og adgang.
-    </p>
+  <h2>3. Formål og rettslig grunnlag</h2>
+  <p>
+    Formålet er å kunne tilby og administrere medlemskap, fakturering og
+    adgangskontroll. Behandlingen skjer med grunnlag i avtale med medlemmet.
+  </p>
 
-    <h2>4. Lagringstid</h2>
-    <p>
-      Data slettes når medlemskapet avsluttes og nødvendige økonomiske krav er oppgjort.
-    </p>
+  <h2>4. Lagringstid</h2>
+  <p>
+    Opplysninger lagres så lenge du er medlem, og i en periode etterpå der dette
+    er nødvendig for regnskap, dokumentasjon og eventuelle krav.
+  </p>
 
-    <h2>5. Utlevering av data</h2>
-    <p>
-      Vi deler ikke personopplysninger med tredjeparter, med unntak av systemleverandører
-      som Vipps og TELL Gate Control for betaling og adgang.
-    </p>
+  <h2>5. Deling av opplysninger</h2>
+  <p>
+    Personopplysninger deles kun med nødvendige systemleverandører
+    (for eksempel betalings- og adgangssystem) som har databehandleravtale
+    med Lalm Idrettslag. Opplysningene selges ikke videre til tredjeparter.
+  </p>
 
-    <h2>6. Dine rettigheter</h2>
-    <p>
-      Du har rett til innsyn, retting og sletting av dine data. Kontakt oss for dette.
-    </p>
+  <h2>6. Dine rettigheter</h2>
+  <p>
+    Du har rett til innsyn i hvilke opplysninger vi har registrert om deg,
+    og kan kreve retting eller sletting der vilkårene for dette er oppfylt.
+    Du har også rett til å protestere på behandlingen og kreve begrensning.
+  </p>
 
-  </main>
+  <h2>7. Kontaktinformasjon</h2>
+  <p>
+    For spørsmål om personvern eller ønske om innsyn, kontakt Lalm Idrettslag
+    via styret eller oppgitt kontaktinformasjon i Lalm Treningssenter-appen.
+  </p>
+</main>
+
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> Lalm Treningssenter –
+  <a href="index.html">Forside</a> ·
+  <a href="praktisk-info.html">Praktisk info</a> ·
+  <a href="vilkar.html">Vilkår</a> ·
+  <a href="personvern.html">Personvern</a>
+</footer>
 </body>
 </html>
+
 
