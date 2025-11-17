@@ -269,6 +269,25 @@ body {
   width: 320px;
   max-width: 100%;
 }
+    .membership-card {
+  transition: border-color 0.25s ease, 
+              box-shadow 0.25s ease,
+              transform 0.25s ease;
+}
+
+/* Hover-effekt */
+.membership-card:hover {
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.4),
+              0 8px 22px rgba(0, 0, 0, 0.10);
+  transform: translateY(-4px); /* liten løft-effekt */
+}
+.membership-card:hover .membership-button {
+  background: #ff7a00;
+  color: white;
+  border-color: #ff7a00;
+}
+
 
 .membership-button {
   align-self: flex-start;     /* <-- knappen til venstre */
@@ -506,7 +525,7 @@ body {
       <!-- MED BINDING -->
       <div class="tab-panel active" id="tab-binding">
         <div class="membership-grid">
-          <article class="membership-card highlight">
+          <article class="membership-card">
             <h3>Lalm IL-medlem – 12 mnd binding</h3>
             <div class="membership-tagline">For deg som er medlem i Lalm Idrettslag</div>
             <div class="membership-price">
@@ -575,7 +594,7 @@ body {
       <!-- UTEN BINDING -->
       <div class="tab-panel" id="tab-utenbinding">
         <div class="membership-grid">
-          <article class="membership-card highlight">
+          <article class="membership-card">
             <h3>Lalm IL-medlem – uten binding</h3>
             <div class="membership-tagline">Fleksibelt medlemskap for medlemmer i Lalm IL</div>
             <div class="membership-price">
@@ -622,7 +641,7 @@ body {
       <!-- DROP-IN -->
       <div class="tab-panel" id="tab-dropin">
         <div class="membership-grid">
-          <article class="membership-card highlight">
+          <article class="membership-card">
             <h3>Drop-in</h3>
             <div class="membership-tagline">Tren én gang uten medlemskap</div>
             <div class="membership-price">
@@ -685,6 +704,7 @@ body {
 
 </body>
 </html>
+
 
 
 
