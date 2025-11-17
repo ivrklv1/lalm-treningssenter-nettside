@@ -11,16 +11,17 @@
   />
 
   <style>
-    :root {
-      --bg: #050508;
-      --bg-alt: #111119;
-      --card-bg: #15151f;
-      --accent: #ff7a00;
-      --text: #f8f8f8;
-      --text-muted: #b4b4c0;
-      --border: #272737;
-      --radius: 18px;
-    }
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f7f7f7;
+  --card-bg: #ffffff;
+  --accent: #ff7a00;
+  --text: #181818;
+  --text-muted: #595959;
+  --border: #e5e5e5;
+  --radius: 18px;
+}
+
 
     * {
       margin: 0;
@@ -28,13 +29,13 @@
       box-sizing: border-box;
     }
 
-    body {
-      background: radial-gradient(circle at top, #151520 0, #050508 55%);
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      line-height: 1.6;
-    }
+body {
+  background: #ffffff;
+  color: #111111;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
+}
 
     a {
       color: inherit;
@@ -129,13 +130,13 @@
     }
 
     /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: center;
-      margin-bottom: 2.5rem;
-    }
+.hero {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
+}
 
     .hero img {
       max-width: 240px;
@@ -244,22 +245,23 @@
       gap: 1rem;
     }
 
-    .membership-card {
-      background: var(--card-bg);
-      padding: 1.4rem 1.3rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+.membership-card {
+  background: #ffffff;
+  color: #181818;
+  padding: 1.4rem 1.3rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
-    .membership-card.highlight {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.4),
-        0 16px 36px rgba(0, 0, 0, 0.6);
-    }
+.membership-card.highlight {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.4),
+              0 8px 28px rgba(0, 0, 0, 0.07);
+}
 
     .membership-card h3 {
       margin-bottom: 0.1rem;
@@ -760,3 +762,4 @@
 
 </body>
 </html>
+
