@@ -7,7 +7,7 @@
 
   <meta
     name="description"
-    content="Lalm Treningssenter – medlemskap, priser, åpningstider, vilkår og personvern. Innmelding gjøres i Lalm Treningssenter-appen."
+    content="Lalm Treningssenter – tren lokalt på Lalm. Her finner du medlemskap, priser, åpningstider, vilkår og personvern. Innmelding gjøres i Lalm Treningssenter-appen."
   />
 
   <style>
@@ -31,17 +31,23 @@
     body {
       background: radial-gradient(circle at top, #151520 0, #050508 55%);
       color: var(--text);
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
       line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     header {
       position: sticky;
       top: 0;
-      background: rgba(5,5,8,0.9);
+      background: rgba(5, 5, 8, 0.9);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      z-index: 20;
     }
 
     .nav {
@@ -51,6 +57,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
     }
 
     .nav-logo {
@@ -68,6 +75,7 @@
       font-size: 1.05rem;
       font-weight: 600;
       text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .nav-tag {
@@ -80,16 +88,39 @@
       text-decoration: none;
       margin-left: 1rem;
       font-size: 0.9rem;
+      position: relative;
+      padding-bottom: 0.05rem;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.15s ease-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     main {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2rem 1.2rem;
+      padding: 2rem 1.2rem 3rem;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: 2.1rem;
     }
 
     h2 {
@@ -97,90 +128,228 @@
       font-size: 1.6rem;
     }
 
+    /* HERO */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
       gap: 2rem;
       align-items: center;
+      margin-bottom: 2.5rem;
     }
 
     .hero img {
       max-width: 240px;
       width: 100%;
-      filter: drop-shadow(0 0 20px rgba(255,122,0,0.3));
+      filter: drop-shadow(0 0 20px rgba(255, 122, 0, 0.3));
       justify-self: center;
     }
 
     .hero-badge {
       display: inline-block;
       padding: 0.3rem 0.7rem;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       color: var(--text-muted);
       font-size: 0.8rem;
       border-radius: 20px;
       margin-bottom: 0.8rem;
+      background: rgba(10, 10, 16, 0.9);
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
     }
 
     .hero-note {
-      background: rgba(20,20,28,0.9);
+      background: rgba(20, 20, 28, 0.9);
       padding: 1rem;
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       margin-top: 1rem;
       font-size: 0.9rem;
     }
 
-    /* PRISER */
-    .price-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+    /* FANEMENY FOR MEDLEMSKAP */
+    .membership-section {
+      margin-top: 2rem;
     }
 
-    .price-card {
+    .membership-header {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .membership-header h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .membership-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .membership-tabs {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 0.18rem;
+      background: #0b0b10;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 1.4rem;
+      gap: 0.1rem;
+    }
+
+    .tab-button {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 0.45rem 1.15rem;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .tab-button span {
+      display: block;
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .tab-button.active {
+      background: rgba(255, 122, 0, 0.12);
+      color: var(--text);
+      box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.75);
+    }
+
+    .tab-button:not(.active):hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .tab-panels {
+      margin-top: 0.5rem;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .membership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .membership-card {
       background: var(--card-bg);
-      padding: 1.2rem;
+      padding: 1.4rem 1.3rem;
       border-radius: var(--radius);
       border: 1px solid var(--border);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .price-card.highlight {
-      border: 1px solid var(--accent);
-      box-shadow: 0 0 15px rgba(255,122,0,0.25);
+    .membership-card.highlight {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.4),
+        0 16px 36px rgba(0, 0, 0, 0.6);
     }
 
-    .price-amount {
-      font-size: 1.3rem;
-      font-weight: bold;
+    .membership-card h3 {
+      margin-bottom: 0.1rem;
+      font-size: 1.05rem;
+    }
+
+    .membership-tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .membership-price {
+      font-size: 1.5rem;
+      font-weight: 700;
       margin-top: 0.3rem;
     }
 
-    .dropin {
-      margin-top: 1.8rem;
-      padding: 1rem;
-      background: rgba(255,122,0,0.15);
-      border: 1px solid var(--accent);
-      border-radius: var(--radius);
-      display: flex;
-      justify-content: space-between;
-      font-size: 1rem;
+    .membership-price span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-left: 0.15rem;
     }
 
-    /* INFO */
-    .info-grid {
+    .membership-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .membership-button {
+      margin-top: 0.6rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 122, 0, 0.5);
+      background: rgba(255, 122, 0, 0.12);
+      font-size: 0.85rem;
+      text-align: center;
+      text-transform: none;
+    }
+
+    .membership-benefits {
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .membership-benefits ul {
+      margin: 0.3rem 0 0;
+      padding-left: 1rem;
+    }
+
+    .membership-benefits li {
+      margin-bottom: 0.15rem;
+    }
+
+    .membership-note {
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .membership-note strong {
+      color: var(--accent);
+    }
+
+    /* INFO / VILKÅR / PERSONVERN */
+    .info-grid,
+    .legal-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
       margin-top: 1rem;
     }
 
-    .info-card {
+    .info-card,
+    .legal-box {
       background: var(--card-bg);
       padding: 1.2rem;
       border-radius: var(--radius);
       border: 1px solid var(--border);
       font-size: 0.9rem;
+      color: var(--text-muted);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .info-card h3,
+    .legal-box h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: var(--text);
     }
 
     ul {
@@ -188,29 +357,13 @@
       margin-left: 1rem;
     }
 
-    /* LEGAL */
-    .legal-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .legal-box {
-      background: var(--card-bg);
-      padding: 1.2rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      font-size: 0.9rem;
-    }
-
     footer {
-      margin-top: 3rem;
       padding: 1.5rem;
       text-align: center;
       font-size: 0.85rem;
       color: var(--text-muted);
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: #030307;
     }
 
     @media (max-width: 800px) {
@@ -218,12 +371,28 @@
         grid-template-columns: 1fr;
         text-align: left;
       }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .membership-tabs {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .tab-button {
+        flex: 1 1 auto;
+        text-align: center;
+      }
     }
   </style>
 </head>
 
 <body>
-
 <header>
   <div class="nav">
     <div class="nav-logo">
@@ -235,7 +404,7 @@
     </div>
 
     <nav>
-      <a href="#priser">Priser</a>
+      <a href="#priser">Medlemskap</a>
       <a href="#info">Praktisk info</a>
       <a href="#vilkar">Vilkår</a>
       <a href="#personvern">Personvern</a>
@@ -243,87 +412,219 @@
   </div>
 </header>
 
-
 <main>
 
   <!-- HERO -->
   <section class="hero">
     <div>
-      <div class="hero-badge">Åpent 05:00–23:00</div>
-      <h1>Lalm Treningssenter</h1>
+      <div class="hero-badge">Åpent hver dag · 05:00–23:00</div>
+      <h1>Tren lokalt på Lalm</h1>
       <p>
-        Et lokalt treningssenter drevet av Lalm Idrettslag.  
-        Her finner du priser, medlemskap, vilkår og personvern.  
-        <br><br>
-        <strong>Innmelding gjøres i Lalm Treningssenter-appen.</strong>
+        Lalm Treningssenter er et moderne, selvbetjent treningssenter
+        drevet av <strong>Lalm Idrettslag</strong>. Her finner du informasjon
+        om medlemskap, priser, vilkår og personvern – selve innmeldingen
+        gjør du i appen.
       </p>
 
       <div class="hero-note">
-        <strong>Innmelding:</strong> Opprett bruker og kjøp medlemskap i appen.  
-        Når betalingen er registrert får du tilgang via QR-kode.
+        <strong>Innmelding i app:</strong><br>
+        1. Last ned og logg inn i Lalm Treningssenter-appen.<br>
+        2. Velg medlemskap og betal.<br>
+        3. Når betalingen er registrert, får du tilgang via QR-kode ved døra.
       </div>
     </div>
 
     <img src="images/lalm-il-logo.png" alt="Lalm IL logo">
   </section>
 
+  <!-- MEDLEMSKAP / PRISER -->
+  <section id="priser" class="membership-section">
+    <div class="membership-header">
+      <h2>Våre medlemskap</h2>
+      <p>
+        Medlemskap kjøpes i Lalm Treningssenter-appen. Alle priser er per måned.
+        Medlemspris forutsetter gyldig medlemskap i Lalm Idrettslag.
+        Det faktureres et årlig administrasjonsgebyr på <strong>199,-</strong>
+        per aktivt medlemskap.
+      </p>
+    </div>
 
-  <!-- PRISER -->
-  <section id="priser">
-    <h2>Medlemskap & priser</h2>
-    <p>Medlemskap kjøpes i appen. Alle priser per måned.</p>
+    <!-- FANER -->
+    <div class="membership-tabs">
+      <button class="tab-button active" data-tab="binding">
+        Med binding
+        <span>Rabattert pris</span>
+      </button>
+      <button class="tab-button" data-tab="utenbinding">
+        Uten binding
+        <span>Full frihet</span>
+      </button>
+      <button class="tab-button" data-tab="dropin">
+        Drop-in
+        <span>Tren én gang</span>
+      </button>
+    </div>
 
-    <div class="price-grid">
+    <!-- PANELER -->
+    <div class="tab-panels">
+      <!-- MED BINDING -->
+      <div class="tab-panel active" id="tab-binding">
+        <div class="membership-grid">
+          <article class="membership-card highlight">
+            <h3>Lalm IL-medlem – 12 mnd binding</h3>
+            <div class="membership-tagline">For deg som er medlem i Lalm Idrettslag</div>
+            <div class="membership-price">
+              349,- <span>per måned</span>
+            </div>
+            <div class="membership-meta">
+              12 måneders bindingstid. Deretter løpende medlemskap med ordinær oppsigelsestid.
+            </div>
+            <div class="membership-button">
+              Medlemskap kjøpes i appen
+            </div>
+            <div class="membership-benefits">
+              <ul>
+                <li>Rabattert pris for medlemmer i Lalm IL</li>
+                <li>Full tilgang i åpningstiden 05:00–23:00</li>
+                <li>Støtter lokalt idrettsarbeid på Lalm</li>
+              </ul>
+            </div>
+          </article>
 
-      <div class="price-card highlight">
-        <h3>Medlem Lalm IL – 12 mnd binding</h3>
-        <div class="price-amount">349,-</div>
-        Mest populært for lokale medlemmer.
+          <article class="membership-card">
+            <h3>Standard – 12 mnd binding</h3>
+            <div class="membership-tagline">For deg som ikke er medlem i Lalm IL</div>
+            <div class="membership-price">
+              449,- <span>per måned</span>
+            </div>
+            <div class="membership-meta">
+              12 måneders bindingstid. Samme tilgang og vilkår som øvrige medlemskap.
+            </div>
+            <div class="membership-button">
+              Medlemskap kjøpes i appen
+            </div>
+            <div class="membership-benefits">
+              <ul>
+                <li>Fast månedspris i 12 måneder</li>
+                <li>Tilgang til treningssenteret hele året</li>
+                <li>Et enkelt og forutsigbart medlemskap</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="membership-card">
+            <h3>Hyttemedlemskap – 12 mnd binding</h3>
+            <div class="membership-tagline">For deg med hytte på Lalm eller i området</div>
+            <div class="membership-price">
+              169,- <span>per måned</span>
+            </div>
+            <div class="membership-meta">
+              Rimelig medlemskap for deg som bruker senteret når du er på hytta.
+              12 måneders bindingstid.
+            </div>
+            <div class="membership-button">
+              Medlemskap kjøpes i appen
+            </div>
+            <div class="membership-benefits">
+              <ul>
+                <li>Perfekt for ferie- og helgeturer</li>
+                <li>Tilgang i hele åpningstiden</li>
+                <li>Støtter lokalmiljøet selv om du ikke bor fast på Lalm</li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
 
-      <div class="price-card">
-        <h3>Ikke medlem Lalm IL – 12 mnd binding</h3>
-        <div class="price-amount">449,-</div>
+      <!-- UTEN BINDING -->
+      <div class="tab-panel" id="tab-utenbinding">
+        <div class="membership-grid">
+          <article class="membership-card highlight">
+            <h3>Lalm IL-medlem – uten binding</h3>
+            <div class="membership-tagline">Fleksibelt medlemskap for medlemmer i Lalm IL</div>
+            <div class="membership-price">
+              449,- <span>per måned</span>
+            </div>
+            <div class="membership-meta">
+              Ingen bindingstid. Løpende medlemskap med ordinær oppsigelsestid.
+            </div>
+            <div class="membership-button">
+              Medlemskap kjøpes i appen
+            </div>
+            <div class="membership-benefits">
+              <ul>
+                <li>Full fleksibilitet uten binding</li>
+                <li>Rabattert pris for Lalm IL-medlemmer</li>
+                <li>Tilgang til senteret hele åpningstiden</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="membership-card">
+            <h3>Standard – uten binding</h3>
+            <div class="membership-tagline">For deg som ønsker full frihet</div>
+            <div class="membership-price">
+              499,- <span>per måned</span>
+            </div>
+            <div class="membership-meta">
+              Ingen bindingstid. Løpende medlemskap med ordinær oppsigelsestid.
+            </div>
+            <div class="membership-button">
+              Medlemskap kjøpes i appen
+            </div>
+            <div class="membership-benefits">
+              <ul>
+                <li>Passer for deg som vil teste senteret over tid</li>
+                <li>Kan avsluttes når behovet endrer seg</li>
+                <li>Tilgang i hele åpningstiden 05:00–23:00</li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
 
-      <div class="price-card">
-        <h3>Medlem Lalm IL – uten binding</h3>
-        <div class="price-amount">449,-</div>
-      </div>
-
-      <div class="price-card">
-        <h3>Ikke medlem Lalm IL – uten binding</h3>
-        <div class="price-amount">499,-</div>
-      </div>
-
-      <div class="price-card">
-        <h3>Hyttemedlemskap – 12 mnd binding</h3>
-        <div class="price-amount">169,-</div>
-      </div>
-
-      <div class="price-card">
-        <h3>Årlig administrasjonsgebyr</h3>
-        <div class="price-amount">199,-</div>
+      <!-- DROP-IN -->
+      <div class="tab-panel" id="tab-dropin">
+        <div class="membership-grid">
+          <article class="membership-card highlight">
+            <h3>Drop-in</h3>
+            <div class="membership-tagline">Tren én gang uten medlemskap</div>
+            <div class="membership-price">
+              149,- <span>per gang</span>
+            </div>
+            <div class="membership-meta">
+              Perfekt når du bare vil ha en enkelt økt innimellom eller vil teste senteret.
+            </div>
+            <div class="membership-button">
+              Drop-in kjøpes i appen
+            </div>
+            <div class="membership-benefits">
+              <ul>
+                <li>Tilgang til hele senteret i valgt tidsrom</li>
+                <li>Ingen binding, ingen avtale</li>
+                <li>Mulighet til å oppgradere til medlemskap senere</li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
 
-    <div class="dropin">
-      <strong>Drop-in</strong>
-      <span>149,- pr gang</span>
+    <div class="membership-note">
+      <strong>Merk:</strong> Alle som trener på Lalm Treningssenter må ha gyldig
+      medlemskap eller drop-in. Adgang er personlig og skal ikke lånes ut til andre.
     </div>
   </section>
 
-
-  <!-- INFO -->
+  <!-- PRAKTISK INFO -->
   <section id="info">
     <h2>Praktisk informasjon</h2>
 
     <div class="info-grid">
-
       <div class="info-card">
         <h3>Åpningstider</h3>
         <p>Senteret er åpent hver dag <strong>05:00–23:00</strong>.</p>
-        Adgang via QR-kode i appen.
+        <p>Adgang via QR-kode i appen.</p>
       </div>
 
       <div class="info-card">
@@ -338,73 +639,124 @@
       <div class="info-card">
         <h3>Om senteret</h3>
         <ul>
-          <li>Moderne styrkerom</li>
-          <li>Frivekter og apparater</li>
-          <li>Drevet av Lalm IL</li>
+          <li>Moderne styrkerom og frivekter</li>
+          <li>Selvbetjent treningssenter med mobiladgang</li>
+          <li>Drevet av Lalm Idrettslag – inntekter går tilbake til aktivitet</li>
         </ul>
       </div>
-
     </div>
   </section>
-
 
   <!-- VILKÅR -->
   <section id="vilkar">
     <h2>Medlemsvilkår</h2>
 
     <div class="legal-grid">
-
       <div class="legal-box">
-        <h3>Binding / oppsigelse</h3>
-        12 mnd binding ved binding-medlemskap.  
-        Uten binding: løpende måned + 1 måned oppsigelse.
+        <h3>Bindingstid og oppsigelse</h3>
+        <p>
+          Medlemskap med binding har 12 måneders avtaleperiode fra innmelding.
+          Etter bindingstiden løper medlemskapet videre som løpende avtale
+          inntil det sies opp.
+        </p>
+        <p>
+          Medlemskap uten binding kan sies opp med løpende måned + 1 måned.
+          Oppsigelse gjøres via appen eller ved skriftlig henvendelse til Lalm IL.
+        </p>
       </div>
 
       <div class="legal-box">
-        <h3>Betaling</h3>
-        Betales via appen per måned.  
-        Årlig administrasjonsgebyr på 199,-.
+        <h3>Betaling og gebyr</h3>
+        <p>
+          Medlemskapet betales forskuddsvis per måned via appen.
+          I tillegg faktureres et årlig administrasjonsgebyr på
+          <strong>199,-</strong> per aktivt medlemskap.
+        </p>
+        <p>
+          Ved manglende betaling kan adgangen til senteret stenges
+          inntil utestående er gjort opp.
+        </p>
       </div>
 
       <div class="legal-box">
-        <h3>Adgang & sikkerhet</h3>
-        Adgang er personlig.  
-        Misbruk kan føre til utestengelse.
+        <h3>Ordensregler og sikkerhet</h3>
+        <p>
+          Alle medlemmer plikter å følge ordensreglene for Lalm Treningssenter.
+          Dette inkluderer blant annet rydding av utstyr, hensyn til andre
+          brukere og bruk av håndkle ved apparater.
+        </p>
+        <p>
+          Brudd på ordensregler eller misbruk av adgang kan føre til
+          midlertidig eller permanent utestengelse uten refusjon.
+        </p>
       </div>
-
     </div>
   </section>
-
 
   <!-- PERSONVERN -->
   <section id="personvern">
     <h2>Personvern</h2>
 
     <div class="legal-grid">
-
       <div class="legal-box">
-        <h3>Hva lagres</h3>
-        Navn, kontaktinfo, medlemskap, betalinger og adgangslogg.
+        <h3>Hvilke opplysninger vi lagrer</h3>
+        <p>
+          Ved innmelding registreres blant annet navn, kontaktinformasjon,
+          fødselsdato, valgt medlemskap og betalingsinformasjon.
+          Det logges også tidspunkt for adgang til senteret.
+        </p>
       </div>
 
       <div class="legal-box">
-        <h3>Lagring</h3>
-        Opplysninger lagres så lenge du er medlem, og noe lengre pga. regnskap.
+        <h3>Lagring og formål</h3>
+        <p>
+          Opplysningene brukes til å administrere medlemskap, fakturering,
+          adgangskontroll og for å ivareta sikkerhet på senteret.
+          Opplysninger lagres så lenge du er medlem, og i en periode etterpå
+          der dette er nødvendig av hensyn til regnskap og dokumentasjon.
+        </p>
       </div>
 
       <div class="legal-box">
-        <h3>Innsyn</h3>
-        Kontakt Lalm IL for innsyn eller sletting.
+        <h3>Innsyn og kontakt</h3>
+        <p>
+          Du har rett til innsyn i hvilke opplysninger vi har registrert om deg,
+          samt retting eller sletting der vilkårene for dette er oppfylt.
+          Henvendelser om personvern kan rettes til styret i Lalm Idrettslag.
+        </p>
       </div>
-
     </div>
   </section>
 
 </main>
 
 <footer>
-  © <script>document.write(new Date().getFullYear())</script> Lalm Treningssenter – en del av Lalm Idrettslag.
+  © <script>document.write(new Date().getFullYear())</script>
+  Lalm Treningssenter – en del av Lalm Idrettslag.
 </footer>
+
+<script>
+  // Enkel logikk for å bytte mellom faner
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabPanels = {
+    binding: document.getElementById("tab-binding"),
+    utenbinding: document.getElementById("tab-utenbinding"),
+    dropin: document.getElementById("tab-dropin"),
+  };
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.getAttribute("data-tab");
+
+      tabButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      Object.keys(tabPanels).forEach((key) => {
+        tabPanels[key].classList.toggle("active", key === target);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
