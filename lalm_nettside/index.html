@@ -309,11 +309,15 @@ h2 {
 /* Sørger for at intro-teksten over prisen tar like mye plass i alle kort,
    slik at prislinja starter på samme høyde */
 .membership-tagline {
-  min-height: 3.2rem;       /* <-- juster opp/ned hvis du trenger */
+  min-height: 3.2rem;     /* behold høyden for jevne priser */
   display: flex;
   align-items: flex-end;
+  justify-content: flex-start;  /* <-- VENSTRE */
+  text-align: left;             /* <-- VENSTRE */
+  width: 100%;                  /* så linjeskift fungerer pent */
   color: #6b6b6b;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
 }
 /* Sørg for at punktene havner nederst,
    slik at knappene havner på samme høyde */
@@ -762,6 +766,7 @@ h2 {
 
 </body>
 </html>
+
 
 
 
