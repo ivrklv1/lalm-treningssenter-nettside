@@ -341,18 +341,18 @@ h2 {
 
 /* PRIS-blokk med fast høyde */
 .membership-price {
-  min-height: 3.4rem;       /* <-- sikrer at pris + “per måned” flukter */
+  font-size: 2.4rem;     /* STOR pris */
+  font-weight: 700;
+  line-height: 1;
   display: flex;
-  align-items: flex-end;
-  gap: 0.3rem;
+  align-items: baseline;
+  gap: 0.25rem;
 }
 
-    .membership-price span {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      margin-left: 0.15rem;
-    }
+.membership-price span {
+  font-size: 1rem;       /* "per måned" mindre */
+  color: #6b6b6b;
+}
 
     .membership-meta {
       font-size: 0.85rem;
@@ -762,6 +762,7 @@ h2 {
 
 </body>
 </html>
+
 
 
 
