@@ -10,990 +10,873 @@
     content="Lalm Treningssenter – tren lokalt på Lalm. Her finner du medlemskap, priser, åpningstider, vilkår og personvern. Innmelding gjøres i Lalm Treningssenter-appen."
   />
 
+  <!-- Font lik moderne treningssider (Montserrat fra Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-:root {
-  --bg: #FAF8F3;
-  --bg-alt: #ffffff;
-  --card-bg: #ffffff;
-  --accent: #ff7a00;
-  --text: #222222;
-  --text-muted: #6b6b6b;
-  --border: #e5e5e5;
-  --radius: 18px;
-}
-    /* Mobilmeny-knapp (tre streker) */
-.mobile-menu-btn {
-  display: none;              /* skjules på desktop */
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #f5f5f5;
-  padding: 0.2rem 0.4rem;
-}
-
-/* Container for header må være relativ for at mobilmeny kan plasseres */
-.nav {
-  position: relative;
-}
-
-/* Skjult mobilmeny som dropper ned under header */
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  right: 1.2rem;
-  top: 100%;
-  background: #ffffff;
-  width: 70%;
-  max-width: 260px;
-  padding: 0.7rem 0.9rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-  border-radius: 0 0 0 12px;
-  z-index: 100;
-}
-
-.mobile-nav a {
-  padding: 0.5rem 0.3rem;
-  border-bottom: 1px solid #eee;
-  color: #111;
-  font-size: 0.9rem;
-}
-
-.mobile-nav a:last-child {
-  border-bottom: none;
-}
-
-/* Når vi legger til klassen "open" i JS, vises menyen */
-.mobile-nav.open {
-  display: flex;
-}
-
-/* RESPONSIVE: vis mobilknapp, skjul desktop-meny på små skjermer */
-@media (max-width: 800px) {
-  .nav-links {
-    display: none;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-  }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-    <script>
-  function toggleMenu() {
-    const menu = document.querySelector('.mobile-nav');
-    menu.classList.toggle('open');
-  }
-</script>
-
-
-body {
-  background: var(--bg);
-  color: #111111;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  line-height: 1.6;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* HEADER / NAV */
-
-header {
-  position: sticky;
-  top: 0;
-  background: rgba(5, 5, 8, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  z-index: 20;
-}
-<header>
-  <div class="nav">
-    <div class="nav-logo">
-      <img src="images/logo-lalm.png" alt="Lalm IL logo">
-      <div>
-        <div class="nav-title">Lalm Treningssenter</div>
-        <div class="nav-tag">Drevet av Lalm Idrettslag</div>
-      </div>
-    </div>
-
-    <!-- Desktop-meny -->
-    <nav class="nav-links">
-      <a href="#priser">Medlemskap</a>
-      <a href="praktisk-info.html">Praktisk info</a>
-      <a href="vilkar.html">Vilkår</a>
-      <a href="personvern.html">Personvern</a>
-    </nav>
-
-    <!-- Mobil-knapp (hamburger) -->
-    <button class="mobile-menu-btn" type="button" onclick="toggleMenu()">
-      ☰
-    </button>
-  </div>
-
-  <!-- Mobil-meny (drop-down) -->
-  <nav class="mobile-nav">
-    <a href="#priser" onclick="toggleMenu()">Medlemskap</a>
-    <a href="praktisk-info.html" onclick="toggleMenu()">Praktisk info</a>
-    <a href="vilkar.html" onclick="toggleMenu()">Vilkår</a>
-    <a href="personvern.html" onclick="toggleMenu()">Personvern</a>
-  </nav>
-</header>
-
-
-.nav {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0.7rem 1.2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.nav-logo img {
-  height: 90px;
-  width: auto;
-  object-fit: contain;
-}
-
-.nav-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent);       /* Lalm Treningssenter oransje */
-}
-
-.nav-tag {
-  font-size: 0.78rem;
-  color: #cccccc;
-}
-
-nav a {
-  color: #f5f5f5;
-  text-decoration: none;
-  margin-left: 1rem;
-  font-size: 0.9rem;
-  position: relative;
-  padding-bottom: 0.05rem;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0;
-  background: var(--accent);
-  transition: width 0.15s ease-out;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* GENERELT LAYOUT */
-
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.2rem 3rem;
-}
-
-h1,
-h2 {
-  margin-bottom: 0.4rem;
-  letter-spacing: 0.01em;
-}
-
-h1 {
-  font-size: 2.2rem;
-}
-
-h2 {
-  margin-top: 2.4rem;
-  font-size: 1.5rem;
-}
-
-/* HERO – alt over "Våre medlemskap" */
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;      /* SENTRERER all tekst */
-  gap: 1.8rem;
-  margin-bottom: 2.5rem;
-}
-
-.hero-badge {
-  display: inline-block;
-  padding: 0.3rem 0.7rem;
-  border-radius: 20px;
-  background: #f4f4f6;
-  border: 1px solid #e0e0e5;
-  color: #555;
-  font-size: 0.8rem;
-  margin-bottom: 0.8rem;
-}
-
-.hero p {
-  color: var(--text-muted);
-  font-size: 0.96rem;
-  max-width: 700px;
-  margin: 0 auto 1.2rem;
-}
-
-.hero-note {
-  background: #f4f4f6;
-  padding: 1.1rem 1.4rem;
-  border-radius: 18px;
-  border: 1px solid #e0e0e5;
-  max-width: 720px;
-  margin: 0 auto;
-  font-size: 0.92rem;
-}
-
-/* HERO-LOGO */
-
-.hero-logo {
-    display: flex;
-    justify-content: center;
-    margin: 2rem 0 1rem;
-}
-
-.hero-logo img {
-    height: 200px;   /* 3x større enn tidligere 50px */
-    width: auto;
-    object-fit: contain;
-    opacity: 1;      /* full synlighet */
-}
-
-/* MEDLEMSKAP */
-
-.membership-section {
-  text-align: center;
-  padding: 2rem 1.2rem;
-  background: none;
-  border: none;
-  margin: 0;
-}
-
-.membership-header {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.membership-header h2 {
-  font-size: 1.7rem;
-  margin-bottom: 0.3rem;
-}
-
-.membership-header p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-/* FANER */
-
-.membership-tabs {
-  display: inline-flex;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 0.18rem;
-  background: #f0f0f0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.4rem;
-  gap: 0.1rem;
-}
-
-.tab-button {
-  border: none;
-  background: transparent;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  padding: 0.45rem 1.15rem;
-  border-radius: 999px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.tab-button span {
-  display: block;
-  font-size: 0.75rem;
-  opacity: 0.8;
-}
-
-.tab-button.active {
-  background: rgba(255, 122, 0, 0.12);
-  color: var(--text);
-  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.75);
-}
-
-.tab-button:not(.active):hover {
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.tab-panels {
-  margin-top: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tab-panel {
-  display: none;
-}
-
-.tab-panel.active {
-  display: block;
-}
-
-/* Grid for medlemskap – alle kort like høye */
-
-.membership-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  gap: 1.5rem;
-}
-
-/* Kort */
-
-.membership-card {
-  background: #ffffff;
-  padding: 1.8rem 1.6rem;
-  border-radius: 18px;
-  border: 1px solid #e6e0d9;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  width: 320px;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: left;
-  align-items: flex-start;
-  transition: border-color 0.25s ease,
-              box-shadow 0.25s ease,
-              transform 0.25s ease;
-}
-
-.membership-card:hover {
-  border-color: #ff7a00;
-  box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.4),
-              0 8px 22px rgba(0, 0, 0, 0.10);
-  transform: translateY(-4px);
-}
-
-.membership-card h3 {
-  margin-bottom: 0.1rem;
-  font-size: 1.05rem;
-}
-
-/* tagline over pris – venstre, men samme høyde */
-
-.membership-tagline {
-  min-height: 3.2rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  text-align: left;
-  width: 100%;
-  color: #6b6b6b;
-  font-size: 0.95rem;
-  line-height: 1.3;
-}
-
-/* PRIS */
-
-.membership-price {
-  font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 1;
-  display: flex;
-  align-items: baseline;
-  gap: 0.25rem;
-}
-
-.membership-price span {
-  font-size: 1rem;
-  color: #6b6b6b;
-}
-
-.membership-meta {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* KNAPP – midtstilt */
-
-.membership-button {
-  align-self: center;
-  text-align: center;
-  margin-top: 0.4rem;
-  background: #ffe9d6;
-  border: 2px solid #ff7a00;
-  padding: 0.7rem 1.3rem;
-  border-radius: 40px;
-  font-weight: 600;
-  cursor: default;
-  color: #111;
-}
-
-.membership-card:hover .membership-button {
-  background: #ff7a00;
-  color: #ffffff;
-  border-color: #ff7a00;
-}
-
-/* Punktliste – grønne haker, venstrestilt */
-
-.membership-benefits {
-  margin-top: auto;
-  text-align: left;
-  padding-left: 0;
-}
-
-.membership-benefits ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.membership-benefits li {
-  position: relative;
-  padding-left: 1.6rem;
-  margin-bottom: 0.55rem;
-}
-
-.membership-benefits li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0.1rem;
-  color: #2ecc71;
-  font-weight: 700;
-}
-
-/* INFO / VILKÅR / PERSONVERN (brukes på egne sider) */
-
-.info-grid,
-.legal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.info-card,
-.legal-box {
-  background: var(--card-bg);
-  padding: 1.2rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.info-card h3,
-.legal-box h3 {
-  font-size: 1rem;
-  margin-bottom: 0.4rem;
-  color: var(--text);
-}
-
-ul {
-  margin-top: 0.5rem;
-  margin-left: 1rem;
-}
-
-/* CTA-strip nederst */
-
-.cta-strip {
-  border-top: 1px solid #f0f0f0;
-  background: #ffffff;
-}
-
-.cta-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1.4rem 1.2rem 1.6rem;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.cta-text strong {
-  display: block;
-  font-size: 1rem;
-}
-
-.cta-text span {
-  display: block;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-top: 0.2rem;
-}
-
-/* FOOTER */
-
-footer {
-  padding: 1.5rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: #030307;
-}
-
-/* RESPONSIVE */
-
-/* RESPONSIVE */
-
-/* Nettbrett og mindre */
-@media (max-width: 900px) {
-  main {
-    padding: 1.8rem 1.2rem 2.5rem;
-  }
-
-  h1 {
-    font-size: 1.9rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  .hero-note,
-  .hero p {
-    max-width: 95%;
-  }
-
-  .membership-grid {
-    gap: 1.2rem;
-  }
-}
-
-/* Mobil stående / små skjermer */
-@media (max-width: 800px) {
-  /* Header */
-  .nav {
-    padding: 0.6rem 0.9rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
-  }
-
-  .nav-logo img {
-    height: 48px;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0.2rem;
-  }
-
-  nav a {
-    margin-left: 0;
-    margin-right: 0.9rem;
-    font-size: 0.85rem;
-  }
-
-  /* Hero */
-  .hero {
-    padding-top: 1.2rem;
-    gap: 1.4rem;
-  }
-
-  .hero-badge {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.7rem;
-  }
-
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .hero-note {
-    padding: 1rem 1.1rem;
-    font-size: 0.9rem;
-  }
-
-  .hero-logo img {
-    height: 140px;
-  }
-
-  /* Medlemskap */
-  .membership-section {
-    padding: 1.8rem 0.6rem 2.2rem;
-  }
-
-  .membership-header p {
-    font-size: 0.9rem;
-  }
-
-  .membership-grid {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .membership-card {
-    width: 100%;
-    max-width: 100%;
-    padding: 1.5rem 1.3rem;
-  }
-}
-
-/* Små mobiler (ca. < 600px) */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.7rem;
-  }
-
-  .hero-logo img {
-    height: 120px;
-  }
-
-  .membership-tabs {
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .tab-button {
-    flex: 1 1 auto;
-    text-align: center;
-    font-size: 0.8rem;
-    padding: 0.4rem 0.4rem;
-  }
-
-  .tab-button span {
-    font-size: 0.7rem;
-  }
-
-  .membership-price {
-    font-size: 2.1rem;
-  }
-
-  .cta-inner {
-    padding: 1.1rem 1rem 1.3rem;
-  }
-
-  footer {
-    font-size: 0.8rem;
-    padding: 1.2rem;
-  }
-}
-
+    :root {
+      --bg: #FAF8F3;
+      --bg-alt: #ffffff;
+      --card-bg: #ffffff;
+      --accent: #ff7a00;
+      --text: #222222;
+      --text-muted: #6b6b6b;
+      --border: #e5e5e5;
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: #111111;
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(5, 5, 8, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.7rem 1.2rem;
+      display: flex;
+      justify-content: center; /* SENTRERER logo + meny på siden */
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .nav-logo img {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--accent);
+    }
+
+    .nav-tag {
+      font-size: 0.78rem;
+      color: #cccccc;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: #f5f5f5;
+      position: relative;
+      padding-bottom: 0.05rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.15s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Mobilmeny-knapp (hamburger) */
+    .mobile-menu-btn {
+      display: none; /* vises bare på mobil */
+      font-size: 1.9rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #f5f5f5;
+      padding: 0.1rem 0.3rem;
+    }
+
+    /* Mobilmeny (dropdown) */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      right: 1.2rem;
+      top: 100%;
+      background: #ffffff;
+      width: 70%;
+      max-width: 260px;
+      padding: 0.7rem 0.9rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+      border-radius: 0 0 0 12px;
+      z-index: 100;
+    }
+
+    .mobile-nav a {
+      padding: 0.5rem 0.3rem;
+      border-bottom: 1px solid #eee;
+      color: #111;
+      font-size: 0.9rem;
+    }
+
+    .mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.2rem 3rem;
+    }
+
+    h1,
+    h2 {
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.4rem;
+      margin-bottom: 1.5rem; /* MINDRE LUFT før medlemskap */
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background: #f4f4f6;
+      border: 1px solid #e0e0e5;
+      color: #555;
+      font-size: 0.8rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      max-width: 700px;
+      margin: 0 auto 0.9rem;
+    }
+
+    .hero-note {
+      background: #f4f4f6;
+      padding: 1rem 1.3rem;
+      border-radius: 18px;
+      border: 1px solid #e0e0e5;
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 0.9rem;
+    }
+
+    .hero-logo {
+      display: flex;
+      justify-content: center;
+      margin: 1.4rem 0 0.3rem; /* litt mindre luft */
+    }
+
+    .hero-logo img {
+      height: 160px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* MEDLEMSKAP */
+
+    .membership-section {
+      text-align: center;
+      padding: 1.2rem 1.2rem 2.2rem; /* mindre topp-padding */
+      background: none;
+      border: none;
+      margin: 0;
+    }
+
+    .membership-header {
+      text-align: center;
+      margin-bottom: 1.3rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .membership-header h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .membership-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* FANER */
+
+    .membership-tabs {
+      display: inline-flex;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.18rem;
+      background: #f0f0f0;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.2rem;
+      gap: 0.1rem;
+    }
+
+    .tab-button {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 0.45rem 1.15rem;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .tab-button span {
+      display: block;
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .tab-button.active {
+      background: rgba(255, 122, 0, 0.12);
+      color: var(--text);
+      box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.75);
+    }
+
+    .tab-button:not(.active):hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .tab-panels {
+      margin-top: 0.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .membership-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.5rem;
+    }
+
+    .membership-card {
+      background: #ffffff;
+      padding: 1.8rem 1.6rem;
+      border-radius: 18px;
+      border: 1px solid #e6e0d9;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      width: 320px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: left;
+      align-items: flex-start;
+      transition: border-color 0.25s ease,
+                  box-shadow 0.25s ease,
+                  transform 0.25s ease;
+    }
+
+    .membership-card:hover {
+      border-color: #ff7a00;
+      box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.4),
+                  0 8px 22px rgba(0, 0, 0, 0.10);
+      transform: translateY(-4px);
+    }
+
+    .membership-card h3 {
+      margin-bottom: 0.1rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .membership-tagline {
+      min-height: 3.2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      text-align: left;
+      width: 100%;
+      color: #6b6b6b;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+    .membership-price {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .membership-price span {
+      font-size: 1rem;
+      color: #6b6b6b;
+    }
+
+    .membership-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .membership-button {
+      align-self: center;
+      text-align: center;
+      margin-top: 0.4rem;
+      background: #ffe9d6;
+      border: 2px solid #ff7a00;
+      padding: 0.7rem 1.3rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: default;
+      color: #111;
+    }
+
+    .membership-card:hover .membership-button {
+      background: #ff7a00;
+      color: #ffffff;
+      border-color: #ff7a00;
+    }
+
+    .membership-benefits {
+      margin-top: auto;
+      text-align: left;
+      padding-left: 0;
+    }
+
+    .membership-benefits ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .membership-benefits li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .membership-benefits li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      color: #2ecc71;
+      font-weight: 700;
+    }
+
+    /* CTA-strip nederst */
+
+    .cta-strip {
+      border-top: 1px solid #f0f0f0;
+      background: #ffffff;
+    }
+
+    .cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.4rem 1.2rem 1.6rem;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .cta-text strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .cta-text span {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: #030307;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      main {
+        padding: 1.8rem 1.2rem 2.5rem;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .hero-note,
+      .hero p {
+        max-width: 95%;
+      }
+
+      .membership-grid {
+        gap: 1.2rem;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        padding: 0.6rem 0.9rem;
+        justify-content: space-between;
+        gap: 0.8rem;
+      }
+
+      .nav-logo img {
+        height: 52px;
+      }
+
+      .nav-links {
+        display: none; /* Skjul desktop-meny på mobil */
+      }
+
+      .mobile-menu-btn {
+        display: block; /* Vis hamburgermeny */
+      }
+
+      .hero {
+        padding-top: 1.0rem;
+        gap: 1.2rem;
+      }
+
+      .hero-logo img {
+        height: 130px;
+      }
+
+      .membership-section {
+        padding: 1.2rem 0.6rem 2.2rem;
+      }
+
+      .membership-grid {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .membership-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 1.5rem 1.3rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .hero-logo img {
+        height: 115px;
+      }
+
+      .membership-tabs {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .tab-button {
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.4rem;
+      }
+
+      .tab-button span {
+        font-size: 0.7rem;
+      }
+
+      .membership-price {
+        font-size: 2.1rem;
+      }
+
+      .cta-inner {
+        padding: 1.1rem 1rem 1.3rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        padding: 1.2rem;
+      }
+    }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="nav">
-    <div class="nav-logo">
-      <img src="images/lalm-il-logo.png" alt="Lalm IL logo">
-      <div>
-        <div class="nav-title">Lalm Treningssenter</div>
-        <div class="nav-tag">Drevet av Lalm Idrettslag</div>
+  <header>
+    <div class="nav">
+      <div class="nav-logo">
+        <img src="images/lalm-il-logo.png" alt="Lalm IL logo">
+        <div>
+          <div class="nav-title">Lalm Treningssenter</div>
+          <div class="nav-tag">Drevet av Lalm Idrettslag</div>
+        </div>
       </div>
+
+      <!-- Desktop-meny -->
+      <nav class="nav-links">
+        <a href="#priser">Medlemskap</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+        <a href="vilkar.html">Vilkår</a>
+        <a href="personvern.html">Personvern</a>
+      </nav>
+
+      <!-- Mobil-knapp -->
+      <button class="mobile-menu-btn" type="button" onclick="toggleMenu()">
+        ☰
+      </button>
     </div>
 
-    <nav>
-      <a href="#priser">Medlemskap</a>
-      <a href="praktisk-info.html">Praktisk info</a>
-      <a href="vilkar.html">Vilkår</a>
-      <a href="personvern.html">Personvern</a>
+    <!-- Mobil-meny (drop-down) -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#priser" onclick="toggleMenu()">Medlemskap</a>
+      <a href="praktisk-info.html" onclick="toggleMenu()">Praktisk info</a>
+      <a href="vilkar.html" onclick="toggleMenu()">Vilkår</a>
+      <a href="personvern.html" onclick="toggleMenu()">Personvern</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-badge">Åpent hver dag · 05:00–23:00</div>
+        <h1>Tren lokalt på Lalm</h1>
+        <p>
+          Lalm Treningssenter er et moderne, selvbetjent treningssenter
+          drevet av <strong>Lalm Idrettslag</strong>. Her finner du informasjon
+          om medlemskap, priser, vilkår og personvern – selve innmeldingen
+          gjør du i appen.
+        </p>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <div class="hero-badge">Åpent hver dag · 05:00–23:00</div>
-      <h1>Tren lokalt på Lalm</h1>
-      <p>
-        Lalm Treningssenter er et moderne, selvbetjent treningssenter
-        drevet av <strong>Lalm Idrettslag</strong>. Her finner du informasjon
-        om medlemskap, priser, vilkår og personvern – selve innmeldingen
-        gjør du i appen.
-      </p>
+        <div class="hero-note">
+          <strong>Innmelding i app:</strong><br>
+          1. Last ned og logg inn i Lalm Treningssenter-appen.<br>
+          2. Velg medlemskap og betal.<br>
+          3. Når betalingen er registrert, får du tilgang via QR-kode ved døra.
+        </div>
+      </div>
 
-      <div class="hero-note">
-        <strong>Innmelding i app:</strong><br>
-        1. Last ned og logg inn i Lalm Treningssenter-appen.<br>
-        2. Velg medlemskap og betal.<br>
-        3. Når betalingen er registrert, får du tilgang via QR-kode ved døra.
+      <div class="hero-logo">
+        <img src="images/logo-lalm.png" alt="Lalm IL logo">
+      </div>
+    </section>
+
+    <!-- MEDLEMSKAP / PRISER -->
+    <section id="priser" class="membership-section">
+      <div class="membership-header">
+        <h2>Våre medlemskap</h2>
+        <p>
+          Medlemskap kjøpes i Lalm Treningssenter-appen. Alle priser er per måned.
+          Medlemspris forutsetter gyldig medlemskap i Lalm Idrettslag.
+          Det faktureres et årlig administrasjonsgebyr på <strong>199,-</strong>
+          per aktivt medlemskap.
+        </p>
+      </div>
+
+      <!-- FANER -->
+      <div class="membership-tabs">
+        <button class="tab-button active" data-tab="binding">
+          Med binding
+          <span>Rabattert pris</span>
+        </button>
+        <button class="tab-button" data-tab="utenbinding">
+          Uten binding
+          <span>Full frihet</span>
+        </button>
+        <button class="tab-button" data-tab="dropin">
+          Drop-in
+          <span>Tren én gang</span>
+        </button>
+      </div>
+
+      <!-- PANELER -->
+      <div class="tab-panels">
+        <!-- MED BINDING -->
+        <div class="tab-panel active" id="tab-binding">
+          <div class="membership-grid">
+            <article class="membership-card">
+              <h3>Lalm IL-medlem</h3>
+              <div class="membership-tagline">
+                For deg som er medlem i Lalm Idrettslag. 12 måneders bindingstid.
+              </div>
+              <div class="membership-price">
+                349,- <span>/måned</span>
+              </div>
+              <div class="membership-meta">
+                12 måneders bindingstid. Deretter løpende medlemskap med ordinær oppsigelsestid.
+              </div>
+              <div class="membership-button">
+                Medlemskap kjøpes i appen
+              </div>
+              <div class="membership-benefits">
+                <ul>
+                  <li>Rabattert pris for medlemmer i Lalm IL</li>
+                  <li>Full tilgang i åpningstiden 05:00–23:00</li>
+                  <li>Støtter lokalt idrettsarbeid på Lalm</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="membership-card">
+              <h3>Standard</h3>
+              <div class="membership-tagline">
+                For deg som ikke er medlem i Lalm IL. 12 måneders bindingstid.
+              </div>
+              <div class="membership-price">
+                449,- <span>/måned</span>
+              </div>
+              <div class="membership-meta">
+                12 måneders bindingstid. Samme tilgang og vilkår som øvrige medlemskap.
+              </div>
+              <div class="membership-button">
+                Medlemskap kjøpes i appen
+              </div>
+              <div class="membership-benefits">
+                <ul>
+                  <li>Fast månedspris i 12 måneder</li>
+                  <li>Tilgang til treningssenteret hele året</li>
+                  <li>Et enkelt og forutsigbart medlemskap</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="membership-card">
+              <h3>Hyttemedlemskap</h3>
+              <div class="membership-tagline">
+                For deg med hytte på Lalm eller i området. 12 måneders bindingstid.
+              </div>
+              <div class="membership-price">
+                169,- <span>/måned</span>
+              </div>
+              <div class="membership-meta">
+                Medlemskap for deg som har fritidsbolig. 12 måneders bindingstid.
+              </div>
+              <div class="membership-button">
+                Medlemskap kjøpes i appen
+              </div>
+              <div class="membership-benefits">
+                <ul>
+                  <li>Perfekt for ferie- og helgeturer</li>
+                  <li>Tilgang i hele åpningstiden</li>
+                  <li>Støtter lokalmiljøet selv om du ikke bor fast på Lalm</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- UTEN BINDING -->
+        <div class="tab-panel" id="tab-utenbinding">
+          <div class="membership-grid">
+            <article class="membership-card">
+              <h3>Lalm IL-medlem – uten binding</h3>
+              <div class="membership-tagline">
+                Fleksibelt medlemskap for medlemmer i Lalm IL.
+              </div>
+              <div class="membership-price">
+                449,- <span>/måned</span>
+              </div>
+              <div class="membership-meta">
+                Ingen bindingstid. Løpende medlemskap med ordinær oppsigelsestid.
+              </div>
+              <div class="membership-button">
+                Medlemskap kjøpes i appen
+              </div>
+              <div class="membership-benefits">
+                <ul>
+                  <li>Full fleksibilitet uten binding</li>
+                  <li>Rabattert pris for Lalm IL-medlemmer</li>
+                  <li>Tilgang til senteret hele åpningstiden</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="membership-card">
+              <h3>Standard – uten binding</h3>
+              <div class="membership-tagline">
+                For deg som ønsker full frihet.
+              </div>
+              <div class="membership-price">
+                499,- <span>/måned</span>
+              </div>
+              <div class="membership-meta">
+                Ingen bindingstid. Løpende medlemskap med ordinær oppsigelsestid.
+              </div>
+              <div class="membership-button">
+                Medlemskap kjøpes i appen
+              </div>
+              <div class="membership-benefits">
+                <ul>
+                  <li>Passer for deg som vil teste senteret over tid</li>
+                  <li>Kan avsluttes når behovet endrer seg</li>
+                  <li>Tilgang i hele åpningstiden 05:00–23:00</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- DROP-IN -->
+        <div class="tab-panel" id="tab-dropin">
+          <div class="membership-grid">
+            <article class="membership-card">
+              <h3>Drop-in</h3>
+              <div class="membership-tagline">
+                Tren én gang uten medlemskap.
+              </div>
+              <div class="membership-price">
+                149,- <span>per gang</span>
+              </div>
+              <div class="membership-meta">
+                Perfekt når du bare vil ha en enkelt økt innimellom eller vil teste senteret.
+              </div>
+              <div class="membership-button">
+                Drop-in kjøpes i appen
+              </div>
+              <div class="membership-benefits">
+                <ul>
+                  <li>Tilgang til hele senteret i valgt tidsrom</li>
+                  <li>Ingen binding, ingen avtale</li>
+                  <li>Mulighet til å oppgradere til medlemskap senere</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="membership-note" style="margin-top:1.4rem; font-size:0.85rem; color:#6b6b6b;">
+        <strong>Merk:</strong> Alle som trener på Lalm Treningssenter må ha gyldig
+        medlemskap eller drop-in. Adgang er personlig og skal ikke lånes ut til andre.
+      </div>
+    </section>
+  </main>
+
+  <section class="cta-strip">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <strong>Bli medlem i appen</strong>
+        <span>Velg medlemskap, betal og få tilgang med QR-kode på få minutter.</span>
       </div>
     </div>
-
-<div class="hero-logo">
-    <img src="images/logo-lalm.png" alt="Lalm IL logo">
-</div>
-
   </section>
 
-  <!-- MEDLEMSKAP / PRISER -->
-  <section id="priser" class="membership-section">
-    <div class="membership-header">
-      <h2>Våre medlemskap</h2>
-      <p>
-        Medlemskap kjøpes i Lalm Treningssenter-appen. Alle priser er per måned.
-        Medlemspris forutsetter gyldig medlemskap i Lalm Idrettslag.
-        Det faktureres et årlig administrasjonsgebyr på <strong>199,-</strong>
-        per aktivt medlemskap.
-      </p>
-    </div>
+  <footer>
+    © <script>document.write(new Date().getFullYear())</script>
+    Lalm Treningssenter – en del av Lalm Idrettslag.
+  </footer>
 
-    <!-- FANER -->
-    <div class="membership-tabs">
-      <button class="tab-button active" data-tab="binding">
-        Med binding
-        <span>Rabattert pris</span>
-      </button>
-      <button class="tab-button" data-tab="utenbinding">
-        Uten binding
-        <span>Full frihet</span>
-      </button>
-      <button class="tab-button" data-tab="dropin">
-        Drop-in
-        <span>Tren én gang</span>
-      </button>
-    </div>
+  <script>
+    // Hamburger-meny
+    function toggleMenu() {
+      const menu = document.getElementById("mobileNav");
+      menu.classList.toggle("open");
+    }
 
-    <!-- PANELER -->
-    <div class="tab-panels">
-      <!-- MED BINDING -->
-      <div class="tab-panel active" id="tab-binding">
-        <div class="membership-grid">
-          <article class="membership-card">
-            <h3>Lalm IL-medlem</h3>
-            <div class="membership-tagline">
-              For deg som er medlem i Lalm Idrettslag. 12 måneders bindingstid.
-            </div>
-            <div class="membership-price">
-              349,- <span>/måned</span>
-            </div>
-            <div class="membership-meta">
-              12 måneders bindingstid. Deretter løpende medlemskap med ordinær oppsigelsestid.
-            </div>
-            <div class="membership-button">
-              Medlemskap kjøpes i appen
-            </div>
-            <div class="membership-benefits">
-              <ul>
-                <li>Rabattert pris for medlemmer i Lalm IL</li>
-                <li>Full tilgang i åpningstiden 05:00–23:00</li>
-                <li>Støtter lokalt idrettsarbeid på Lalm</li>
-              </ul>
-            </div>
-          </article>
+    // Faner for medlemskap
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = {
+      binding: document.getElementById("tab-binding"),
+      utenbinding: document.getElementById("tab-utenbinding"),
+      dropin: document.getElementById("tab-dropin"),
+    };
 
-          <article class="membership-card">
-            <h3>Standard</h3>
-            <div class="membership-tagline">
-              For deg som ikke er medlem i Lalm IL. 12 måneders bindingstid.
-            </div>
-            <div class="membership-price">
-              449,- <span>/måned</span>
-            </div>
-            <div class="membership-meta">
-              12 måneders bindingstid. Samme tilgang og vilkår som øvrige medlemskap.
-            </div>
-            <div class="membership-button">
-              Medlemskap kjøpes i appen
-            </div>
-            <div class="membership-benefits">
-              <ul>
-                <li>Fast månedspris i 12 måneder</li>
-                <li>Tilgang til treningssenteret hele året</li>
-                <li>Et enkelt og forutsigbart medlemskap</li>
-              </ul>
-            </div>
-          </article>
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-tab");
 
-          <article class="membership-card">
-            <h3>Hyttemedlemskap</h3>
-            <div class="membership-tagline">
-              For deg med hytte på Lalm eller i området. 12 måneders bindingstid.
-            </div>
-            <div class="membership-price">
-              169,- <span>/måned</span>
-            </div>
-            <div class="membership-meta">
-              Medlemskap for deg som har fritidsbolig. 12 måneders bindingstid.
-            </div>
-            <div class="membership-button">
-              Medlemskap kjøpes i appen
-            </div>
-            <div class="membership-benefits">
-              <ul>
-                <li>Perfekt for ferie- og helgeturer</li>
-                <li>Tilgang i hele åpningstiden</li>
-                <li>Støtter lokalmiljøet selv om du ikke bor fast på Lalm</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
 
-      <!-- UTEN BINDING -->
-      <div class="tab-panel" id="tab-utenbinding">
-        <div class="membership-grid">
-          <article class="membership-card">
-            <h3>Lalm IL-medlem – uten binding</h3>
-            <div class="membership-tagline">
-              Fleksibelt medlemskap for medlemmer i Lalm IL.
-            </div>
-            <div class="membership-price">
-              449,- <span>/måned</span>
-            </div>
-            <div class="membership-meta">
-              Ingen bindingstid. Løpende medlemskap med ordinær oppsigelsestid.
-            </div>
-            <div class="membership-button">
-              Medlemskap kjøpes i appen
-            </div>
-            <div class="membership-benefits">
-              <ul>
-                <li>Full fleksibilitet uten binding</li>
-                <li>Rabattert pris for Lalm IL-medlemmer</li>
-                <li>Tilgang til senteret hele åpningstiden</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="membership-card">
-            <h3>Standard – uten binding</h3>
-            <div class="membership-tagline">
-              For deg som ønsker full frihet.
-            </div>
-            <div class="membership-price">
-              499,- <span>/måned</span>
-            </div>
-            <div class="membership-meta">
-              Ingen bindingstid. Løpende medlemskap med ordinær oppsigelsestid.
-            </div>
-            <div class="membership-button">
-              Medlemskap kjøpes i appen
-            </div>
-            <div class="membership-benefits">
-              <ul>
-                <li>Passer for deg som vil teste senteret over tid</li>
-                <li>Kan avsluttes når behovet endrer seg</li>
-                <li>Tilgang i hele åpningstiden 05:00–23:00</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- DROP-IN -->
-      <div class="tab-panel" id="tab-dropin">
-        <div class="membership-grid">
-          <article class="membership-card">
-            <h3>Drop-in</h3>
-            <div class="membership-tagline">
-              Tren én gang uten medlemskap.
-            </div>
-            <div class="membership-price">
-              149,- <span>per gang</span>
-            </div>
-            <div class="membership-meta">
-              Perfekt når du bare vil ha en enkelt økt innimellom eller vil teste senteret.
-            </div>
-            <div class="membership-button">
-              Drop-in kjøpes i appen
-            </div>
-            <div class="membership-benefits">
-              <ul>
-                <li>Tilgang til hele senteret i valgt tidsrom</li>
-                <li>Ingen binding, ingen avtale</li>
-                <li>Mulighet til å oppgradere til medlemskap senere</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="membership-note" style="margin-top:1.4rem; font-size:0.85rem; color:#6b6b6b;">
-      <strong>Merk:</strong> Alle som trener på Lalm Treningssenter må ha gyldig
-      medlemskap eller drop-in. Adgang er personlig og skal ikke lånes ut til andre.
-    </div>
-  </section>
-
-</main>
-
-<section class="cta-strip">
-  <div class="cta-inner">
-    <div class="cta-text">
-      <strong>Bli medlem i appen</strong>
-      <span>Velg medlemskap, betal og få tilgang med QR-kode på få minutter.</span>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © <script>document.write(new Date().getFullYear())</script>
-  Lalm Treningssenter – en del av Lalm Idrettslag.
-</footer>
-
-<script>
-  // Enkel logikk for å bytte mellom faner
-  const tabButtons = document.querySelectorAll(".tab-button");
-  const tabPanels = {
-    binding: document.getElementById("tab-binding"),
-    utenbinding: document.getElementById("tab-utenbinding"),
-    dropin: document.getElementById("tab-dropin"),
-  };
-
-  tabButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const target = btn.getAttribute("data-tab");
-
-      tabButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      Object.keys(tabPanels).forEach((key) => {
-        tabPanels[key].classList.toggle("active", key === target);
+        Object.keys(tabPanels).forEach((key) => {
+          tabPanels[key].classList.toggle("active", key === target);
+        });
       });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
