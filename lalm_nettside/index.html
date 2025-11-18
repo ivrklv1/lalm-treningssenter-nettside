@@ -119,6 +119,13 @@
     .nav-links a:hover::after {
       width: 100%;
     }
+    .nav-links a.active {
+  font-weight: 600;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
 
     /* Mobilmeny-knapp (hamburger) */
     .mobile-menu-btn {
@@ -878,5 +885,24 @@
       });
     });
   </script>
+  <script>
+  // Marker aktivt menyvalg
+  (function () {
+    const currentPage = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll(".nav-links a");
+
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+
+      // Treff på aktuell side (enkelt oppsett for deres struktur)
+      if (href === currentPage || (currentPage === "" && href === "index.html")) {
+        link.classList.add("active");
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
+
