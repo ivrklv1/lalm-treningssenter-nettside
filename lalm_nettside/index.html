@@ -27,6 +27,54 @@
   padding: 0;
   box-sizing: border-box;
 }
+    /* ------ Mobil meny knapp ------ */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #111;
+    padding: 0.3rem 0.6rem;
+}
+
+/* ------ Skjult meny for mobil ------ */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 70%;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 0 0 0 10px;
+    z-index: 999;
+}
+
+.mobile-nav a {
+    padding: 0.7rem;
+    border-bottom: 1px solid #eee;
+    color: #111;
+    font-size: 1rem;
+}
+
+.mobile-nav a:last-child {
+    border-bottom: none;
+}
+
+/* ------ Mobilvisning ------ */
+@media (max-width: 800px) {
+    nav.desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
 
 body {
   background: var(--bg);
@@ -35,6 +83,13 @@ body {
     sans-serif;
   line-height: 1.6;
 }
+    <script>
+function toggleMenu() {
+    const menu = document.querySelector('.mobile-nav');
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
+
 
 a {
   color: inherit;
@@ -51,6 +106,17 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 20;
 }
+    <button class="mobile-menu-btn" onclick="toggleMenu()">
+    ☰
+</button>
+
+<nav class="mobile-nav">
+    <a href="#medlemskap">Medlemskap</a>
+    <a href="#praktisk">Praktisk info</a>
+    <a href="#vilkar">Vilkår</a>
+    <a href="#personvern">Personvern</a>
+</nav>
+
 
 .nav {
   max-width: 1100px;
@@ -892,6 +958,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
