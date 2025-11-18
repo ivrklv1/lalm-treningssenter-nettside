@@ -807,30 +807,95 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <div class="hero-badge">Åpent hver dag · 05:00–23:00</div>
-        <h1>Tren lokalt på Lalm</h1>
-        <p>
-          Lalm Treningssenter er et moderne, selvbetjent treningssenter
-          drevet av <strong>Lalm Idrettslag</strong>. Her finner du informasjon
-          om medlemskap, priser, vilkår og personvern – selve innmeldingen
-          gjør du i appen.
-        </p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Åpent hver dag · 05:00–23:00
+    </div>
 
-        <div class="hero-note">
-          <strong>Innmelding i app:</strong><br>
-          1. Last ned og logg inn i Lalm Treningssenter-appen.<br>
-          2. Velg medlemskap og betal.<br>
-          3. Når betalingen er registrert, får du tilgang via QR-kode ved døra.
+    <h1>Tren lokalt på Lalm</h1>
+
+    <p class="hero-subtitle">
+      Lalm Treningssenter er et moderne, selvbetjent treningssenter
+      drevet av <strong>Lalm Idrettslag</strong>. Med medlemskap i appen får du
+      enkel tilgang til styrkerommet – når det passer deg.
+    </p>
+
+    <div class="hero-steps">
+      <div class="hero-step">
+        <div class="hero-step-number">1</div>
+        <div>Last ned og logg inn i Lalm Treningssenter-appen.</div>
+      </div>
+      <div class="hero-step">
+        <div class="hero-step-number">2</div>
+        <div>Velg medlemskap og gjennomfør betaling med Vipps.</div>
+      </div>
+      <div class="hero-step">
+        <div class="hero-step-number">3</div>
+        <div>Bruk QR-koden i appen for å låse opp døra og begynne å trene.</div>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <button class="hero-btn-primary" onclick="document.getElementById('priser').scrollIntoView({behavior:'smooth'})">
+        Se medlemskap og priser
+      </button>
+      <button class="hero-btn-secondary" type="button">
+        Åpne Lalm Treningssenter-appen
+      </button>
+    </div>
+
+    <div class="hero-small">
+      Innmelding og tilgang styres kun via appen. Medlemskap kjøpes ikke i resepsjon.
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-header">
+        <div class="hero-card-logo">
+          <img src="images/logo-lalm.png" alt="Lalm Treningssenter logo">
+        </div>
+        <div>
+          <div class="hero-card-title">Lalm Treningssenter</div>
+          <div class="hero-card-tag">Treningsapp · QR-adgang</div>
         </div>
       </div>
 
-      <div class="hero-logo">
-        <img src="images/logo-lalm.png" alt="Lalm IL logo">
+      <div class="hero-card-divider"></div>
+
+      <div class="hero-card-row">
+        <div>
+          <div class="hero-card-label">Åpningstider</div>
+          <div class="hero-card-highlight">05:00–23:00</div>
+        </div>
+        <div>
+          <div class="hero-card-label">Drevet av</div>
+          <div class="hero-card-highlight">Lalm Idrettslag</div>
+        </div>
       </div>
-    </section>
+
+      <div class="hero-card-row">
+        <div>
+          <div class="hero-card-label">Adgang</div>
+          <div>QR-kode i appen</div>
+        </div>
+        <div>
+          <div class="hero-card-label">Medlemskap</div>
+          <div>Fra 349,-/mnd</div>
+        </div>
+      </div>
+
+      <div class="hero-card-footer">
+        <span>📲</span>
+        <span>Skann ved døra – tren når det passer deg.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- MEDLEMSKAP / PRISER -->
     <section id="priser" class="membership-section">
@@ -1085,6 +1150,7 @@
 
 </body>
 </html>
+
 
 
 
