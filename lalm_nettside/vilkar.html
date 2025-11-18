@@ -4,190 +4,287 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vilkår – Lalm Treningssenter</title>
-  <link rel="icon" href="images/lalm-il-logo.png" />
+
+  <!-- Font som matcher forsiden -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --accent: #ff7a00;
+      --text-muted: #6b6b6b;
+      --border: #e5e5e5;
+    }
+
     body {
       background: #ffffff;
-      color: #111111;
-      font-family: system-ui, sans-serif;
-      line-height: 1.6;
+      color: #111;
+      font-family: "Montserrat", system-ui, sans-serif;
       margin: 0;
+      line-height: 1.6;
     }
+
+    /* Header / nav – identisk som på forsiden */
     header {
-      border-bottom: 1px solid #e5e5e5;
-      padding: 0.7rem 1rem;
+      position: sticky;
+      top: 0;
+      background: rgba(5, 5, 8, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 20;
     }
+
     .nav {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 0.7rem 1.2rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      align-items: center;
     }
+
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.7rem;
     }
+
     .nav-logo img {
-      height: 32px;
+      height: 60px;
       width: auto;
     }
+
     .nav-title {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      color: var(--accent);
       text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
-    nav a {
-      margin-left: 0.8rem;
-      text-decoration: none;
+
+    .nav-tag {
+      font-size: 0.75rem;
+      color: #ccc;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
       font-size: 0.9rem;
-      color: #444;
     }
-    nav a:hover {
-      text-decoration: underline;
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      position: relative;
     }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--accent);
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Mobil-knapp */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.9rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Mobilmeny */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      right: 1rem;
+      top: 100%;
+      width: 70%;
+      max-width: 250px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+      border-radius: 0 0 0 12px;
+      z-index: 100;
+      padding: 0.7rem 0.9rem;
+    }
+
+    .mobile-nav a {
+      padding: 0.6rem 0.3rem;
+      border-bottom: 1px solid #eee;
+      color: #111;
+      text-decoration: none;
+    }
+
+    .mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
     main {
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem 1.2rem 3rem;
     }
+
     h1 {
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      font-size: 2rem;
+      font-weight: 700;
     }
+
     h2 {
       margin-top: 1.8rem;
       margin-bottom: 0.4rem;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
     }
+
     a.back-link {
       display: inline-block;
       margin-bottom: 1rem;
-      color: #ff7a00;
-      text-decoration: none;
+      color: var(--accent);
       font-size: 0.9rem;
+      text-decoration: none;
     }
+
     a.back-link:hover {
       text-decoration: underline;
     }
+
     footer {
-      border-top: 1px solid #e5e5e5;
-      padding: 1rem;
+      border-top: 1px solid var(--border);
+      padding: 1.4rem;
       text-align: center;
+      color: var(--text-muted);
       font-size: 0.85rem;
-      color: #666;
     }
-    footer a {
-      color: #ff7a00;
-      text-decoration: none;
-      margin: 0 0.4rem;
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
     }
   </style>
 </head>
+
 <body>
+
 <header>
   <div class="nav">
     <div class="nav-logo">
       <img src="images/lalm-il-logo.png" alt="Lalm IL logo">
-      <div class="nav-title">LALM TRENingssenter</div>
+      <div>
+        <div class="nav-title">Lalm Treningssenter</div>
+        <div class="nav-tag">Drevet av Lalm Idrettslag</div>
+      </div>
     </div>
-    <nav>
-      <a href="index.html">Forside</a>
+
+    <!-- Desktop-meny -->
+    <nav class="nav-links">
+      <a href="index.html#priser">Medlemskap</a>
       <a href="praktisk-info.html">Praktisk info</a>
-      <a href="vilkar.html">Vilkår</a>
+      <a href="vilkar.html" class="active">Vilkår</a>
       <a href="personvern.html">Personvern</a>
     </nav>
+
+    <!-- Mobilknapp -->
+    <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
   </div>
+
+  <!-- Mobilmeny -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html#priser" onclick="toggleMenu()">Medlemskap</a>
+    <a href="praktisk-info.html" onclick="toggleMenu()">Praktisk info</a>
+    <a href="vilkar.html" onclick="toggleMenu()">Vilkår</a>
+    <a href="personvern.html" onclick="toggleMenu()">Personvern</a>
+  </nav>
 </header>
 
 <main>
   <a href="index.html" class="back-link">← Tilbake til forsiden</a>
+
   <h1>Vilkår for medlemskap</h1>
 
   <p>
     Disse vilkårene gjelder for alle medlemmer ved Lalm Treningssenter, drevet av Lalm Idrettslag.
+    Medlemskap kjøpes og administreres i Lalm Treningssenter-appen.
   </p>
 
   <h2>1. Medlemskap og bindingstid</h2>
   <p>
-    Medlemskap med binding har 12 måneders avtaleperiode fra innmeldingsdato.
-    Etter bindingstidens utløp løper medlemskapet videre som løpende avtale
-    med ordinær oppsigelsestid.
+    Medlemskap med binding har 12 måneders avtaleperiode. Etter dette løper avtalen videre
+    som et vanlig medlemskap med ordinær oppsigelsestid.
   </p>
 
   <h2>2. Medlemskap uten binding</h2>
   <p>
-    Medlemskap uten binding har løpende avtale. Oppsigelsestiden er løpende måned
-    + 1 måned fra den dato oppsigelsen registreres.
+    Medlemskap uten binding kan sies opp når som helst. Oppsigelsestid er inneværende måned + 1 måned.
   </p>
 
   <h2>3. Priser og gebyrer</h2>
   <p>
-    Alle priser oppgis per måned. I tillegg faktureres det et årlig
-    administrasjonsgebyr per aktivt medlemskap.
+    Alle priser er månedlige. Det påløper et administrasjonsgebyr på 199 kr årlig per aktivt medlemskap.
   </p>
 
   <h2>4. Betaling</h2>
   <p>
-    Betaling skjer via Lalm Treningssenter-appen. Ved manglende betaling kan
-    adgangen til treningssenteret stenges inntil utestående er gjort opp.
+    Betaling skjer via appen med Vipps. Ved manglende betaling kan adgangen til senteret stenges.
   </p>
 
-  <h2>5. Tilgang og bruk av senteret</h2>
+  <h2>5. Adgang og bruk</h2>
   <p>
-    Adgang til senteret gis via personlig QR-kode i appen. Tilgangen er personlig
-    og skal ikke deles med andre. Alle som trener må ha gyldig medlemskap
-    eller drop-in.
+    Alle medlemmer får tilgang via personlig QR-kode. Denne er personlig og må ikke deles med andre.
+    Utlån kan føre til utestengelse.
   </p>
 
-  <h2>6. Ordensregler og sikkerhet</h2>
+  <h2>6. Ordensregler</h2>
   <p>
-    Medlemmer skal følge senterets ordensregler, inkludert rydding av utstyr,
-    bruk av håndkle på benker/apparater og hensyn til andre medlemmer.
+    Medlemmer skal følge senterets ordensregler, holde orden og bruke håndkle på apparater/benker.
   </p>
 
   <h2>7. Ansvar</h2>
   <p>
-    Trening skjer på eget ansvar. Medlemmet plikter å bruke utstyr på en
-    forsvarlig måte og melde fra om skader eller feil ved utstyr.
+    All trening skjer på eget ansvar. Feil på utstyr skal meldes umiddelbart.
   </p>
 
-  <h2>8. Misbruk og utestengelse</h2>
+  <h2>8. Reaksjoner ved brudd</h2>
   <p>
-    Ved brudd på vilkår eller gjentatt mislighold kan medlemmet utestenges
-    midlertidig eller permanent, uten krav på refusjon av betalt treningsavgift.
+    Senteret kan stenge medlemmet ute midlertidig eller permanent ved misbruk,
+    brudd på vilkår eller manglende betaling.
   </p>
 </main>
 
 <footer>
-  © <script>document.write(new Date().getFullYear())</script> Lalm Treningssenter –
-  <a href="index.html">Forside</a> ·
-  <a href="praktisk-info.html">Praktisk info</a> ·
-  <a href="vilkar.html">Vilkår</a> ·
-  <a href="personvern.html">Personvern</a>
+  © <script>document.write(new Date().getFullYear())</script> Lalm Treningssenter – en del av Lalm Idrettslag.
 </footer>
-  <script>
-  // Marker aktivt menyvalg
-  (function () {
-    const currentPage = window.location.pathname.split("/").pop();
-    const links = document.querySelectorAll(".nav-links a");
 
-    links.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (!href) return;
-
-      // Treff på aktuell side (enkelt oppsett for deres struktur)
-      if (href === currentPage || (currentPage === "" && href === "index.html")) {
-        link.classList.add("active");
-      }
-    });
-  })();
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("mobileNav");
+    menu.classList.toggle("open");
+  }
 </script>
 
 </body>
 </html>
-
-
