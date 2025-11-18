@@ -21,59 +21,76 @@
   --border: #e5e5e5;
   --radius: 18px;
 }
+    /* Mobilmeny-knapp (tre streker) */
+.mobile-menu-btn {
+  display: none;              /* skjules på desktop */
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+}
+
+/* Container for header må være relativ for at mobilmeny kan plasseres */
+.nav {
+  position: relative;
+}
+
+/* Skjult mobilmeny som dropper ned under header */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  right: 1.2rem;
+  top: 100%;
+  background: #ffffff;
+  width: 70%;
+  max-width: 260px;
+  padding: 0.7rem 0.9rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  border-radius: 0 0 0 12px;
+  z-index: 100;
+}
+
+.mobile-nav a {
+  padding: 0.5rem 0.3rem;
+  border-bottom: 1px solid #eee;
+  color: #111;
+  font-size: 0.9rem;
+}
+
+.mobile-nav a:last-child {
+  border-bottom: none;
+}
+
+/* Når vi legger til klassen "open" i JS, vises menyen */
+.mobile-nav.open {
+  display: flex;
+}
+
+/* RESPONSIVE: vis mobilknapp, skjul desktop-meny på små skjermer */
+@media (max-width: 800px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-    /* ------ Mobil meny knapp ------ */
-.mobile-menu-btn {
-    display: none;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #111;
-    padding: 0.3rem 0.6rem;
-}
-
-/* ------ Skjult meny for mobil ------ */
-.mobile-nav {
-    display: none;
-    flex-direction: column;
-    background: #fff;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 70%;
-    padding: 1rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    border-radius: 0 0 0 10px;
-    z-index: 999;
-}
-
-.mobile-nav a {
-    padding: 0.7rem;
-    border-bottom: 1px solid #eee;
-    color: #111;
-    font-size: 1rem;
-}
-
-.mobile-nav a:last-child {
-    border-bottom: none;
-}
-
-/* ------ Mobilvisning ------ */
-@media (max-width: 800px) {
-    nav.desktop-nav {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-    }
-}
+    <script>
+  function toggleMenu() {
+    const menu = document.querySelector('.mobile-nav');
+    menu.classList.toggle('open');
+  }
+</script>
 
 
 body {
@@ -83,13 +100,6 @@ body {
     sans-serif;
   line-height: 1.6;
 }
-    <script>
-function toggleMenu() {
-    const menu = document.querySelector('.mobile-nav');
-    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
-}
-</script>
-
 
 a {
   color: inherit;
@@ -106,16 +116,38 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 20;
 }
-    <button class="mobile-menu-btn" onclick="toggleMenu()">
-    ☰
-</button>
+<header>
+  <div class="nav">
+    <div class="nav-logo">
+      <img src="images/logo-lalm.png" alt="Lalm IL logo">
+      <div>
+        <div class="nav-title">Lalm Treningssenter</div>
+        <div class="nav-tag">Drevet av Lalm Idrettslag</div>
+      </div>
+    </div>
 
-<nav class="mobile-nav">
-    <a href="#medlemskap">Medlemskap</a>
-    <a href="#praktisk">Praktisk info</a>
-    <a href="#vilkar">Vilkår</a>
-    <a href="#personvern">Personvern</a>
-</nav>
+    <!-- Desktop-meny -->
+    <nav class="nav-links">
+      <a href="#priser">Medlemskap</a>
+      <a href="praktisk-info.html">Praktisk info</a>
+      <a href="vilkar.html">Vilkår</a>
+      <a href="personvern.html">Personvern</a>
+    </nav>
+
+    <!-- Mobil-knapp (hamburger) -->
+    <button class="mobile-menu-btn" type="button" onclick="toggleMenu()">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobil-meny (drop-down) -->
+  <nav class="mobile-nav">
+    <a href="#priser" onclick="toggleMenu()">Medlemskap</a>
+    <a href="praktisk-info.html" onclick="toggleMenu()">Praktisk info</a>
+    <a href="vilkar.html" onclick="toggleMenu()">Vilkår</a>
+    <a href="personvern.html" onclick="toggleMenu()">Personvern</a>
+  </nav>
+</header>
 
 
 .nav {
@@ -958,6 +990,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
