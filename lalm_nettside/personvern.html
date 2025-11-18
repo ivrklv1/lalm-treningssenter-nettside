@@ -13,16 +13,6 @@
       line-height: 1.6;
       margin: 0;
     }
-    <script>
-  // Skjul meny på enkelte sider
-  const hideMenuOn = ["praktisk-info.html", "vilkar.html", "personvern.html"];
-  const currentPage = window.location.pathname.split("/").pop();
-
-  if (hideMenuOn.includes(currentPage)) {
-    document.querySelector(".nav-links").style.display = "none";
-    document.querySelector(".mobile-menu-btn").style.display = "none";
-  }
-</script>
 
     header {
       border-bottom: 1px solid #e5e5e5;
