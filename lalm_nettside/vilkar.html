@@ -25,7 +25,6 @@
       line-height: 1.6;
     }
 
-    /* Header / nav – identisk som på forsiden */
     header {
       position: sticky;
       top: 0;
@@ -35,15 +34,15 @@
       z-index: 20;
     }
 
-.nav {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0.7rem 1.2rem;
-  display: flex;
-  justify-content: center; /* Sentrert logo + meny på desktop */
-  align-items: center;
-  gap: 2.5rem;
-}
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.7rem 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+    }
 
     .nav-logo {
       display: flex;
@@ -97,7 +96,6 @@
       width: 100%;
     }
 
-    /* Mobil-knapp */
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -107,7 +105,6 @@
       cursor: pointer;
     }
 
-    /* Mobilmeny */
     .mobile-nav {
       display: none;
       flex-direction: column;
@@ -170,22 +167,13 @@
       text-decoration: underline;
     }
 
-footer {
-  padding: 1.5rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: #030307;
-}
-
-    @media (max-width: 800px) {
-      .nav-links {
-        display: none;
-      }
-      .mobile-menu-btn {
-        display: block;
-      }
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: #030307;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
   </style>
 </head>
@@ -202,7 +190,6 @@ footer {
       </div>
     </div>
 
-    <!-- Desktop-meny -->
     <nav class="nav-links">
       <a href="index.html#priser">Medlemskap</a>
       <a href="praktisk-info.html">Praktisk info</a>
@@ -210,11 +197,9 @@ footer {
       <a href="personvern.html">Personvern</a>
     </nav>
 
-    <!-- Mobilknapp -->
     <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 
-  <!-- Mobilmeny -->
   <nav class="mobile-nav" id="mobileNav">
     <a href="index.html#priser" onclick="toggleMenu()">Medlemskap</a>
     <a href="praktisk-info.html" onclick="toggleMenu()">Praktisk info</a>
@@ -244,33 +229,46 @@ footer {
     Medlemskap uten binding kan sies opp når som helst. Oppsigelsestid er inneværende måned + 1 måned.
   </p>
 
-  <h2>3. Priser og gebyrer</h2>
+  <!-- ✨ NYTT PUNKT – OPPFYLLES VIPPS-KRAVENE -->
+  <h2>3. Oppsigelse og endring av medlemskap</h2>
+  <p>
+    Oppsigelse av medlemskap gjøres ved å sende e-post til 
+    <a href="mailto:post@lalmil.no">post@lalmil.no</a>.
+    Oppsigelsestid er inneværende måned + 1 måned for alle løpende medlemskap.
+  </p>
+  <p>
+    Endring av medlemskap (for eksempel bytte mellom medlemskap, oppgradering eller nedgradering)
+    kan gjøres ved å kontakte oss per e-post. Endringer gjelder fra neste månedsskifte,
+    med mindre annet er uttrykkelig avtalt.
+  </p>
+
+  <h2>4. Priser og gebyrer</h2>
   <p>
     Alle priser er månedlige. Det påløper et administrasjonsgebyr på 199 kr årlig per aktivt medlemskap.
   </p>
 
-  <h2>4. Betaling</h2>
+  <h2>5. Betaling</h2>
   <p>
     Betaling skjer via appen med Vipps. Ved manglende betaling kan adgangen til senteret stenges.
   </p>
 
-  <h2>5. Adgang og bruk</h2>
+  <h2>6. Adgang og bruk</h2>
   <p>
     Alle medlemmer får tilgang via personlig QR-kode. Denne er personlig og må ikke deles med andre.
     Utlån kan føre til utestengelse.
   </p>
 
-  <h2>6. Ordensregler</h2>
+  <h2>7. Ordensregler</h2>
   <p>
     Medlemmer skal følge senterets ordensregler, holde orden og bruke håndkle på apparater/benker.
   </p>
 
-  <h2>7. Ansvar</h2>
+  <h2>8. Ansvar</h2>
   <p>
     All trening skjer på eget ansvar. Feil på utstyr skal meldes umiddelbart.
   </p>
 
-  <h2>8. Reaksjoner ved brudd</h2>
+  <h2>9. Reaksjoner ved brudd</h2>
   <p>
     Senteret kan stenge medlemmet ute midlertidig eller permanent ved misbruk,
     brudd på vilkår eller manglende betaling.
