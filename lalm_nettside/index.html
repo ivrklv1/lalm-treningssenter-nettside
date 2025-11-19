@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="nb">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lalm</title>
+  <title>Lalm Treningssenter</title>
 
   <meta
     name="description"
@@ -47,120 +47,124 @@
       text-decoration: none;
     }
 
-    /* HEADER / NAV */
+    /* --- HEADER – SATS-inspirert toppmeny --- */
 
     header {
+      background: #07111f;
+      padding: 0.6rem 0;
       position: sticky;
       top: 0;
-      background: rgba(5, 5, 8, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      z-index: 20;
+      z-index: 50;
     }
 
-    .nav {
-      max-width: 1100px;
+    .topnav {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0.7rem 1.2rem;
+      padding: 0 1.4rem;
       display: flex;
-      justify-content: center; /* SENTRERER logo + meny på siden */
+      justify-content: space-between;
       align-items: center;
-      gap: 2.5rem;
     }
 
-    .nav-logo {
+    .topnav-left {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 2rem;
     }
 
-    .nav-logo img {
-      height: 70px;
+    .topnav-logo {
+      height: 52px;
       width: auto;
       object-fit: contain;
     }
 
-.nav-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #ff7a00;
-}
-
-.nav-tag {
-  font-size: 0.78rem;
-  color: #ccc;
-  margin-top: 2px;
-}
-
-    .nav-links {
+    .topnav-links {
       display: flex;
       align-items: center;
-      gap: 1.4rem;
-      font-size: 0.9rem;
+      gap: 1.6rem;
     }
 
-    .nav-links a {
-      color: #f5f5f5;
+    .topnav-links a {
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 500;
       position: relative;
-      padding-bottom: 0.05rem;
+      padding-bottom: 2px;
     }
 
-    .nav-links a::after {
+    .topnav-links a::after {
       content: "";
       position: absolute;
+      bottom: -3px;
       left: 0;
-      bottom: 0;
-      height: 2px;
       width: 0;
-      background: var(--accent);
+      height: 2px;
+      background: #ff7a00;
       transition: width 0.15s ease-out;
     }
 
-    .nav-links a:hover::after {
+    .topnav-links a:hover::after,
+    .topnav-links a.active::after {
       width: 100%;
     }
-    .nav-links a.active {
-  font-weight: 600;
-}
 
-.nav-links a.active::after {
-  width: 100%;
-}
+    .topnav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-    /* Mobilmeny-knapp (hamburger) */
+    .btn-join {
+      padding: 0.55rem 1.2rem;
+      background: #ff7a00;
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border: none;
+    }
+
+    .btn-join:hover {
+      filter: brightness(1.08);
+    }
+
+    .btn-login {
+      padding: 0.48rem 1.1rem;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Mobilknapp (hamburger) */
     .mobile-menu-btn {
-      display: none; /* vises bare på mobil */
-      font-size: 1.9rem;
+      display: none;
       background: none;
+      font-size: 2rem;
+      color: #ffffff;
       border: none;
       cursor: pointer;
-      color: #f5f5f5;
-      padding: 0.1rem 0.3rem;
+      line-height: 1;
     }
 
     /* Mobilmeny (dropdown) */
     .mobile-nav {
       display: none;
       flex-direction: column;
-      position: absolute;
-      right: 1.2rem;
-      top: 100%;
       background: #ffffff;
-      width: 70%;
-      max-width: 260px;
-      padding: 0.7rem 0.9rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-      border-radius: 0 0 0 12px;
-      z-index: 100;
+      padding: 1rem 1.2rem;
+      border-top: 1px solid #eaeaea;
+      position: absolute;
+      right: 0;
+      left: 0;
     }
 
     .mobile-nav a {
-      padding: 0.5rem 0.3rem;
+      padding: 0.8rem 0;
       border-bottom: 1px solid #eee;
       color: #111;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .mobile-nav a:last-child {
@@ -196,241 +200,205 @@
 
     /* HERO */
 
-/* HERO – toppseksjon over "Våre medlemskap" */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 2.4rem 0 1.2rem;
+    }
 
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  padding: 2.4rem 0 1.2rem;
-}
+    .hero-left {
+      flex: 1.4;
+    }
 
-.hero-left {
-  flex: 1.4;
-}
+    .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
 
-.hero-right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      background: #f4f4f6;
+      border: 1px solid #e0e0e5;
+      color: #555;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.9rem;
+    }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.9rem;
-  border-radius: 999px;
-  background: #f4f4f6;
-  border: 1px solid #e0e0e5;
-  color: #555;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-bottom: 0.9rem;
-}
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #2ecc71;
+    }
 
-.hero-badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #2ecc71;
-}
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
 
-.hero h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.5rem;
-}
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 520px;
+      margin-bottom: 1.1rem;
+    }
 
-.hero-subtitle {
-  color: var(--text-muted);
-  font-size: 0.98rem;
-  max-width: 520px;
-  margin-bottom: 1.1rem;
-}
+    .hero-steps {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.45rem;
+      font-size: 0.9rem;
+      margin-bottom: 1.3rem;
+    }
 
-.hero-steps {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0.45rem;
-  font-size: 0.9rem;
-  margin-bottom: 1.3rem;
-}
+    .hero-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
 
-.hero-step {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
+    .hero-step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #ff7a00;
+      color: #fff;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
 
-.hero-step-number {
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: #ff7a00;
-  color: #fff;
-  font-size: 0.8rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 0.1rem;
-}
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.6rem;
+    }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 0.6rem;
-}
+    .hero-btn-primary,
+    .hero-btn-secondary {
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
 
-.hero-btn-primary,
-.hero-btn-secondary {
-  border-radius: 999px;
-  padding: 0.6rem 1.4rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  border: 1px solid transparent;
-  cursor: pointer;
-}
+    .hero-btn-primary {
+      background: #ff7a00;
+      border-color: #ff7a00;
+      color: #fff;
+    }
 
-.hero-btn-primary {
-  background: #ff7a00;
-  border-color: #ff7a00;
-  color: #fff;
-}
+    .hero-btn-primary:hover {
+      filter: brightness(1.05);
+    }
 
-.hero-btn-primary:hover {
-  filter: brightness(1.05);
-}
+    .hero-btn-secondary {
+      background: transparent;
+      border-color: #ddd;
+      color: #333;
+    }
 
-.hero-btn-secondary {
-  background: transparent;
-  border-color: #ddd;
-  color: #333;
-}
+    .hero-small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
 
-.hero-small {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
+    .hero-card {
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid #ece4d8;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.09);
+      padding: 1.4rem 1.6rem;
+      max-width: 320px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
 
-.hero-card {
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid #ece4d8;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.09);
-  padding: 1.4rem 1.6rem;
-  max-width: 320px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-}
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
 
-.hero-card-header {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
+    .hero-card-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: #030307;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.hero-card-logo {
-  width: 46px;
-  height: 46px;
-  border-radius: 16px;
-  background: #030307;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .hero-card-logo img {
+      max-width: 32px;
+      max-height: 32px;
+    }
 
-.hero-card-logo img {
-  max-width: 32px;
-  max-height: 32px;
-}
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
 
-.hero-card-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-}
+    .hero-card-tag {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
 
-.hero-card-tag {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
+    .hero-card-divider {
+      height: 1px;
+      background: #f0ece5;
+      margin: 0.3rem 0 0.4rem;
+    }
 
-.hero-card-divider {
-  height: 1px;
-  background: #f0ece5;
-  margin: 0.3rem 0 0.4rem;
-}
+    .hero-card-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.86rem;
+      color: #444;
+    }
 
-.hero-card-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.86rem;
-  color: #444;
-}
+    .hero-card-label {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
 
-.hero-card-label {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-}
+    .hero-card-highlight {
+      font-weight: 600;
+    }
 
-.hero-card-highlight {
-  font-weight: 600;
-}
-
-.hero-card-footer {
-  padding: 0.55rem 0.85rem;
-  border-radius: 999px;
-  background: #f8f5ef;
-  font-size: 0.78rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-/* Mobiltilpasning */
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    gap: 1.8rem;
-  }
-
-  .hero-right {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .hero-card {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 0.94rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+    .hero-card-footer {
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      background: #f8f5ef;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
 
     /* MEDLEMSKAP */
 
     .membership-section {
       text-align: center;
-      padding: 1.2rem 1.2rem 2.2rem; /* mindre topp-padding */
+      padding: 1.2rem 1.2rem 2.2rem;
       background: none;
       border: none;
       margin: 0;
@@ -689,17 +657,11 @@
     }
 
     @media (max-width: 800px) {
-      .nav {
-        padding: 0.6rem 0.9rem;
-        justify-content: space-between;
-        gap: 0.8rem;
+      .topnav {
+        padding: 0 1rem;
       }
 
-      .nav-logo img {
-        height: 52px;
-      }
-
-      .nav-links {
+      .topnav-links {
         display: none; /* Skjul desktop-meny på mobil */
       }
 
@@ -707,13 +669,16 @@
         display: block; /* Vis hamburgermeny */
       }
 
-      .hero {
-        padding-top: 1.0rem;
-        gap: 1.2rem;
+      .btn-login,
+      .btn-join {
+        display: none; /* Skjul knapper på små skjermer, bruk mobilmeny i stedet */
       }
 
-      .hero-logo img {
-        height: 130px;
+      .hero {
+        padding-top: 1rem;
+        gap: 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .membership-section {
@@ -735,10 +700,6 @@
     @media (max-width: 600px) {
       h1 {
         font-size: 1.7rem;
-      }
-
-      .hero-logo img {
-        height: 115px;
       }
 
       .membership-tabs {
@@ -776,130 +737,127 @@
 
 <body>
   <header>
-<div class="nav-logo">
-  <div style="
-    font-family:'Bebas Neue', sans-serif;
-    font-size:2.4rem;
-    letter-spacing:1px;
-    color:#ff7a00;">
-    LALM
-  </div>
-</div>
+    <div class="topnav">
+      <div class="topnav-left">
+        <!-- LALM logo i stedet for SATS-logo -->
+        <img src="lalm-il.logo.png" alt="Lalm logo" class="topnav-logo" />
 
+        <nav class="topnav-links">
+          <a href="index.html#priser">Medlemskap</a>
+          <a href="praktisk-info.html">Praktisk info</a>
+          <a href="vilkar.html">Vilkår</a>
+          <a href="personvern.html">Personvern</a>
+        </nav>
+      </div>
 
-      <!-- Desktop-meny -->
-<nav class="nav-links">
-  <a href="index.html#priser">Medlemskap</a>
-  <a href="praktisk-info.html">Praktisk info</a>
-  <a href="vilkar.html">Vilkår</a>
-  <a href="personvern.html">Personvern</a>
-</nav>
+      <div class="topnav-right">
+        <a href="index.html#priser" class="btn-join">BLI MEDLEM</a>
+        <a href="#" class="btn-login">LOGG INN</a>
 
-      <!-- Mobil-knapp -->
-      <button class="mobile-menu-btn" type="button" onclick="toggleMenu()">
-        ☰
-      </button>
+        <button class="mobile-menu-btn" type="button" onclick="toggleMenu()">
+          ☰
+        </button>
+      </div>
     </div>
 
-    <!-- Mobil-meny (drop-down) -->
-<nav class="mobile-nav" id="mobileNav">
-  <a href="index.html#priser" onclick="toggleMenu()">Medlemskap</a>
-  <a href="praktisk-info.html" onclick="toggleMenu()">Praktisk info</a>
-  <a href="vilkar.html" onclick="toggleMenu()">Vilkår</a>
-  <a href="personvern.html" onclick="toggleMenu()">Personvern</a>
-</nav>
+    <!-- Mobil-meny -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html#priser" onclick="toggleMenu()">Medlemskap</a>
+      <a href="praktisk-info.html" onclick="toggleMenu()">Praktisk info</a>
+      <a href="vilkar.html" onclick="toggleMenu()">Vilkår</a>
+      <a href="personvern.html" onclick="toggleMenu()">Personvern</a>
+    </nav>
   </header>
 
   <main>
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Åpent hver dag · 05:00–23:00
-    </div>
-
-    <h1>Tren lokalt på Lalm</h1>
-
-    <p class="hero-subtitle">
-      Lalm Treningssenter er et moderne, selvbetjent treningssenter
-      drevet av <strong>Lalm Idrettslag</strong>. Med medlemskap i appen får du
-      enkel tilgang til styrkerommet – når det passer deg.
-    </p>
-
-    <div class="hero-steps">
-      <div class="hero-step">
-        <div class="hero-step-number">1</div>
-        <div>Last ned og logg inn i Lalm Treningssenter-appen.</div>
-      </div>
-      <div class="hero-step">
-        <div class="hero-step-number">2</div>
-        <div>Velg medlemskap og gjennomfør betaling med Vipps.</div>
-      </div>
-      <div class="hero-step">
-        <div class="hero-step-number">3</div>
-        <div>Bruk QR-koden i appen for å låse opp døra og begynne å trene.</div>
-      </div>
-    </div>
-
-    <div class="hero-actions">
-      <button class="hero-btn-primary" onclick="document.getElementById('priser').scrollIntoView({behavior:'smooth'})">
-        Se medlemskap og priser
-      </button>
-      <button class="hero-btn-secondary" type="button">
-        Åpne Lalm Treningssenter-appen
-      </button>
-    </div>
-
-    <div class="hero-small">
-      Innmelding og tilgang styres kun via appen. Medlemskap kjøpes ikke i resepsjon.
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-card">
-      <div class="hero-card-header">
-        <div class="hero-card-logo">
-          <img src="images/logo-lalm.png" alt="Lalm Treningssenter logo">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Åpent hver dag · 05:00–23:00
         </div>
-        <div>
-          <div class="hero-card-title">Lalm Treningssenter</div>
-          <div class="hero-card-tag">Treningsapp · QR-adgang</div>
+
+        <h1>Tren lokalt på Lalm</h1>
+
+        <p class="hero-subtitle">
+          Lalm Treningssenter er et moderne, selvbetjent treningssenter
+          drevet av <strong>Lalm Idrettslag</strong>. Med medlemskap i appen får du
+          enkel tilgang til styrkerommet – når det passer deg.
+        </p>
+
+        <div class="hero-steps">
+          <div class="hero-step">
+            <div class="hero-step-number">1</div>
+            <div>Last ned og logg inn i Lalm Treningssenter-appen.</div>
+          </div>
+          <div class="hero-step">
+            <div class="hero-step-number">2</div>
+            <div>Velg medlemskap og gjennomfør betaling med Vipps.</div>
+          </div>
+          <div class="hero-step">
+            <div class="hero-step-number">3</div>
+            <div>Bruk QR-koden i appen for å låse opp døra og begynne å trene.</div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="hero-btn-primary" onclick="document.getElementById('priser').scrollIntoView({behavior:'smooth'})">
+            Se medlemskap og priser
+          </button>
+          <button class="hero-btn-secondary" type="button">
+            Åpne Lalm Treningssenter-appen
+          </button>
+        </div>
+
+        <div class="hero-small">
+          Innmelding og tilgang styres kun via appen. Medlemskap kjøpes ikke i resepsjon.
         </div>
       </div>
 
-      <div class="hero-card-divider"></div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-logo">
+              <img src="images/logo-lalm.png" alt="Lalm Treningssenter logo">
+            </div>
+            <div>
+              <div class="hero-card-title">Lalm Treningssenter</div>
+              <div class="hero-card-tag">Treningsapp · QR-adgang</div>
+            </div>
+          </div>
 
-      <div class="hero-card-row">
-        <div>
-          <div class="hero-card-label">Åpningstider</div>
-          <div class="hero-card-highlight">05:00–23:00</div>
-        </div>
-        <div>
-          <div class="hero-card-label">Drevet av</div>
-          <div class="hero-card-highlight">Lalm Idrettslag</div>
+          <div class="hero-card-divider"></div>
+
+          <div class="hero-card-row">
+            <div>
+              <div class="hero-card-label">Åpningstider</div>
+              <div class="hero-card-highlight">05:00–23:00</div>
+            </div>
+            <div>
+              <div class="hero-card-label">Drevet av</div>
+              <div class="hero-card-highlight">Lalm Idrettslag</div>
+            </div>
+          </div>
+
+          <div class="hero-card-row">
+            <div>
+              <div class="hero-card-label">Adgang</div>
+              <div>QR-kode i appen</div>
+            </div>
+            <div>
+              <div class="hero-card-label">Medlemskap</div>
+              <div>Fra 349,-/mnd</div>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <span>📲</span>
+            <span>Skann ved døra – tren når det passer deg.</span>
+          </div>
         </div>
       </div>
-
-      <div class="hero-card-row">
-        <div>
-          <div class="hero-card-label">Adgang</div>
-          <div>QR-kode i appen</div>
-        </div>
-        <div>
-          <div class="hero-card-label">Medlemskap</div>
-          <div>Fra 349,-/mnd</div>
-        </div>
-      </div>
-
-      <div class="hero-card-footer">
-        <span>📲</span>
-        <span>Skann ved døra – tren når det passer deg.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- MEDLEMSKAP / PRISER -->
     <section id="priser" class="membership-section">
@@ -1133,34 +1091,21 @@
         });
       });
     });
+
+    // Marker aktivt menyvalg i toppmenyen
+    (function () {
+      const currentPage = window.location.pathname.split("/").pop();
+      const links = document.querySelectorAll(".topnav-links a");
+
+      links.forEach((link) => {
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        if (href === currentPage || (currentPage === "" && href === "index.html")) {
+          link.classList.add("active");
+        }
+      });
+    })();
   </script>
-  <script>
-  // Marker aktivt menyvalg
-  (function () {
-    const currentPage = window.location.pathname.split("/").pop();
-    const links = document.querySelectorAll(".nav-links a");
-
-    links.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (!href) return;
-
-      // Treff på aktuell side (enkelt oppsett for deres struktur)
-      if (href === currentPage || (currentPage === "" && href === "index.html")) {
-        link.classList.add("active");
-      }
-    });
-  })();
-</script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
