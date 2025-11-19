@@ -47,26 +47,24 @@
       text-decoration: none;
     }
 
-/* HEADER – fast høyde, SATS-ish */
-header {
-  background: #07111f;
-  height: 64px;          /* fast høyde */
-  padding: 0;            /* ikke la padding øke høyden */
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
+    /* --- HEADER – SATS-inspirert toppmeny --- */
 
-/* Selve raden inni headeren fyller hele høyden */
-.topnav {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.4rem;
-  height: 100%;          /* fyll header-høyden */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;   /* sentrer logo + meny vertikalt */
+    header {
+      background: #07111f;
+      padding: 0.6rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
+    .topnav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     .topnav-left {
       display: flex;
@@ -74,12 +72,11 @@ header {
       gap: 2rem;
     }
 
-/* Logo-størrelse (tilpass denne) */
-.topnav-logo {
-  height: 44px;          /* prøv 38–42 px for SATS-følelse */
-  width: auto;
-  object-fit: contain;
-}
+    .topnav-logo {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
 
     .topnav-links {
       display: flex;
@@ -1112,7 +1109,3 @@ header {
   </script>
 </body>
 </html>
-
-
-
-
