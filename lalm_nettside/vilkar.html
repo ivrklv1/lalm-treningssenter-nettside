@@ -38,27 +38,33 @@
 
     a { color: inherit; text-decoration: none; }
 
-    header {
-      background: #07111f;
-      padding: 0.6rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
+header {
+  background: #07111f;
+  height: 64px;      /* fast høyde – juster om du vil */
+  padding: 0;        /* fjern top/bottom padding */
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
-    .topnav {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.4rem;
+.topnav {
+  max-width: 1200px;
+  margin: 0 auto;            /* SENTRER HEADEREN */
+  padding: 0 1.4rem;
+  display: flex;
+  align-items: center;       /* SENTRER VERTIKALT */
+  justify-content: space-between;
+  height: 100%;              /* FYLLER HEADERENS HØYDE */
+}
+
+    .topnav-left {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 2rem;
     }
-
-    .topnav-left { display: flex; align-items: center; gap: 2rem; }
 
     .topnav-logo {
-      height: 120px;
+      height: 130px;
       width: auto;
       object-fit: contain;
     }
