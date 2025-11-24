@@ -1206,8 +1206,80 @@ header {
       });
     })();
   </script>
+  <script>
+  const SERVER_URL = 'https://lalm-treningssenter-server.onrender.com';
+
+  function normalizeMobile(mobile) {
+    let m = mobile.trim().replace(/\s+/g, '');
+    if (/^\d{8}$/.test(m)) m = '+47' + m;
+    if (m.startsWith('0047')) m = '+47' + m.slice(4);
+    if (!m.startsWith('+') && m.startsWith('47') && m.length === 10) m = '+' + m;
+    return m;
+  }
+
+  // Når man trykker på "Velg medlemskap"
+  document.querySelectorAll('.choose-membership-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const membershipId = btn.dataset.membershipId;
+      const membershipName = btn.dataset.membershipName;
+
+      document.getElementById('ws-membershipId').value = membershipId;
+      document.getElementById('web-signup-selected').textContent =
+        'Du har valgt: ' + membershipName;
+
+      const formSection = document.getElementById('web-signup');
+      formSection.style.display = 'block';
+      formSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Når man trykker på "Betal med Vipps"
+  document.getElementById('web-signup-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const firstName = document.getElementById('ws-firstName').value.trim();
+    const lastName = document.getElementById('ws-lastName').value.trim();
+    const email = document.getElementById('ws-email').value.trim();
+    const mobile = normalizeMobile(document.getElementById('ws-mobile').value);
+    const membershipId = document.getElementById('ws-membershipId').value;
+    const accept = document.getElementById('ws-accept-terms').checked;
+
+    if (!accept) {
+      alert('Du må godta vilkår og personvern.');
+      return;
+    }
+
+    try {
+      const res = await fetch(SERVER_URL + '/vipps/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'web',
+          firstName,
+          lastName,
+          email,
+          mobile,
+          membershipId,
+        }),
+      });
+
+      const data = await res.json();
+      const url = data.checkoutUrl || data.redirectUrl;
+
+      if (url) {
+        window.location.href = url; // Åpner Vipps på mobil
+      } else {
+        alert('Kunne ikke starte betaling.');
+      }
+    } catch (err) {
+      alert('Teknisk feil. Prøv igjen.');
+    }
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
