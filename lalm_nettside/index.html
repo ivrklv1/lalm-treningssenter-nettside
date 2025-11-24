@@ -1078,6 +1078,69 @@ header {
           </div>
         </div>
       </div>
+      <section id="web-signup" style="display:none; padding: 40px 16px; max-width: 800px; margin: 0 auto;">
+  <h2 style="text-align:center; margin-bottom:8px;">Fortell oss litt om deg</h2>
+  <p style="text-align:center; margin-bottom:24px; color:#666;">
+    Fyll inn nødvendig informasjon for å gjennomføre innmeldingen.
+  </p>
+
+  <div id="web-signup-selected"
+       style="text-align:center; font-weight:600; margin-bottom:24px;">
+  </div>
+
+  <form id="web-signup-form" style="display:flex; flex-direction:column; gap:16px;">
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:140px;">
+        <label>Fornavn</label>
+        <input type="text" id="ws-firstName" required />
+      </div>
+      <div style="flex:1; min-width:140px;">
+        <label>Etternavn</label>
+        <input type="text" id="ws-lastName" required />
+      </div>
+    </div>
+
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:140px;">
+        <label>Mobilnummer</label>
+        <input type="tel" id="ws-mobile" placeholder="+47 9xx xx xxx" required />
+      </div>
+      <div style="flex:1; min-width:140px;">
+        <label>E-post</label>
+        <input type="email" id="ws-email" required />
+      </div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <label style="display:flex; gap:8px; align-items:flex-start; font-size:0.9rem;">
+        <input type="checkbox" id="ws-accept-terms" />
+        <span>
+          Jeg godtar <a href="#vilkar">vilkår</a> og
+          <a href="#personvern">personvernerklæringen</a>.
+        </span>
+      </label>
+    </div>
+
+    <input type="hidden" id="ws-membershipId" />
+
+    <button type="submit"
+      style="
+        margin-top:16px;
+        align-self:center;
+        padding:14px 32px;
+        border:none;
+        border-radius:999px;
+        font-size:1rem;
+        font-weight:600;
+        cursor:pointer;
+        background:#ff7a1a;
+        color:#fff;
+      ">
+      Betal med Vipps
+    </button>
+  </form>
+</section>
+
 
       <div class="membership-note" style="margin-top:1.4rem; font-size:0.85rem; color:#6b6b6b;">
         <strong>Merk:</strong> Alle som trener på Lalm Treningssenter må ha gyldig
@@ -1145,6 +1208,7 @@ header {
   </script>
 </body>
 </html>
+
 
 
 
