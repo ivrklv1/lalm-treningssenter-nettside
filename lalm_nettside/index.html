@@ -468,19 +468,15 @@ header {
       opacity: 0.8;
     }
 
-.tab-button.active {
-  background: #ff7a00;
-  border-color: #ff7a00;
-  color: #fff;
+    .tab-button.active {
+      background: rgba(255, 122, 0, 0.12);
+      color: var(--text);
+      box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.75);
+    }
 
-  box-shadow: 0 4px 10px rgba(255, 122, 0, 0.35);
-  transform: translateY(-1px);
-
-.tab-button:hover {
-  background: #ffffff;
-  border-color: #d0d0d4;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-}
+    .tab-button:not(.active):hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
 
     .tab-panels {
       margin-top: 0.4rem;
@@ -1467,6 +1463,7 @@ footer {
   </script>
 </body>
 </html>
+
 
 
 
