@@ -50,6 +50,13 @@ body {
   flex-direction: column;
 }
 
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.2rem 3rem;
+
+  flex: 1; /* <-- dette gjør at footer dyttes ned */
+}
 
     /* --- HEADER – SATS-inspirert toppmeny --- */
 
@@ -1302,137 +1309,158 @@ footer {
     Lalm Treningssenter – en del av Lalm Idrettslag, org.nr 975 439 453
   </footer>
 
-  <script>
-  <script>
-    // Hamburger-meny
-    function toggleMenu() {
-      const menu = document.getElementById("mobileNav");
-      menu.classList.toggle("open");
-    }
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const SERVER_URL = 'https://lalm-treningssenter-server.onrender.com';
 
-    // Faner for medlemskap
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const tabPanels = {
-      binding: document.getElementById("tab-binding"),
-      utenbinding: document.getElementById("tab-utenbinding"),
-      dropin: document.getElementById("tab-dropin"),
-    };
+      // -----------------------------
+      // Hamburger-meny (mobil)
+      // -----------------------------
+      window.toggleMenu = function () {
+        const menu = document.getElementById("mobileNav");
+        if (menu) {
+          menu.classList.toggle("open");
+        }
+      };
 
-    tabButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const target = btn.getAttribute("data-tab");
+      // -----------------------------
+      // Faner for medlemskap
+      // -----------------------------
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabPanels = {
+        binding: document.getElementById("tab-binding"),
+        utenbinding: document.getElementById("tab-utenbinding"),
+        dropin: document.getElementById("tab-dropin"),
+      };
 
-        tabButtons.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-tab");
 
-        Object.keys(tabPanels).forEach((key) => {
-          tabPanels[key].classList.toggle("active", key === target);
+          // aktiv knapp
+          tabButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          // vis riktig panel
+          Object.keys(tabPanels).forEach((key) => {
+            if (!tabPanels[key]) return;
+            tabPanels[key].classList.toggle("active", key === target);
+          });
         });
       });
-    });
 
-    // Marker aktivt menyvalg i toppmenyen
-    (function () {
-      const currentPage = window.location.pathname.split("/").pop();
-      const links = document.querySelectorAll(".topnav-links a");
+      // -----------------------------
+      // Marker aktiv side i toppmeny
+      // -----------------------------
+      (function () {
+        const currentPage = window.location.pathname.split("/").pop();
+        const links = document.querySelectorAll(".topnav-links a");
 
-      links.forEach((link) => {
-        const href = link.getAttribute("href");
-        if (!href) return;
+        links.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href) return;
 
-        if (href === currentPage || (currentPage === "" && href === "index.html")) {
-          link.classList.add("active");
-        }
-      });
-    })();
-  </script>
-
-  <script>
-    const SERVER_URL = 'https://lalm-treningssenter-server.onrender.com';
-
-    function normalizeMobile(mobile) {
-      let m = mobile.trim().replace(/\s+/g, '');
-      if (/^\d{8}$/.test(m)) m = '+47' + m;
-      if (m.startsWith('0047')) m = '+47' + m.slice(4);
-      if (!m.startsWith('+') && m.startsWith('47') && m.length === 10) m = '+' + m;
-      return m;
-    }
-
-    const membershipCards = document.querySelectorAll(".membership-card");
-    const chooseButtons = document.querySelectorAll(".choose-membership-btn");
-
-    // Når man trykker på "Velg medlemskap"
-    chooseButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        // highlight riktig kort
-        membershipCards.forEach((card) => card.classList.remove("active"));
-        const selectedCard = e.target.closest(".membership-card");
-        if (selectedCard) selectedCard.classList.add("active");
-
-        const membershipId = btn.dataset.membershipId;
-        const membershipName = btn.dataset.membershipName;
-
-        // sett tekst og skjult felt i skjema
-        document.getElementById('ws-membershipId').value = membershipId;
-        document.getElementById('web-signup-selected').textContent =
-          'Du har valgt: ' + membershipName;
-
-        // vis skjema og scroll ned
-        const formSection = document.getElementById('web-signup');
-        formSection.style.display = 'block';
-        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-
-    // Når man trykker på "Betal med Vipps"
-    const signupForm = document.getElementById('web-signup-form');
-    if (signupForm) {
-      signupForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const firstName = document.getElementById('ws-firstName').value.trim();
-        const lastName = document.getElementById('ws-lastName').value.trim();
-        const email = document.getElementById('ws-email').value.trim();
-        const mobile = normalizeMobile(document.getElementById('ws-mobile').value);
-        const membershipId = document.getElementById('ws-membershipId').value;
-        const accept = document.getElementById('ws-accept-terms').checked;
-
-        if (!accept) {
-          alert('Du må godta vilkår og personvern.');
-          return;
-        }
-
-        try {
-          const res = await fetch(SERVER_URL + '/vipps/checkout', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              source: 'web',
-              firstName,
-              lastName,
-              email,
-              mobile,
-              membershipId,
-            }),
-          });
-
-          const data = await res.json();
-          const url = data.checkoutUrl || data.redirectUrl;
-
-          if (url) {
-            window.location.href = url;
-          } else {
-            alert('Kunne ikke starte betaling.');
+          if (href === currentPage || (currentPage === "" && href === "index.html")) {
+            link.classList.add("active");
           }
-        } catch (err) {
-          console.error(err);
-          alert('Teknisk feil. Prøv igjen.');
-        }
+        });
+      })();
+
+      // -----------------------------
+      // Innmelding via web (Vipps)
+      // -----------------------------
+      function normalizeMobile(mobile) {
+        let m = mobile.trim().replace(/\s+/g, '');
+        if (/^\d{8}$/.test(m)) m = '+47' + m;
+        if (m.startsWith('0047')) m = '+47' + m.slice(4);
+        if (!m.startsWith('+') && m.startsWith('47') && m.length === 10) m = '+' + m;
+        return m;
+      }
+
+      const membershipCards = document.querySelectorAll(".membership-card");
+      const chooseButtons = document.querySelectorAll(".choose-membership-btn");
+
+      // når man trykker "Velg medlemskap"
+      chooseButtons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          // highlight riktig kort
+          membershipCards.forEach((card) => card.classList.remove("active"));
+          const selectedCard = e.target.closest(".membership-card");
+          if (selectedCard) selectedCard.classList.add("active");
+
+          const membershipId = btn.dataset.membershipId;
+          const membershipName = btn.dataset.membershipName;
+
+          // sett tekst og skjult felt i skjema
+          const selectedEl = document.getElementById('web-signup-selected');
+          const membershipIdInput = document.getElementById('ws-membershipId');
+          if (selectedEl) {
+            selectedEl.textContent = 'Du har valgt: ' + membershipName;
+          }
+          if (membershipIdInput) {
+            membershipIdInput.value = membershipId || '';
+          }
+
+          // vis skjema og scroll ned
+          const formSection = document.getElementById('web-signup');
+          if (formSection) {
+            formSection.style.display = 'block';
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
       });
-    }
+
+      // når man sender inn skjemaet ("Betal med Vipps")
+      const signupForm = document.getElementById('web-signup-form');
+      if (signupForm) {
+        signupForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const firstName = document.getElementById('ws-firstName').value.trim();
+          const lastName = document.getElementById('ws-lastName').value.trim();
+          const email = document.getElementById('ws-email').value.trim();
+          const mobile = normalizeMobile(document.getElementById('ws-mobile').value);
+          const membershipId = document.getElementById('ws-membershipId').value;
+          const accept = document.getElementById('ws-accept-terms').checked;
+
+          if (!accept) {
+            alert('Du må godta vilkår og personvern.');
+            return;
+          }
+
+          try {
+            const res = await fetch(SERVER_URL + '/vipps/checkout', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                source: 'web',
+                firstName,
+                lastName,
+                email,
+                mobile,
+                membershipId,
+              }),
+            });
+
+            const data = await res.json();
+            const url = data.checkoutUrl || data.redirectUrl;
+
+            if (url) {
+              window.location.href = url;
+            } else {
+              alert('Kunne ikke starte betaling.');
+            }
+          } catch (err) {
+            console.error(err);
+            alert('Teknisk feil. Prøv igjen.');
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
+
 
 
 
