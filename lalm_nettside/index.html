@@ -582,6 +582,15 @@ header {
   background: #FF8F33; /* lett hover */
 }
 
+.membership-card.active {
+  border-color: #ff7a00 !important;
+  box-shadow: 0 0 0 2px rgba(255,122,0,0.35),
+              0 8px 22px rgba(0,0,0,0.10) !important;
+  transform: translateY(-4px);
+  background: #fff9f3;
+}
+
+
 .choose-membership-btn {
   /* fjerner default knapp-styling i enkelte browsere */
   font: inherit;
@@ -689,6 +698,9 @@ header {
   font-size: 0.8rem;
   color: var(--text-muted);
 }
+
+
+
 
 /* Responsiv skjema-layout */
 @media (max-width: 700px) {
@@ -1399,10 +1411,47 @@ header {
       alert('Teknisk feil. Prøv igjen.');
     }
   });
+
+<script>
+  // Marker valgt medlemskap i kort
+  const membershipCards = document.querySelectorAll(".membership-card");
+  const chooseButtons = document.querySelectorAll(".choose-membership-btn");
+
+  chooseButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      // Fjern aktiv status fra alle kort
+      membershipCards.forEach((card) => card.classList.remove("active"));
+
+      // Finn kortet denne knappen ligger i
+      const selectedCard = e.target.closest(".membership-card");
+      if (selectedCard) selectedCard.classList.add("active");
+
+      // Vis innmeldingsskjema
+      document.getElementById("web-signup").style.display = "block";
+
+      // Scroll ned til skjema
+      document.getElementById("web-signup").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      // Sett valgt medlemskap i skjema
+      const membershipName = btn.dataset.membershipName;
+      const membershipId = btn.dataset.membershipId;
+
+      document.getElementById("web-signup-selected").innerText =
+        "Du har valgt: " + membershipName;
+
+      document.getElementById("ws-membershipId").value = membershipId;
+    });
+  });
+</script>
+
 </script>
 
 </body>
 </html>
+
 
 
 
