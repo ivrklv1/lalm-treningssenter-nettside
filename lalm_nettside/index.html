@@ -438,45 +438,67 @@ header {
     /* FANER */
 
 /* Ny moderne tab-stil */
+/* Sammenhengende fanecontainer */
 .membership-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-top: 1.2rem;
+  display: inline-flex;
+  background: #f3f4f6;
+  border: 1px solid #d8d8dd;
+  border-radius: 14px;
+  overflow: hidden;
   margin-bottom: 1.8rem;
-  flex-wrap: wrap;
 }
 
+/* Hver fane */
 .tab-button {
-  padding: 0.65rem 1.4rem;
-  background: #f7f7f8;
-  border: 1px solid #e2e2e6;
-  border-radius: 14px;
+  flex: 1;
+  padding: 0.75rem 1.6rem;
+
+  background: transparent;
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: 0.18s ease;
 
   font-size: 0.92rem;
   font-weight: 600;
-  color: #444;
+  color: #333;
 
-  cursor: pointer;
-  transition: all 0.18s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-}}
+  white-space: nowrap;
+}
 
-    .tab-button span {
-      display: block;
-      font-size: 0.75rem;
-      opacity: 0.8;
-    }
+/* Andre linje */
+.tab-button span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #666;
+  margin-top: 2px;
+}
 
-    .tab-button.active {
-      background: rgba(255, 122, 0, 0.12);
-      color: var(--text);
-      box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.75);
-    }
+/* Aktiv fane */
+.tab-button.active {
+  background: #ff7a00;
+  color: #fff;
+}
 
-    .tab-button:not(.active):hover {
-      background: rgba(255, 255, 255, 0.04);
-    }
+/* Aktiv fane også for undertekst */
+.tab-button.active span {
+  color: #fff;
+}
+
+/* Skillelinjer mellom fanene */
+.tab-button:not(:first-child) {
+  border-left: 1px solid #d8d8dd;
+}
+
+/* Hover-effekt */
+.tab-button:hover {
+  background: #ffffffaa;
+}
 
     .tab-panels {
       margin-top: 0.4rem;
@@ -1463,6 +1485,7 @@ footer {
   </script>
 </body>
 </html>
+
 
 
 
