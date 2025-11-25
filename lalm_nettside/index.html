@@ -38,18 +38,18 @@
       box-sizing: border-box;
     }
 
-    body {
-      background: var(--bg);
-      color: #111111;
-      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      line-height: 1.6;
-    }
+body {
+  background: var(--bg);
+  color: #111111;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 
     /* --- HEADER – SATS-inspirert toppmeny --- */
 
@@ -770,14 +770,17 @@ header {
       margin-top: 0.2rem;
     }
 
-    footer {
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      background: #091C30;
-    }
+footer {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: #091C30;
+
+  margin-top: auto;  /* dytter footer ned til bunnen */
+}
+
 
     /* RESPONSIVE */
 
@@ -1430,6 +1433,7 @@ header {
   </script>
 </body>
 </html>
+
 
 
 
