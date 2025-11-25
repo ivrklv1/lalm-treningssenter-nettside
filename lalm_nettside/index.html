@@ -590,6 +590,116 @@ header {
   padding: 0;
 }
 
+.signup-section {
+  max-width: 1100px;
+  margin: 1.5rem auto 2.5rem;
+  padding: 0 1.2rem;
+}
+
+.signup-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e6e0d9;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  padding: 1.8rem 1.6rem;
+  max-width: 560px;   /* venstrejustert innenfor main */
+  margin: 0;          /* ikke midtstill */
+}
+
+.signup-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.signup-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.signup-selected {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.9rem;
+  background: #faf4eb;
+  border-radius: 12px;
+}
+
+.signup-form {
+  margin-top: 0.2rem;
+}
+
+.signup-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 1.2rem;
+}
+
+.signup-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.signup-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.signup-field input {
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.signup-field input:focus {
+  outline: none;
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.35);
+}
+
+.signup-terms {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.signup-terms label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.signup-terms input[type="checkbox"] {
+  margin-top: 0.15rem;
+}
+
+.signup-terms a {
+  text-decoration: underline;
+}
+
+.signup-vipps-btn {
+  margin-top: 1.4rem;
+}
+
+.signup-note {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Responsiv skjema-layout */
+@media (max-width: 700px) {
+  .signup-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signup-card {
+    padding: 1.5rem 1.2rem;
+  }
+}
 
 
 
@@ -1293,6 +1403,7 @@ header {
 
 </body>
 </html>
+
 
 
 
