@@ -555,22 +555,33 @@ header {
     }
 
 .membership-button {
-  align-self: stretch;              /* full bredde i kortet */
-  text-align: center;
+  align-self: stretch;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
   margin-top: 0.8rem;
-  background: #ff7a00;             /* oransje, som drop-in */
+  padding: 0.9rem 1.6rem;
+
+  background: #FF7A00;
+  color: #fff;
+
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+
   border: none;
-  padding: 0.75rem 1.3rem;
-  border-radius: 999px;            /* pilleform */
-  font-weight: 600;
-  font-size: 0.9rem;
+  border-radius: 999px;
   cursor: pointer;
-  color: #ffffff;                  /* hvit tekst */
+
+  line-height: 1;     /* viktig for å matche drop-in */
+  text-decoration: none;
 }
 
 .membership-card:hover .membership-button {
-  filter: brightness(1.05);        /* lett hover-effekt */
+  background: #FF8F33; /* litt lysere ved hover – samme som drop-in */
 }
+
 
 
     .membership-benefits {
@@ -1276,6 +1287,7 @@ header {
 
 </body>
 </html>
+
 
 
 
