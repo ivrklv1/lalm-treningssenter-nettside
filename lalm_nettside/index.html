@@ -904,7 +904,7 @@ header {
         </button>
       </div>
 
-      <!-- PANELER -->
+            <!-- PANELER -->
       <div class="tab-panels">
         <!-- MED BINDING -->
         <div class="tab-panel active" id="tab-binding">
@@ -920,15 +920,16 @@ header {
               <div class="membership-meta">
                 12 måneders bindingstid. Deretter løpende medlemskap med ordinær oppsigelsestid.
               </div>
-              <div class="membership-button">
-  <button
-    class="choose-membership-btn"
-    data-membership-id="lalm_il_12mnd"
-    data-membership-name="Lalm IL-medlem – 12 mnd binding"
-  >
-    Velg medlemskap
-  </button>
-</div>
+
+              <!-- ÉN knapp, samme stil som drop-in -->
+              <button
+                class="membership-button choose-membership-btn"
+                data-membership-id="lalm_il_12mnd_binding"
+                data-membership-name="Lalm IL-medlem – 12 mnd binding"
+              >
+                Velg medlemskap
+              </button>
+
               <div class="membership-benefits">
                 <ul>
                   <li>Rabattert pris for medlemmer i Lalm IL</li>
@@ -949,15 +950,15 @@ header {
               <div class="membership-meta">
                 12 måneders bindingstid. Samme tilgang og vilkår som øvrige medlemskap.
               </div>
-             <div class="membership-button">
-  <button
-    class="choose-membership-btn"
-    data-membership-id="lalm_il_12mnd"
-    data-membership-name="Lalm IL-medlem – 12 mnd binding"
-  >
-    Velg medlemskap
-  </button>
-</div>
+
+              <button
+                class="membership-button choose-membership-btn"
+                data-membership-id="standard_12mnd_binding"
+                data-membership-name="Standard – 12 mnd binding"
+              >
+                Velg medlemskap
+              </button>
+
               <div class="membership-benefits">
                 <ul>
                   <li>Fast månedspris i 12 måneder</li>
@@ -978,15 +979,15 @@ header {
               <div class="membership-meta">
                 Medlemskap for deg som har fritidsbolig. 12 måneders bindingstid.
               </div>
-              <div class="membership-button">
-  <button
-    class="choose-membership-btn"
-    data-membership-id="lalm_il_12mnd"
-    data-membership-name="Lalm IL-medlem – 12 mnd binding"
-  >
-    Velg medlemskap
-  </button>
-</div>
+
+              <button
+                class="membership-button choose-membership-btn"
+                data-membership-id="hytte_12mnd_binding"
+                data-membership-name="Hyttemedlemskap – 12 mnd binding"
+              >
+                Velg medlemskap
+              </button>
+
               <div class="membership-benefits">
                 <ul>
                   <li>Perfekt for ferie- og helgeturer</li>
@@ -1012,15 +1013,15 @@ header {
               <div class="membership-meta">
                 Ingen bindingstid. Løpende medlemskap med ordinær oppsigelsestid.
               </div>
-              <div class="membership-button">
-  <button
-    class="choose-membership-btn"
-    data-membership-id="lalm_il_12mnd"
-    data-membership-name="Lalm IL-medlem – 12 mnd binding"
-  >
-    Velg medlemskap
-  </button>
-</div>
+
+              <button
+                class="membership-button choose-membership-btn"
+                data-membership-id="lalm_il_uten_binding"
+                data-membership-name="Lalm IL-medlem – uten binding"
+              >
+                Velg medlemskap
+              </button>
+
               <div class="membership-benefits">
                 <ul>
                   <li>Full fleksibilitet uten binding</li>
@@ -1041,15 +1042,15 @@ header {
               <div class="membership-meta">
                 Ingen bindingstid. Løpende medlemskap med ordinær oppsigelsestid.
               </div>
-              <div class="membership-button">
-  <button
-    class="choose-membership-btn"
-    data-membership-id="lalm_il_12mnd"
-    data-membership-name="Lalm IL-medlem – 12 mnd binding"
-              
-              <div class="membership-button">
+
+              <button
+                class="membership-button choose-membership-btn"
+                data-membership-id="standard_uten_binding"
+                data-membership-name="Standard – uten binding"
+              >
                 Velg medlemskap
-              </div>
+              </button>
+
               <div class="membership-benefits">
                 <ul>
                   <li>Passer for deg som vil teste senteret over tid</li>
@@ -1089,73 +1090,69 @@ header {
           </div>
         </div>
       </div>
-     <section id="web-signup" class="signup-section" style="display:none;">
-  <div class="signup-card">
-    <h2 class="signup-title">Fortell oss litt om deg</h2>
-    <p class="signup-subtitle">
-      Fyll inn nødvendig informasjon for å gjennomføre innmeldingen.
-    </p>
 
-    <div id="web-signup-selected" class="signup-selected">
-      <!-- settes av JavaScript: "Du har valgt: X" -->
-    </div>
+      <!-- INNMELDINGS-SKJEMA (WEB) -->
+      <section id="web-signup" class="signup-section" style="display:none;">
+        <div class="signup-card">
+          <h2 class="signup-title">Fortell oss litt om deg</h2>
+          <p class="signup-subtitle">
+            Fyll inn nødvendig informasjon for å gjennomføre innmeldingen.
+          </p>
 
-    <form id="web-signup-form" class="signup-form">
-      <div class="signup-form-grid">
-        <div class="signup-field">
-          <label for="ws-firstName">Fornavn</label>
-          <input type="text" id="ws-firstName" required />
+          <div id="web-signup-selected" class="signup-selected">
+            <!-- settes av JavaScript: "Du har valgt: X" -->
+          </div>
+
+          <form id="web-signup-form" class="signup-form">
+            <div class="signup-form-grid">
+              <div class="signup-field">
+                <label for="ws-firstName">Fornavn</label>
+                <input type="text" id="ws-firstName" required />
+              </div>
+
+              <div class="signup-field">
+                <label for="ws-lastName">Etternavn</label>
+                <input type="text" id="ws-lastName" required />
+              </div>
+
+              <div class="signup-field">
+                <label for="ws-mobile">Mobilnummer</label>
+                <input type="tel" id="ws-mobile" placeholder="+47 9xx xx xxx" required />
+              </div>
+
+              <div class="signup-field">
+                <label for="ws-email">E-post</label>
+                <input type="email" id="ws-email" required />
+              </div>
+            </div>
+
+            <div class="signup-terms">
+              <label>
+                <input type="checkbox" id="ws-accept-terms" />
+                <span>
+                  Jeg godtar
+                  <a href="vilkar.html" target="_blank">vilkår for medlemskap</a>
+                  og
+                  <a href="personvern.html" target="_blank">personvernerklæringen</a>.
+                </span>
+              </label>
+            </div>
+
+            <input type="hidden" id="ws-membershipId" />
+
+            <!-- Samme stil som andre knapper -->
+            <button type="submit" class="membership-button signup-vipps-btn">
+              Betal med Vipps
+            </button>
+
+            <p class="signup-note">
+              Merk: Alle som trener på Lalm Treningssenter må ha gyldig medlemskap
+              eller drop-in. Adgang er personlig og kan ikke lånes ut.
+            </p>
+          </form>
         </div>
+      </section>
 
-        <div class="signup-field">
-          <label for="ws-lastName">Etternavn</label>
-          <input type="text" id="ws-lastName" required />
-        </div>
-
-        <div class="signup-field">
-          <label for="ws-mobile">Mobilnummer</label>
-          <input type="tel" id="ws-mobile" placeholder="+47 9xx xx xxx" required />
-        </div>
-
-        <div class="signup-field">
-          <label for="ws-email">E-post</label>
-          <input type="email" id="ws-email" required />
-        </div>
-      </div>
-
-      <div class="signup-terms">
-        <label>
-          <input type="checkbox" id="ws-accept-terms" />
-          <span>
-            Jeg godtar
-            <a href="#vilkar">vilkår for medlemskap</a>
-            og
-            <a href="#personvern">personvernerklæringen</a>.
-          </span>
-        </label>
-      </div>
-
-      <input type="hidden" id="ws-membershipId" />
-
-      <button type="submit" class="signup-vipps-btn">
-        Betal med Vipps
-      </button>
-
-      <p class="signup-note">
-        Merk: Alle som trener på Lalm Treningssenter må ha gyldig medlemskap
-        eller drop-in. Adgang er personlig og kan ikke lånes ut.
-      </p>
-    </form>
-  </div>
-</section>
-
-
-      <div class="membership-note" style="margin-top:1.4rem; font-size:0.85rem; color:#6b6b6b;">
-        <strong>Merk:</strong> Alle som trener på Lalm Treningssenter må ha gyldig
-        medlemskap eller drop-in. Adgang er personlig og skal ikke lånes ut til andre.
-      </div>
-    </section>
-  </main>
 
   <section class="cta-strip">
     <div class="cta-inner">
@@ -1287,6 +1284,7 @@ header {
 
 </body>
 </html>
+
 
 
 
