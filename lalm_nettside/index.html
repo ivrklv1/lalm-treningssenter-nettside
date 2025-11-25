@@ -1300,6 +1300,7 @@ header {
   </footer>
 
   <script>
+  <script>
     // Hamburger-meny
     function toggleMenu() {
       const menu = document.getElementById("mobileNav");
@@ -1342,115 +1343,94 @@ header {
       });
     })();
   </script>
+
   <script>
-  const SERVER_URL = 'https://lalm-treningssenter-server.onrender.com';
+    const SERVER_URL = 'https://lalm-treningssenter-server.onrender.com';
 
-  function normalizeMobile(mobile) {
-    let m = mobile.trim().replace(/\s+/g, '');
-    if (/^\d{8}$/.test(m)) m = '+47' + m;
-    if (m.startsWith('0047')) m = '+47' + m.slice(4);
-    if (!m.startsWith('+') && m.startsWith('47') && m.length === 10) m = '+' + m;
-    return m;
-  }
-
-  // Når man trykker på "Velg medlemskap"
-  document.querySelectorAll('.choose-membership-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const membershipId = btn.dataset.membershipId;
-      const membershipName = btn.dataset.membershipName;
-
-      document.getElementById('ws-membershipId').value = membershipId;
-      document.getElementById('web-signup-selected').textContent =
-        'Du har valgt: ' + membershipName;
-
-      const formSection = document.getElementById('web-signup');
-      formSection.style.display = 'block';
-      formSection.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  // Når man trykker på "Betal med Vipps"
-  document.getElementById('web-signup-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const firstName = document.getElementById('ws-firstName').value.trim();
-    const lastName = document.getElementById('ws-lastName').value.trim();
-    const email = document.getElementById('ws-email').value.trim();
-    const mobile = normalizeMobile(document.getElementById('ws-mobile').value);
-    const membershipId = document.getElementById('ws-membershipId').value;
-    const accept = document.getElementById('ws-accept-terms').checked;
-
-    if (!accept) {
-      alert('Du må godta vilkår og personvern.');
-      return;
+    function normalizeMobile(mobile) {
+      let m = mobile.trim().replace(/\s+/g, '');
+      if (/^\d{8}$/.test(m)) m = '+47' + m;
+      if (m.startsWith('0047')) m = '+47' + m.slice(4);
+      if (!m.startsWith('+') && m.startsWith('47') && m.length === 10) m = '+' + m;
+      return m;
     }
 
-    try {
-      const res = await fetch(SERVER_URL + '/vipps/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          source: 'web',
-          firstName,
-          lastName,
-          email,
-          mobile,
-          membershipId,
-        }),
+    const membershipCards = document.querySelectorAll(".membership-card");
+    const chooseButtons = document.querySelectorAll(".choose-membership-btn");
+
+    // Når man trykker på "Velg medlemskap"
+    chooseButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        // highlight riktig kort
+        membershipCards.forEach((card) => card.classList.remove("active"));
+        const selectedCard = e.target.closest(".membership-card");
+        if (selectedCard) selectedCard.classList.add("active");
+
+        const membershipId = btn.dataset.membershipId;
+        const membershipName = btn.dataset.membershipName;
+
+        // sett tekst og skjult felt i skjema
+        document.getElementById('ws-membershipId').value = membershipId;
+        document.getElementById('web-signup-selected').textContent =
+          'Du har valgt: ' + membershipName;
+
+        // vis skjema og scroll ned
+        const formSection = document.getElementById('web-signup');
+        formSection.style.display = 'block';
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
-
-      const data = await res.json();
-      const url = data.checkoutUrl || data.redirectUrl;
-
-      if (url) {
-        window.location.href = url; // Åpner Vipps på mobil
-      } else {
-        alert('Kunne ikke starte betaling.');
-      }
-    } catch (err) {
-      alert('Teknisk feil. Prøv igjen.');
-    }
-  });
-
-<script>
-  // Marker valgt medlemskap i kort
-  const membershipCards = document.querySelectorAll(".membership-card");
-  const chooseButtons = document.querySelectorAll(".choose-membership-btn");
-
-  chooseButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      // Fjern aktiv status fra alle kort
-      membershipCards.forEach((card) => card.classList.remove("active"));
-
-      // Finn kortet denne knappen ligger i
-      const selectedCard = e.target.closest(".membership-card");
-      if (selectedCard) selectedCard.classList.add("active");
-
-      // Vis innmeldingsskjema
-      document.getElementById("web-signup").style.display = "block";
-
-      // Scroll ned til skjema
-      document.getElementById("web-signup").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-
-      // Sett valgt medlemskap i skjema
-      const membershipName = btn.dataset.membershipName;
-      const membershipId = btn.dataset.membershipId;
-
-      document.getElementById("web-signup-selected").innerText =
-        "Du har valgt: " + membershipName;
-
-      document.getElementById("ws-membershipId").value = membershipId;
     });
-  });
-</script>
 
-</script>
+    // Når man trykker på "Betal med Vipps"
+    const signupForm = document.getElementById('web-signup-form');
+    if (signupForm) {
+      signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
+        const firstName = document.getElementById('ws-firstName').value.trim();
+        const lastName = document.getElementById('ws-lastName').value.trim();
+        const email = document.getElementById('ws-email').value.trim();
+        const mobile = normalizeMobile(document.getElementById('ws-mobile').value);
+        const membershipId = document.getElementById('ws-membershipId').value;
+        const accept = document.getElementById('ws-accept-terms').checked;
+
+        if (!accept) {
+          alert('Du må godta vilkår og personvern.');
+          return;
+        }
+
+        try {
+          const res = await fetch(SERVER_URL + '/vipps/checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              source: 'web',
+              firstName,
+              lastName,
+              email,
+              mobile,
+              membershipId,
+            }),
+          });
+
+          const data = await res.json();
+          const url = data.checkoutUrl || data.redirectUrl;
+
+          if (url) {
+            window.location.href = url;
+          } else {
+            alert('Kunne ikke starte betaling.');
+          }
+        } catch (err) {
+          console.error(err);
+          alert('Teknisk feil. Prøv igjen.');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
+
 
 
 
