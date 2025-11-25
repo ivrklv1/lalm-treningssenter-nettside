@@ -564,7 +564,7 @@ header {
   padding: 0.9rem 1.6rem;
 
   background: #FF7A00;
-  color: #fff;
+  color: #ffffff;
 
   font-weight: 700;
   font-size: 1rem;
@@ -574,13 +574,22 @@ header {
   border-radius: 999px;
   cursor: pointer;
 
-  line-height: 1;     /* viktig for å matche drop-in */
+  line-height: 1;
   text-decoration: none;
 }
 
 .membership-card:hover .membership-button {
-  background: #FF8F33; /* litt lysere ved hover – samme som drop-in */
+  background: #FF8F33; /* lett hover */
 }
+
+.choose-membership-btn {
+  /* fjerner default knapp-styling i enkelte browsere */
+  font: inherit;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
 
 
 
@@ -1284,6 +1293,7 @@ header {
 
 </body>
 </html>
+
 
 
 
