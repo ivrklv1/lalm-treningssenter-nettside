@@ -554,24 +554,24 @@ header {
       color: var(--text-muted);
     }
 
-    .membership-button {
-      align-self: center;
-      text-align: center;
-      margin-top: 0.4rem;
-      background: #ffe9d6;
-      border: 2px solid #ff7a00;
-      padding: 0.7rem 1.3rem;
-      border-radius: 40px;
-      font-weight: 600;
-      cursor: default;
-      color: #111;
-    }
+.membership-button {
+  align-self: stretch;              /* full bredde i kortet */
+  text-align: center;
+  margin-top: 0.8rem;
+  background: #ff7a00;             /* oransje, som drop-in */
+  border: none;
+  padding: 0.75rem 1.3rem;
+  border-radius: 999px;            /* pilleform */
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #ffffff;                  /* hvit tekst */
+}
 
-    .membership-card:hover .membership-button {
-      background: #ff7a00;
-      color: #ffffff;
-      border-color: #ff7a00;
-    }
+.membership-card:hover .membership-button {
+  filter: brightness(1.05);        /* lett hover-effekt */
+}
+
 
     .membership-benefits {
       margin-top: auto;
@@ -1276,6 +1276,7 @@ header {
 
 </body>
 </html>
+
 
 
 
