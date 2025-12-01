@@ -1070,100 +1070,30 @@ footer {
         </button>
       </div>
 
-            <!-- PANELER -->
-      <div class="tab-panels">
-        <!-- MED BINDING -->
-        <div class="tab-panel active" id="tab-binding">
-          <div class="membership-grid">
-            <article class="membership-card">
-              <h3>Lalm IL-medlem</h3>
-              <div class="membership-tagline">
-                For deg som er medlem i Lalm Idrettslag. 12 måneders bindingstid.
-              </div>
-              <div class="membership-price">
-                349,- <span>/måned</span>
-              </div>
-              <div class="membership-meta">
-                12 måneders bindingstid. Deretter løpende medlemskap med ordinær oppsigelsestid.
-              </div>
+<!-- PANELER -->
+<div class="tab-panels">
+  <!-- MED BINDING -->
+  <div class="tab-panel active" id="tab-binding">
+    <div class="membership-grid" id="binding-plans">
+      <!-- Fylles fra /api/plans -->
+    </div>
+  </div>
 
-              <!-- ÉN knapp, samme stil som drop-in -->
-              <button
-                class="membership-button choose-membership-btn"
-                data-membership-id="lalm_il_12mnd_binding"
-                data-membership-name="Lalm IL-medlem – 12 mnd binding"
-              >
-                Velg medlemskap
-              </button>
+  <!-- UTEN BINDING -->
+  <div class="tab-panel" id="tab-utenbinding">
+    <div class="membership-grid" id="utenbinding-plans">
+      <!-- Fylles fra /api/plans -->
+    </div>
+  </div>
 
-              <div class="membership-benefits">
-                <ul>
-                  <li>Rabattert pris for medlemmer i Lalm IL</li>
-                  <li>Full tilgang i åpningstiden 05:00–23:00</li>
-                  <li>Støtter lokalt idrettsarbeid på Lalm</li>
-                </ul>
-              </div>
-            </article>
+  <!-- DROP-IN -->
+  <div class="tab-panel" id="tab-dropin">
+    <div class="membership-grid" id="dropin-plans">
+      <!-- Fylles fra /api/plans -->
+    </div>
+  </div>
+</div>
 
-            <article class="membership-card">
-              <h3>Standard</h3>
-              <div class="membership-tagline">
-                For deg som ikke er medlem i Lalm IL. 12 måneders bindingstid.
-              </div>
-              <div class="membership-price">
-                449,- <span>/måned</span>
-              </div>
-              <div class="membership-meta">
-                12 måneders bindingstid. Samme tilgang og vilkår som øvrige medlemskap.
-              </div>
-
-              <button
-                class="membership-button choose-membership-btn"
-                data-membership-id="standard_12mnd_binding"
-                data-membership-name="Standard – 12 mnd binding"
-              >
-                Velg medlemskap
-              </button>
-
-              <div class="membership-benefits">
-                <ul>
-                  <li>Fast månedspris i 12 måneder</li>
-                  <li>Tilgang til treningssenteret hele året</li>
-                  <li>Et enkelt og forutsigbart medlemskap</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="membership-card">
-              <h3>Hyttemedlemskap</h3>
-              <div class="membership-tagline">
-                For deg med hytte på Lalm eller i området. 12 måneders bindingstid.
-              </div>
-              <div class="membership-price">
-                169,- <span>/måned</span>
-              </div>
-              <div class="membership-meta">
-                Medlemskap for deg som har fritidsbolig. 12 måneders bindingstid.
-              </div>
-
-              <button
-                class="membership-button choose-membership-btn"
-                data-membership-id="hytte_12mnd_binding"
-                data-membership-name="Hyttemedlemskap – 12 mnd binding"
-              >
-                Velg medlemskap
-              </button>
-
-              <div class="membership-benefits">
-                <ul>
-                  <li>Perfekt for ferie- og helgeturer</li>
-                  <li>Tilgang i hele åpningstiden</li>
-                  <li>Støtter lokalmiljøet selv om du ikke bor fast på Lalm</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
 
         <!-- UTEN BINDING -->
         <div class="tab-panel" id="tab-utenbinding">
@@ -1483,6 +1413,106 @@ footer {
       }
     });
   </script>
+      
+<script>
+  async function loadPlansForWeb() {
+    try {
+      const res = await fetch('https://lalm-treningssenter-server.onrender.com/api/plans');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const plans = await res.json();
+
+      // bare de som skal vises på web og er aktive
+      const visible = plans.filter(p => p.showOnWeb !== false && p.active !== false);
+
+      const withBinding   = visible.filter(p => (p.bindingMonths || 0) > 0 && p.type === 'standard');
+      const withoutBinding = visible.filter(p => (p.bindingMonths || 0) === 0 && p.type === 'standard');
+      const dropin        = visible.filter(p => p.type === 'dropin');
+      // evt. korttids seinere: const shortTerm = visible.filter(p => p.type === 'short_term');
+
+      function formatKr(øre) {
+        if (typeof øre !== 'number') return '';
+        return (øre / 100).toLocaleString('nb-NO', {
+          style: 'currency',
+          currency: 'NOK',
+          minimumFractionDigits: 0
+        }).replace(',00', '');
+      }
+
+      function renderGroup(list, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+
+        if (!list.length) {
+          container.innerHTML = '<p class="empty-text">Ingen medlemskap i denne kategorien.</p>';
+          return;
+        }
+
+        list.forEach(p => {
+          const card = document.createElement('article');
+          card.className = 'membership-card';
+
+          const priceText = p.type === 'dropin'
+            ? `${formatKr(p.amount)} <span>per gang</span>`
+            : `${formatKr(p.amount)} <span>/måned</span>`;
+
+          const signupFeeHtml = p.signupFee
+            ? `<div class="membership-meta">Innmeldingsavgift: ${formatKr(p.signupFee)}</div>`
+            : '';
+
+          const metaText = p.description || (p.bindingMonths
+            ? `${p.bindingMonths} måneders bindingstid.`
+            : 'Ingen bindingstid.');
+
+          // NB: vi bruker p.id som membership-id – sørg for at id i admin/plans = det serveren forventer
+          card.innerHTML = `
+            <h3>${p.name}</h3>
+            <div class="membership-tagline">
+              ${p.tagline || ''}
+            </div>
+            <div class="membership-price">
+              ${priceText}
+            </div>
+            ${signupFeeHtml}
+            <div class="membership-meta">
+              ${metaText}
+            </div>
+
+            ${
+              p.type === 'dropin'
+                ? `<div class="membership-button">
+                     Drop-in kjøpes i appen
+                   </div>`
+                : `<button
+                     class="membership-button choose-membership-btn"
+                     data-membership-id="${p.id}"
+                     data-membership-name="${p.name}"
+                   >
+                     Velg medlemskap
+                   </button>`
+            }
+
+            <div class="membership-benefits">
+              <ul>
+                ${(p.bullets || []).map(b => `<li>${b}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+
+          container.appendChild(card);
+        });
+      }
+
+      renderGroup(withBinding,     'binding-plans');
+      renderGroup(withoutBinding,  'utenbinding-plans');
+      renderGroup(dropin,          'dropin-plans');
+    } catch (err) {
+      console.error('Feil ved henting av planer til nettsiden:', err);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadPlansForWeb);
+</script>
 </body>
 </html>
 
