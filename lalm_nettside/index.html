@@ -1276,65 +1276,11 @@
         }
       });
 
-      // -----------------------------
-      // Skjema → Vipps checkout
-      // -----------------------------
-      const signupForm = document.getElementById('web-signup-form');
-      if (signupForm) {
-        signupForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-
-          const firstName = document.getElementById('ws-firstName').value.trim();
-          const lastName = document.getElementById('ws-lastName').value.trim();
-          const email = document.getElementById('ws-email').value.trim();
-          const mobile = normalizeMobile(document.getElementById('ws-mobile').value);
-          const planId = document.getElementById('ws-membershipId').value;
-          const accept = document.getElementById('ws-accept-terms').checked;
-
-          if (!accept) {
-            alert('Du må godta vilkår og personvern.');
-            return;
-          }
-
-          if (!planId) {
-            alert('Velg et medlemskap først.');
-            return;
-          }
-
-          try {
-            const res = await fetch(SERVER_URL + '/vipps/checkout', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                source: 'web',
-                planId,             // hva serveren typisk forventer
-                membershipId: planId, // ekstra felt for kompatibilitet
-                firstName,
-                lastName,
-                email,
-                phone: mobile       // bruk "phone" som felt
-              }),
-            });
-
-            const data = await res.json();
-            const url = data.redirectUrl || data.checkoutUrl;
-
-            if (url) {
-              window.location.href = url;
-            } else {
-              alert('Kunne ikke starte betaling.');
-            }
-          } catch (err) {
-            console.error(err);
-            alert('Teknisk feil. Prøv igjen.');
-          }
-        });
-      }
-    });
   </script>
 
   <script src="lalm_nettside.js"></script>
   <script src="vipps_web.js"></script>
 </body>
 </html>
+
 
