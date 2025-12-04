@@ -2,9 +2,9 @@
 <html lang="nb">
 <head>
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
-<link rel="apple-touch-icon" href="images/favicon.png">
-<link rel="shortcut icon" href="images/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <link rel="shortcut icon" href="images/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,46 +38,46 @@
       box-sizing: border-box;
     }
 
-body {
-  background: var(--bg);
-  color: #111111;
-  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  line-height: 1.6;
+    body {
+      background: var(--bg);
+      color: #111111;
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
 
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.2rem 3rem;
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.2rem 3rem;
 
-  flex: 1; /* <-- dette gjør at footer dyttes ned */
-}
+      flex: 1; /* <-- dette gjør at footer dyttes ned */
+    }
 
     /* --- HEADER – SATS-inspirert toppmeny --- */
 
-header {
-  background: #091C30;
-  height: 64px;      /* fast høyde – juster om du vil */
-  padding: 0;        /* fjern top/bottom padding */
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
+    header {
+      background: #091C30;
+      height: 64px;      /* fast høyde – juster om du vil */
+      padding: 0;        /* fjern top/bottom padding */
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
-.topnav {
-  max-width: 1200px;
-  margin: 0 auto;            /* SENTRER HEADEREN */
-  padding: 0 1.4rem;
-  display: flex;
-  align-items: center;       /* SENTRER VERTIKALT */
-  justify-content: space-between;
-  height: 100%;              /* FYLLER HEADERENS HØYDE */
-}
+    .topnav {
+      max-width: 1200px;
+      margin: 0 auto;            /* SENTRER HEADEREN */
+      padding: 0 1.4rem;
+      display: flex;
+      align-items: center;       /* SENTRER VERTIKALT */
+      justify-content: space-between;
+      height: 100%;              /* FYLLER HEADERENS HØYDE */
+    }
 
     .topnav-left {
       display: flex;
@@ -86,11 +86,11 @@ header {
     }
 
     .topnav-logo {
-  height: 150px;        /* eller høyden du bruker */
-  width: auto;
-  object-fit: contain;
-  margin-top: 8px;     /* justér denne for å flytte logoen ned */
-}
+      height: 150px;        /* eller høyden du bruker */
+      width: auto;
+      object-fit: contain;
+      margin-top: 8px;     /* justér denne for å flytte logoen ned */
+    }
     .topnav-links {
       display: flex;
       align-items: center;
@@ -437,68 +437,68 @@ header {
 
     /* FANER */
 
-/* Ny moderne tab-stil */
-/* Sammenhengende fanecontainer */
-.membership-tabs {
-  display: inline-flex;
-  background: #f3f4f6;
-  border: 1px solid #d8d8dd;
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 1.8rem;
-}
+    /* Ny moderne tab-stil */
+    /* Sammenhengende fanecontainer */
+    .membership-tabs {
+      display: inline-flex;
+      background: #f3f4f6;
+      border: 1px solid #d8d8dd;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1.8rem;
+    }
 
-/* Hver fane */
-.tab-button {
-  flex: 1;
-  padding: 0.75rem 1.6rem;
+    /* Hver fane */
+    .tab-button {
+      flex: 1;
+      padding: 0.75rem 1.6rem;
 
-  background: transparent;
-  border: none;
+      background: transparent;
+      border: none;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-  cursor: pointer;
-  transition: 0.18s ease;
+      cursor: pointer;
+      transition: 0.18s ease;
 
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: #333;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #333;
 
-  white-space: nowrap;
-}
+      white-space: nowrap;
+    }
 
-/* Andre linje */
-.tab-button span {
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: #666;
-  margin-top: 2px;
-}
+    /* Andre linje */
+    .tab-button span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #666;
+      margin-top: 2px;
+    }
 
-/* Aktiv fane */
-.tab-button.active {
-  background: #ff7a00;
-  color: #fff;
-}
+    /* Aktiv fane */
+    .tab-button.active {
+      background: #ff7a00;
+      color: #fff;
+    }
 
-/* Aktiv fane også for undertekst */
-.tab-button.active span {
-  color: #fff;
-}
+    /* Aktiv fane også for undertekst */
+    .tab-button.active span {
+      color: #fff;
+    }
 
-/* Skillelinjer mellom fanene */
-.tab-button:not(:first-child) {
-  border-left: 1px solid #d8d8dd;
-}
+    /* Skillelinjer mellom fanene */
+    .tab-button:not(:first-child) {
+      border-left: 1px solid #d8d8dd;
+    }
 
-/* Hover-effekt */
-.tab-button:hover {
-  background: #ffffffaa;
-}
+    /* Hover-effekt */
+    .tab-button:hover {
+      background: #ffffffaa;
+    }
 
     .tab-panels {
       margin-top: 0.4rem;
@@ -514,7 +514,6 @@ header {
     .tab-panel.active {
       display: block;
     }
-
 
     .membership-grid {
       display: flex;
@@ -586,166 +585,160 @@ header {
       color: var(--text-muted);
     }
 
-.membership-button {
-  align-self: stretch;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+    .membership-button {
+      align-self: stretch;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
 
-  margin-top: 0.8rem;
-  padding: 0.9rem 1.6rem;
+      margin-top: 0.8rem;
+      padding: 0.9rem 1.6rem;
 
-  background: #FF7A00;
-  color: #ffffff;
+      background: #FF7A00;
+      color: #ffffff;
 
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.3px;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
 
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
 
-  line-height: 1;
-  text-decoration: none;
-}
+      line-height: 1;
+      text-decoration: none;
+    }
 
-.membership-card:hover .membership-button {
-  background: #FF8F33; /* lett hover */
-}
+    .membership-card:hover .membership-button {
+      background: #FF8F33; /* lett hover */
+    }
 
-.membership-card.active {
-  border-color: #ff7a00 !important;
-  box-shadow: 0 0 0 2px rgba(255,122,0,0.35),
-              0 8px 22px rgba(0,0,0,0.10) !important;
-  transform: translateY(-4px);
-  background: #fff9f3;
-}
+    .membership-card.active {
+      border-color: #ff7a00 !important;
+      box-shadow: 0 0 0 2px rgba(255,122,0,0.35),
+                  0 8px 22px rgba(0,0,0,0.10) !important;
+      transform: translateY(-4px);
+      background: #fff9f3;
+    }
 
+    .choose-membership-btn {
+      /* fjerner default knapp-styling i enkelte browsere */
+      font: inherit;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
 
-.choose-membership-btn {
-  /* fjerner default knapp-styling i enkelte browsere */
-  font: inherit;
-  background: transparent;
-  border: none;
-  padding: 0;
-}
+    .signup-section {
+      max-width: 1100px;
+      margin: 1.5rem auto 2.5rem;
+      padding: 0 1.2rem;
+    }
 
-.signup-section {
-  max-width: 1100px;
-  margin: 1.5rem auto 2.5rem;
-  padding: 0 1.2rem;
-}
+    .signup-card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid #e6e0d9;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      padding: 1.8rem 1.6rem;
+      max-width: 560px;   /* venstrejustert innenfor main */
+      margin: 0 auto;   /* midtstill */
+    }
 
-.signup-card {
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #e6e0d9;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-  padding: 1.8rem 1.6rem;
-  max-width: 560px;   /* venstrejustert innenfor main */
-  margin: 0 auto;   /* midtstill */
-}
+    .signup-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
 
-.signup-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.2rem;
-}
+    .signup-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
 
-.signup-subtitle {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-}
+    .signup-selected {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding: 0.75rem 0.9rem;
+      background: #faf4eb;
+      border-radius: 12px;
+    }
 
-.signup-selected {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  padding: 0.75rem 0.9rem;
-  background: #faf4eb;
-  border-radius: 12px;
-}
+    .signup-form {
+      margin-top: 0.2rem;
+    }
 
-.signup-form {
-  margin-top: 0.2rem;
-}
+    .signup-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem 1.2rem;
+    }
 
-.signup-form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem 1.2rem;
-}
+    .signup-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
 
-.signup-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
+    .signup-field label {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
 
-.signup-field label {
-  font-size: 0.85rem;
-  font-weight: 500;
-}
+    .signup-field input {
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 0.9rem;
+    }
 
-.signup-field input {
-  padding: 0.65rem 0.75rem;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-size: 0.9rem;
-}
+    .signup-field input:focus {
+      outline: none;
+      border-color: #ff7a00;
+      box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.35);
+    }
 
-.signup-field input:focus {
-  outline: none;
-  border-color: #ff7a00;
-  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.35);
-}
+    .signup-terms {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
 
-.signup-terms {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
+    .signup-terms label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
 
-.signup-terms label {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
+    .signup-terms input[type="checkbox"] {
+      margin-top: 0.15rem;
+    }
 
-.signup-terms input[type="checkbox"] {
-  margin-top: 0.15rem;
-}
+    .signup-terms a {
+      text-decoration: underline;
+    }
 
-.signup-terms a {
-  text-decoration: underline;
-}
+    .signup-vipps-btn {
+      margin-top: 1.4rem;
+    }
 
-.signup-vipps-btn {
-  margin-top: 1.4rem;
-}
+    .signup-note {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
 
-.signup-note {
-  margin-top: 0.8rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
+    /* Responsiv skjema-layout */
+    @media (max-width: 700px) {
+      .signup-form-grid {
+        grid-template-columns: 1fr;
+      }
 
-
-
-
-/* Responsiv skjema-layout */
-@media (max-width: 700px) {
-  .signup-form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .signup-card {
-    padding: 1.5rem 1.2rem;
-  }
-}
-
-
+      .signup-card {
+        padding: 1.5rem 1.2rem;
+      }
+    }
 
     .membership-benefits {
       margin-top: auto;
@@ -802,17 +795,16 @@ header {
       margin-top: 0.2rem;
     }
 
-footer {
-  padding: 1.5rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: #091C30;
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: #091C30;
 
-  margin-top: auto;  /* dytter footer ned til bunnen */
-}
-
+      margin-top: auto;  /* dytter footer ned til bunnen */
+    }
 
     /* RESPONSIVE */
 
@@ -1054,53 +1046,53 @@ footer {
         </p>
       </div>
 
-<!-- FANER -->
-<div class="membership-tabs">
-  <button class="tab-button active" data-tab="binding">
-    Med binding
-    <span>Rabattert pris</span>
-  </button>
+      <!-- FANER -->
+      <div class="membership-tabs">
+        <button class="tab-button active" data-tab="binding">
+          Med binding
+          <span>Rabattert pris</span>
+        </button>
 
-  <button class="tab-button" data-tab="utenbinding">
-    Uten binding
-    <span>Full frihet</span>
-  </button>
+        <button class="tab-button" data-tab="utenbinding">
+          Uten binding
+          <span>Full frihet</span>
+        </button>
 
-  <button class="tab-button" data-tab="korttids">
-    Korttids
-    <span>For kortere perioder</span>
-  </button>
+        <button class="tab-button" data-tab="korttids">
+          Korttids
+          <span>For kortere perioder</span>
+        </button>
 
-  <button class="tab-button" data-tab="dropin">
-    Drop-in
-    <span>Tren én gang</span>
-  </button>
-</div>
+        <button class="tab-button" data-tab="dropin">
+          Drop-in
+          <span>Tren én gang</span>
+        </button>
+      </div>
 
-<!-- PANELER -->
-<div class="tab-panels">
+      <!-- PANELER -->
+      <div class="tab-panels">
 
-  <!-- MED BINDING -->
-  <div class="tab-panel active" id="tab-binding">
-    <div class="membership-grid" id="binding-plans"></div>
-  </div>
+        <!-- MED BINDING -->
+        <div class="tab-panel active" id="tab-binding">
+          <div class="membership-grid" id="binding-plans"></div>
+        </div>
 
-  <!-- UTEN BINDING -->
-  <div class="tab-panel" id="tab-utenbinding">
-    <div class="membership-grid" id="utenbinding-plans"></div>
-  </div>
+        <!-- UTEN BINDING -->
+        <div class="tab-panel" id="tab-utenbinding">
+          <div class="membership-grid" id="utenbinding-plans"></div>
+        </div>
 
-  <!-- KORTTIDS -->
-  <div class="tab-panel" id="tab-korttids">
-    <div class="membership-grid" id="korttids-plans"></div>
-  </div>
+        <!-- KORTTIDS -->
+        <div class="tab-panel" id="tab-korttids">
+          <div class="membership-grid" id="korttids-plans"></div>
+        </div>
 
-  <!-- DROP-IN -->
-  <div class="tab-panel" id="tab-dropin">
-    <div class="membership-grid" id="dropin-plans"></div>
-  </div>
+        <!-- DROP-IN -->
+        <div class="tab-panel" id="tab-dropin">
+          <div class="membership-grid" id="dropin-plans"></div>
+        </div>
 
-</div>
+      </div>
 
       <!-- INNMELDINGS-SKJEMA (WEB) -->
       <section id="web-signup" class="signup-section" style="display:none;">
@@ -1163,23 +1155,24 @@ footer {
           </form>
         </div>
       </section>
+    </section>
 
-
-  <section class="cta-strip">
-    <div class="cta-inner">
-      <div class="cta-text">
-        <strong>Bli medlem i appen</strong>
-        <span>Velg medlemskap, betal og få tilgang med QR-kode på få minutter.</span>
+    <section class="cta-strip">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <strong>Bli medlem i appen</strong>
+          <span>Velg medlemskap, betal og få tilgang med QR-kode på få minutter.</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     © <script>document.write(new Date().getFullYear())</script>
     Lalm Treningssenter – en del av Lalm Idrettslag, org.nr 975 439 453
   </footer>
 
-   <script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       const SERVER_URL = 'https://lalm-treningssenter-server.onrender.com';
 
@@ -1200,6 +1193,7 @@ footer {
       const tabPanels = {
         binding: document.getElementById("tab-binding"),
         utenbinding: document.getElementById("tab-utenbinding"),
+        korttids: document.getElementById("tab-korttids"),
         dropin: document.getElementById("tab-dropin"),
       };
 
@@ -1237,7 +1231,7 @@ footer {
       })();
 
       // -----------------------------
-      // Innmelding via web (Vipps)
+      // Hjelpefunksjon – normaliser mobil
       // -----------------------------
       function normalizeMobile(mobile) {
         let m = mobile.trim().replace(/\s+/g, '');
@@ -1247,13 +1241,15 @@ footer {
         return m;
       }
 
-      // Når man trykker "Velg medlemskap" (fungerer også for dynamiske kort)
+      // -----------------------------
+      // Velg medlemskap → vis skjema
+      // -----------------------------
       document.addEventListener("click", (e) => {
         const btn = e.target.closest(".choose-membership-btn");
         if (!btn) return; // klikket var ikke på en medlemskap-knapp
 
-        const membershipId = btn.dataset.membershipId;
-        const membershipName = btn.dataset.membershipName;
+        const planId = btn.dataset.membershipId;   // id fra kortet
+        const planName = btn.dataset.membershipName;
 
         // highlight riktig kort
         document.querySelectorAll(".membership-card").forEach((card) =>
@@ -1266,10 +1262,10 @@ footer {
         const selectedEl = document.getElementById('web-signup-selected');
         const membershipIdInput = document.getElementById('ws-membershipId');
         if (selectedEl) {
-          selectedEl.textContent = 'Du har valgt: ' + (membershipName || '');
+          selectedEl.textContent = 'Du har valgt: ' + (planName || '');
         }
         if (membershipIdInput) {
-          membershipIdInput.value = membershipId || '';
+          membershipIdInput.value = planId || '';
         }
 
         // vis skjema og scroll ned
@@ -1280,7 +1276,9 @@ footer {
         }
       });
 
-      // når man sender inn skjemaet ("Betal med Vipps")
+      // -----------------------------
+      // Skjema → Vipps checkout
+      // -----------------------------
       const signupForm = document.getElementById('web-signup-form');
       if (signupForm) {
         signupForm.addEventListener('submit', async (e) => {
@@ -1290,11 +1288,16 @@ footer {
           const lastName = document.getElementById('ws-lastName').value.trim();
           const email = document.getElementById('ws-email').value.trim();
           const mobile = normalizeMobile(document.getElementById('ws-mobile').value);
-          const membershipId = document.getElementById('ws-membershipId').value;
+          const planId = document.getElementById('ws-membershipId').value;
           const accept = document.getElementById('ws-accept-terms').checked;
 
           if (!accept) {
             alert('Du må godta vilkår og personvern.');
+            return;
+          }
+
+          if (!planId) {
+            alert('Velg et medlemskap først.');
             return;
           }
 
@@ -1304,63 +1307,17 @@ footer {
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 source: 'web',
+                planId,             // hva serveren typisk forventer
+                membershipId: planId, // ekstra felt for kompatibilitet
                 firstName,
                 lastName,
                 email,
-                mobile,
-                membershipId,
+                phone: mobile       // bruk "phone" som felt
               }),
             });
 
             const data = await res.json();
-            const url = data.checkoutUrl || data.redirectUrl;
-
-            if (url) {
-              window.location.href = url;
-            } else {
-              alert('Kunne ikke starte betaling.');
-            }
-          } catch (err) {
-            console.error(err);
-            alert('Teknisk feil. Prøv igjen.');
-          }
-        });
-      }
-
-      // når man sender inn skjemaet ("Betal med Vipps")
-      const signupForm = document.getElementById('web-signup-form');
-      if (signupForm) {
-        signupForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-
-          const firstName = document.getElementById('ws-firstName').value.trim();
-          const lastName = document.getElementById('ws-lastName').value.trim();
-          const email = document.getElementById('ws-email').value.trim();
-          const mobile = normalizeMobile(document.getElementById('ws-mobile').value);
-          const membershipId = document.getElementById('ws-membershipId').value;
-          const accept = document.getElementById('ws-accept-terms').checked;
-
-          if (!accept) {
-            alert('Du må godta vilkår og personvern.');
-            return;
-          }
-
-          try {
-            const res = await fetch(SERVER_URL + '/vipps/checkout', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                source: 'web',
-                firstName,
-                lastName,
-                email,
-                mobile,
-                membershipId,
-              }),
-            });
-
-            const data = await res.json();
-            const url = data.checkoutUrl || data.redirectUrl;
+            const url = data.redirectUrl || data.checkoutUrl;
 
             if (url) {
               window.location.href = url;
@@ -1375,8 +1332,8 @@ footer {
       }
     });
   </script>
-      <script src="lalm_nettside.js"></script>
+
+  <script src="lalm_nettside.js"></script>
   <script src="vipps_web.js"></script>
 </body>
 </html>
-  
