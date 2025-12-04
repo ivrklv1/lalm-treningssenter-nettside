@@ -20,6 +20,8 @@
       const membershipId = btn.dataset.membershipId;
       const membershipName = btn.dataset.membershipName;
 
+      console.log('Velger medlemskap fra nettside:', membershipId, membershipName);
+
       // highlight riktig kort
       document.querySelectorAll('.membership-card').forEach((card) => {
         card.classList.remove('active');
@@ -68,23 +70,22 @@
       return;
     }
 
-    // velg URL: egen server eller samme origin
     const base = window.SERVER_URL || '';
     const endpoint = base ? base + '/vipps/checkout' : '/vipps/checkout';
 
     const payload = {
-  source: 'web',
-  channel: 'web',
-  platform: 'web',
-  firstName,
-  lastName,
-  email,
-  phone: mobile,          // 👈 viktig! serveren forventer "phone"
-  mobile,                 // kan stå, men brukes trolig ikke
-  membershipId,
-  membershipKey: membershipId,
-  planId: membershipId
-};
+      source: 'web',
+      channel: 'web',
+      platform: 'web',
+      firstName,
+      lastName,
+      email,
+      phone: mobile,   // serveren krever "phone"
+      mobile,
+      membershipId,
+      membershipKey: membershipId,
+      planId: membershipId
+    };
 
     try {
       console.log('Sender Vipps checkout request:', endpoint, payload);
@@ -103,25 +104,28 @@
       }
 
       const data = await res.json();
-console.log('Vipps checkout respons:', data);
+      console.log('Vipps checkout respons:', data);
 
-// prøv flere mulige feltnavn
-const url =
-  data.checkoutUrl ||
-  data.redirectUrl ||
-  data.url ||           // 👈 DENNE MÅ VÆRE MED
-  data.vippsUrl;
+      const url =
+        data.checkoutUrl ||
+        data.redirectUrl ||
+        data.url ||
+        data.vippsUrl;
 
-if (url) {
-  window.location.href = url;
-} else {
-  const errMsg =
-    data.error ||
-    data.message ||
-    ('ukjent respons: ' + JSON.stringify(data));
-  console.error('Vipps checkout uten URL:', data);
-  alert('Kunne ikke starte betaling. (' + errMsg + ')');
-}
+      if (url) {
+        window.location.href = url;
+      } else {
+        const errMsg =
+          data.error ||
+          data.message ||
+          ('ukjent respons: ' + JSON.stringify(data));
+        console.error('Vipps checkout uten URL:', data);
+        alert('Kunne ikke starte betaling. (' + errMsg + ')');
+      }
+    } catch (err) {
+      console.error('Vipps checkout teknisk feil:', err);
+      alert('Teknisk feil. Prøv igjen.');
+    }
   }
 
   function setupVippsForm() {
@@ -131,6 +135,7 @@ if (url) {
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    console.log('vipps_web.js: DOMContentLoaded – init');
     setupChooseMembership();
     setupVippsForm();
   });
