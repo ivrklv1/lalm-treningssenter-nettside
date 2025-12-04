@@ -103,21 +103,25 @@
       }
 
       const data = await res.json();
-      console.log('Vipps checkout respons:', data);
+console.log('Vipps checkout respons:', data);
 
-      const url = data.checkoutUrl || data.redirectUrl;
+// prøv flere mulige feltnavn
+const url =
+  data.checkoutUrl ||
+  data.redirectUrl ||
+  data.url ||           // 👈 DENNE MÅ VÆRE MED
+  data.vippsUrl;
 
-      if (url) {
-        window.location.href = url;
-      } else {
-        const errMsg = data.error || 'Ingen redirect-url fra server.';
-        console.error('Vipps checkout uten URL:', data);
-        alert('Kunne ikke starte betaling. (' + errMsg + ')');
-      }
-    } catch (err) {
-      console.error('Vipps checkout teknisk feil:', err);
-      alert('Teknisk feil. Prøv igjen.');
-    }
+if (url) {
+  window.location.href = url;
+} else {
+  const errMsg =
+    data.error ||
+    data.message ||
+    ('ukjent respons: ' + JSON.stringify(data));
+  console.error('Vipps checkout uten URL:', data);
+  alert('Kunne ikke starte betaling. (' + errMsg + ')');
+}
   }
 
   function setupVippsForm() {
