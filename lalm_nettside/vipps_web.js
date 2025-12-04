@@ -73,17 +73,18 @@
     const endpoint = base ? base + '/vipps/checkout' : '/vipps/checkout';
 
     const payload = {
-      source: 'web',
-      channel: 'web',
-      platform: 'web',
-      firstName,
-      lastName,
-      email,
-      mobile,
-      membershipId,
-      membershipKey: membershipId, // trygg: mange backends bruker dette
-      planId: membershipId         // trygg: om server forventer planId
-    };
+  source: 'web',
+  channel: 'web',
+  platform: 'web',
+  firstName,
+  lastName,
+  email,
+  phone: mobile,          // 👈 viktig! serveren forventer "phone"
+  mobile,                 // kan stå, men brukes trolig ikke
+  membershipId,
+  membershipKey: membershipId,
+  planId: membershipId
+};
 
     try {
       console.log('Sender Vipps checkout request:', endpoint, payload);
