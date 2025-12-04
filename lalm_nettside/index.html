@@ -1167,7 +1167,7 @@
     </section>
   </main>
 
-  <footer>
+    <footer>
     © <script>document.write(new Date().getFullYear())</script>
     Lalm Treningssenter – en del av Lalm Idrettslag, org.nr 975 439 453
   </footer>
@@ -1213,61 +1213,26 @@
       });
 
       // -----------------------------
-      // Hjelpefunksjon – normaliser mobil
+      // Marker aktiv side i toppmeny
       // -----------------------------
-      function normalizeMobile(mobile) {
-        let m = mobile.trim().replace(/\s+/g, '');
-        if (/^\d{8}$/.test(m)) m = '+47' + m;
-        if (m.startsWith('0047')) m = '+47' + m.slice(4);
-        if (!m.startsWith('+') && m.startsWith('47') && m.length === 10) m = '+' + m;
-        return m;
-      }
+      (function () {
+        const currentPage = window.location.pathname.split('/').pop();
+        const links = document.querySelectorAll('.topnav-links a');
 
-      // -----------------------------
-      // Velg medlemskap → vis skjema
-      // -----------------------------
-      document.addEventListener("click", (e) => {
-        const btn = e.target.closest(".choose-membership-btn");
-        if (!btn) return; // klikket var ikke på en medlemskap-knapp
+        links.forEach((link) => {
+          const href = link.getAttribute('href');
+          if (!href) return;
 
-        const planId = btn.dataset.membershipId;   // id fra kortet
-        const planName = btn.dataset.membershipName;
-
-        // highlight riktig kort
-        document.querySelectorAll(".membership-card").forEach((card) =>
-          card.classList.remove("active")
-        );
-        const selectedCard = btn.closest(".membership-card");
-        if (selectedCard) selectedCard.classList.add("active");
-
-        // sett tekst og skjult felt i skjema
-        const selectedEl = document.getElementById('web-signup-selected');
-        const membershipIdInput = document.getElementById('ws-membershipId');
-        if (selectedEl) {
-          selectedEl.textContent = 'Du har valgt: ' + (planName || '');
-        }
-        if (membershipIdInput) {
-          membershipIdInput.value = planId || '';
-        }
-
-        // vis skjema og scroll ned
-        const formSection = document.getElementById('web-signup');
-        if (formSection) {
-          formSection.style.display = 'block';
-          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
           }
         });
       })();
     });
-
   </script>
 
+  <!-- Eksterne script -->
   <script src="lalm_nettside.js"></script>
   <script src="vipps_web.js"></script>
 </body>
 </html>
-
-
-
-
-
