@@ -1174,61 +1174,43 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Gjør server-URL tilgjengelig globalt
       window.SERVER_URL = 'https://lalm-treningssenter-server.onrender.com';
 
       // -----------------------------
       // Hamburger-meny (mobil)
       // -----------------------------
       window.toggleMenu = function () {
-        const menu = document.getElementById("mobileNav");
+        const menu = document.getElementById('mobileNav');
         if (menu) {
-          menu.classList.toggle("open");
+          menu.classList.toggle('open');
         }
       };
 
       // -----------------------------
       // Faner for medlemskap
       // -----------------------------
-      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabButtons = document.querySelectorAll('.tab-button');
       const tabPanels = {
-        binding: document.getElementById("tab-binding"),
-        utenbinding: document.getElementById("tab-utenbinding"),
-        korttids: document.getElementById("tab-korttids"),
-        dropin: document.getElementById("tab-dropin"),
+        binding: document.getElementById('tab-binding'),
+        utenbinding: document.getElementById('tab-utenbinding'),
+        korttids: document.getElementById('tab-korttids'),
+        dropin: document.getElementById('tab-dropin'),
       };
 
       tabButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const target = btn.getAttribute("data-tab");
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-tab');
 
-          // aktiv knapp
-          tabButtons.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
+          tabButtons.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
 
-          // vis riktig panel
           Object.keys(tabPanels).forEach((key) => {
             if (!tabPanels[key]) return;
-            tabPanels[key].classList.toggle("active", key === target);
+            tabPanels[key].classList.toggle('active', key === target);
           });
         });
       });
-
-      // -----------------------------
-      // Marker aktiv side i toppmeny
-      // -----------------------------
-      (function () {
-        const currentPage = window.location.pathname.split("/").pop();
-        const links = document.querySelectorAll(".topnav-links a");
-
-        links.forEach((link) => {
-          const href = link.getAttribute("href");
-          if (!href) return;
-
-          if (href === currentPage || (currentPage === "" && href === "index.html")) {
-            link.classList.add("active");
-          }
-        });
-      })();
 
       // -----------------------------
       // Hjelpefunksjon – normaliser mobil
@@ -1282,6 +1264,7 @@
   <script src="vipps_web.js"></script>
 </body>
 </html>
+
 
 
 
