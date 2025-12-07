@@ -327,9 +327,37 @@
     }
 
     .hero-small {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+  margin-top: 0.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+
+  background: #ffffff;
+  border: 1px solid #eee1cf;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  max-width: 560px;
+}
+
+.hero-small-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #ff7a00;
+}
+
+.hero-small-text a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
 
     .hero-card {
       background: #ffffff;
@@ -992,13 +1020,15 @@
 </div>
 
         <div class="hero-small">
-  For å få <strong>LalmIL-pris</strong> må du være medlem i <strong>Lalm Idrettslag</strong>.
-  Meld deg inn via
-  <a href="https://www.minidrett.no/medlemskap/22173" target="_blank" rel="noopener">
-    MinIdrett
-  </a>
-  før du velger LalmIL-medlemskap i appen. Innmelding og tilgang til treningssenteret
-  styres fortsatt kun via appen.
+  <span class="hero-small-label">LalmIL-medlemskap</span>
+  <span class="hero-small-text">
+    Rabattert pris for deg som er medlem i <strong>Lalm Idrettslag</strong>.
+    Meld deg inn via
+    <a href="https://www.minidrett.no/medlemskap/22173" target="_blank" rel="noopener">
+      MinIdrett
+    </a>
+    før du velger LalmIL i appen.
+  </span>
 </div>
 
 
@@ -1052,16 +1082,14 @@
         <h2>Våre medlemskap</h2>
         <p>
   Medlemskap kjøpes i Lalm Treningssenter-appen. Alle priser er per måned.
-  <strong>LalmIL-medlemskap forutsetter gyldig medlemskap i Lalm Idrettslag.</strong>
-  Dette ordner du ved å melde deg inn via
+  <strong>LalmIL-medlemskap gir rabattert pris for medlemmer i Lalm Idrettslag.</strong>
+  Innmelding i idrettslaget gjør du via
   <a href="https://www.minidrett.no/medlemskap/22173" target="_blank" rel="noopener">
     MinIdrett
-  </a>
-  før du velger LalmIL i appen.
-  Det faktureres et årlig administrasjonsgebyr på <strong>199,-</strong>
-  per aktivt medlemskap.
+  </a>.
+  Det faktureres et årlig administrasjonsgebyr på <strong>199,-</strong> per aktivt medlemskap.
 </p>
-      </div>
+</div>
 
       <!-- FANER -->
       <div class="membership-tabs">
@@ -1253,4 +1281,5 @@
   <script src="vipps_web.js"></script>
 </body>
 </html>
+
 
