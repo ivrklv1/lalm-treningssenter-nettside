@@ -327,37 +327,9 @@
     }
 
     .hero-small {
-  margin-top: 0.2rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-
-  background: #ffffff;
-  border: 1px solid #eee1cf;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
-
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  max-width: 560px;
-}
-
-.hero-small-label {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 600;
-  color: #ff7a00;
-}
-
-.hero-small-text a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
 
     .hero-card {
       background: #ffffff;
@@ -935,6 +907,218 @@
         padding: 1.2rem;
       }
     }
+  
+/* =====================================================
+   Forside – seksjoner (beholder dagens designsystem)
+   ===================================================== */
+
+.section {
+  padding: 2.2rem 0;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.section-lead {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  max-width: 720px;
+}
+
+/* 1) HERO med bilde */
+.hero-cover {
+  border-radius: 26px;
+  border: 1px solid #ece4d8;
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+}
+
+.hero-cover-inner {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 1.6rem;
+  padding: 2.0rem;
+  position: relative;
+  min-height: 360px;
+}
+
+.hero-cover-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(250,248,243,0.96) 0%, rgba(250,248,243,0.92) 45%, rgba(250,248,243,0.60) 100%),
+    url("images/forside.jpg") center/cover no-repeat;
+}
+
+.hero-cover-content,
+.hero-cover-side {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-cover-content h1 {
+  font-size: 2.45rem;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+
+.hero-kpis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.9rem 0 1.2rem;
+}
+
+.kpi-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #eee1cf;
+  font-size: 0.82rem;
+  color: #444;
+}
+
+.kpi-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: #2ecc71;
+}
+
+.hero-cover-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.hero-mini-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #ece4d8;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+  padding: 1.2rem 1.3rem;
+  max-width: 340px;
+}
+
+.hero-mini-card .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.85rem;
+}
+
+.hero-mini-card .label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.hero-mini-card .value {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* 2) Lalm IL fordel-seksjon */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #ece4d8;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+  padding: 1.6rem;
+}
+
+.badge-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: #fff5ea;
+  color: #a84f00;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid #ffe2c7;
+  margin-bottom: 0.7rem;
+}
+
+.badge-soft .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--accent);
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0.9rem 0 0;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 0.55rem;
+  color: #444;
+}
+
+.bullets li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  color: #2ecc71;
+  font-weight: 700;
+}
+
+.panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+}
+
+/* 3) App-seksjon */
+.app-shot {
+  display: flex;
+  justify-content: center;
+}
+
+.app-shot img {
+  width: min(360px, 100%);
+  height: auto;
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+@media (max-width: 900px) {
+  .hero-cover-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero-mini-card {
+    max-width: 100%;
+  }
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+
   </style>
 </head>
 
@@ -974,122 +1158,168 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          Åpent hver dag · 05:00–23:00
-        </div>
-
-        <h1>Tren lokalt på Lalm</h1>
-
-        <p class="hero-subtitle">
-          Lalm Treningssenter er et moderne, selvbetjent treningssenter
-          drevet på dugnad av <strong>Lalm Idrettslag</strong>. Med medlemskap i appen får du
-          enkel tilgang til styrkerommet – når det passer deg.
-        </p>
-
-        <div class="hero-steps">
-          <div class="hero-step">
-            <div class="hero-step-number">1</div>
-            <div>Last ned og logg inn i Lalm Treningssenter-appen.</div>
-          </div>
-          <div class="hero-step">
-            <div class="hero-step-number">2</div>
-            <div>Velg medlemskap og gjennomfør betaling med Vipps.</div>
-          </div>
-          <div class="hero-step">
-            <div class="hero-step-number">3</div>
-            <div>Bruk QR-koden i appen for å låse opp døra og begynne å trene.</div>
-          </div>
-        </div>
-
-        <div class="hero-actions">
-  <button class="hero-btn-primary" onclick="document.getElementById('priser').scrollIntoView({behavior:'smooth'})">
-    Se medlemskap og priser
-  </button>
-
-  <a
-    class="hero-btn-secondary"
-    href="https://www.minidrett.no/medlemskap/22173"
-    target="_blank"
-    rel="noopener"
-  >
-    Bli Lalm&nbsp;IL-medlem
-  </a>
-</div>
-
-        <div class="hero-small">
-  <span class="hero-small-label">LalmIL-medlemskap</span>
-  <span class="hero-small-text">
-    Rabattert pris for deg som er medlem i <strong>Lalm Idrettslag</strong>.
-    Meld deg inn via
-    <a href="https://www.minidrett.no/medlemskap/22173" target="_blank" rel="noopener">
-      MinIdrett
-    </a>
-    før du velger LalmIL i appen.
-  </span>
-</div>
-
-
-      <div class="hero-right">
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <div class="hero-card-logo">
-              <img src="images/logo-lalm.png" alt="Lalm Treningssenter logo">
+    <!-- 1) Forsidebilde + kort info -->
+    <section class="section">
+      <div class="hero-cover">
+        <div class="hero-cover-inner">
+          <div class="hero-cover-content">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              Åpent hver dag · 05:00–23:00
             </div>
-            <div>
-              <div class="hero-card-title">Lalm Treningssenter</div>
-              <div class="hero-card-tag">Treningsapp · QR-adgang</div>
+
+            <h1>Tren lokalt på Lalm</h1>
+
+            <p class="hero-subtitle">
+              Lalm Treningssenter er et moderne, selvbetjent treningssenter drevet på dugnad av
+              <strong>Lalm Idrettslag</strong>. Med app og QR-adgang trener du når det passer deg.
+            </p>
+
+            <div class="hero-kpis">
+              <span class="kpi-pill"><span class="kpi-dot"></span>Åpent 05:00–23:00</span>
+              <span class="kpi-pill">Drevet av Lalm IL</span>
+              <span class="kpi-pill">QR-adgang i app</span>
+            </div>
+
+            <div class="hero-cover-actions">
+              <button class="hero-btn-primary" onclick="document.getElementById('priser').scrollIntoView({behavior:'smooth'})">
+                Se medlemskap og priser
+              </button>
+              <a class="hero-btn-secondary" href="#lalmil">
+                Lalm IL-fordel
+              </a>
             </div>
           </div>
 
-          <div class="hero-card-divider"></div>
+          <div class="hero-cover-side">
+            <div class="hero-mini-card">
+              <div class="hero-card-header">
+                <div class="hero-card-logo">
+                  <img src="images/logo-lalm.png" alt="Lalm Treningssenter logo">
+                </div>
+                <div>
+                  <div class="hero-card-title">Lalm Treningssenter</div>
+                  <div class="hero-card-tag">Treningsapp · QR-adgang</div>
+                </div>
+              </div>
 
-          <div class="hero-card-row">
-            <div>
-              <div class="hero-card-label">Åpningstider</div>
-              <div class="hero-card-highlight">05:00–23:00</div>
-            </div>
-            <div>
-              <div class="hero-card-label">Drevet av</div>
-              <div class="hero-card-highlight">Lalm Idrettslag</div>
-            </div>
-          </div>
+              <div class="hero-card-divider"></div>
 
-          <div class="hero-card-row">
-            <div>
-              <div class="hero-card-label">Adgang</div>
-              <div>QR-kode i appen</div>
-            </div>
-            <div>
-              <div class="hero-card-label">Medlemskap</div>
-              <div>Fra 349,-/mnd</div>
-            </div>
-          </div>
+              <div class="row">
+                <div>
+                  <div class="label">Åpningstider</div>
+                  <div class="value">05:00–23:00</div>
+                </div>
+                <div>
+                  <div class="label">Drevet av</div>
+                  <div class="value">Lalm Idrettslag</div>
+                </div>
+              </div>
 
-          <div class="hero-card-footer">
-            <span>📲</span>
-            <span>Skann ved døra – tren når det passer deg.</span>
+              <div class="row">
+                <div>
+                  <div class="label">Adgang</div>
+                  <div class="value">QR-kode i appen</div>
+                </div>
+                <div>
+                  <div class="label">Fra</div>
+                  <div class="value">349,- / mnd</div>
+                </div>
+              </div>
+
+              <div class="hero-card-footer" style="margin-top: 0.9rem;">
+                <span>📲</span>
+                <span>Skann ved døra – tren når det passer deg.</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+<!-- 2) Lalm IL-fordel + innmelding -->
+    <section id="lalmil" class="section">
+      <div class="split">
+        <div>
+          <div class="badge-soft"><span class="dot"></span> Lalm IL-fordel</div>
+          <h2 class="section-title">Rabattert pris for Lalm IL-medlemmer</h2>
+          <p class="section-lead">
+            LalmIL-medlemskap på treningssenteret forutsetter gyldig medlemskap i Lalm Idrettslag.
+            Innmelding gjøres via MinIdrett.
+          </p>
+
+          <ul class="bullets">
+            <li>Støtt det lokale idrettslaget</li>
+            <li>Få LalmIL-pris på medlemskap</li>
+            <li>Enkelt å melde seg inn via MinIdrett</li>
+          </ul>
+
+          <div class="panel-actions">
+            <a class="hero-btn-primary" href="https://www.minidrett.no/medlemskap/22173" target="_blank" rel="noopener">
+              Meld deg inn i Lalm IL (MinIdrett)
+            </a>
+            <a class="hero-btn-secondary" href="#priser">
+              Se LalmIL-priser
+            </a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="badge-soft"><span class="dot"></span> Slik gjør du det</div>
+          <ul class="bullets" style="margin-top: 0.5rem;">
+            <li>Åpne MinIdrett-lenken og logg inn</li>
+            <li>Fullfør innmelding i Lalm Idrettslag</li>
+            <li>Velg deretter “Lalm IL-medlem” i appen</li>
+          </ul>
+          <p style="margin-top: 0.9rem; color: var(--text-muted); font-size: 0.9rem;">
+            Allerede medlem? Da kan du bare velge LalmIL-medlemskap i appen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+<!-- 3) Appen -->
+    <section class="section">
+      <div class="split">
+        <div>
+          <div class="badge-soft"><span class="dot"></span> App og adgang</div>
+          <h2 class="section-title">Alt i appen – medlemskap, betaling og QR-adgang</h2>
+          <p class="section-lead">
+            Med Lalm Treningssenter-appen får du enkel innmelding, betaling med Vipps og QR-kode
+            for å låse opp døra. Ingen resepsjon – bare skann og tren.
+          </p>
+
+          <ul class="bullets">
+            <li>Innmelding og betaling på få minutter</li>
+            <li>QR-kode i appen for adgang</li>
+            <li>Oversikt over medlemskap og status</li>
+          </ul>
+
+          <div class="panel-actions">
+            <a class="hero-btn-primary" href="#priser">Velg medlemskap</a>
+            <a class="hero-btn-secondary" href="praktisk-info.html">Praktisk info</a>
+          </div>
+        </div>
+
+        <div class="app-shot">
+          <img src="images/app.png" alt="Lalm Treningssenter-appen">
+        </div>
+      </div>
+    </section>
+
+
+
 
     <!-- MEDLEMSKAP / PRISER -->
     <section id="priser" class="membership-section">
       <div class="membership-header">
         <h2>Våre medlemskap</h2>
         <p>
-  Medlemskap kjøpes i Lalm Treningssenter-appen. Alle priser er per måned.
-  <strong>LalmIL-medlemskap gir rabattert pris for medlemmer i Lalm Idrettslag.</strong>
-  Innmelding i idrettslaget gjør du via
-  <a href="https://www.minidrett.no/medlemskap/22173" target="_blank" rel="noopener">
-    MinIdrett
-  </a>.
-  Det faktureres et årlig administrasjonsgebyr på <strong>199,-</strong> per aktivt medlemskap.
-</p>
-</div>
+          Medlemskap kjøpes i Lalm Treningssenter-appen. Alle priser er per måned.
+          Medlemspris forutsetter gyldig medlemskap i Lalm Idrettslag.
+          Det faktureres et årlig administrasjonsgebyr på <strong>199,-</strong>
+          per aktivt medlemskap.
+        </p>
+      </div>
 
       <!-- FANER -->
       <div class="membership-tabs">
@@ -1281,5 +1511,3 @@
   <script src="vipps_web.js"></script>
 </body>
 </html>
-
-
