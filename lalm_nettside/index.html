@@ -1119,7 +1119,27 @@
 }
 
 
-  </style>
+  
+/* Header menu – remove underline */
+.topnav-links a,
+.mobile-nav a {
+  text-decoration: none;
+}
+.topnav-links a:hover {
+  text-decoration: none;
+}
+
+
+/* Inline text link (used instead of secondary buttons in sections) */
+.inline-link{
+  display:inline-block;
+  margin-top:0.9rem;
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+</style>
 </head>
 
 <body>
@@ -1138,8 +1158,7 @@
       </div>
 
       <div class="topnav-right">
-        <a href="index.html#priser" class="btn-join">BLI MEDLEM</a>
-        <a href="#" class="btn-login">LOGG INN</a>
+        
 
         <button class="mobile-menu-btn" type="button" onclick="toggleMenu()">
           ☰
@@ -1257,9 +1276,7 @@
             <a class="hero-btn-primary" href="https://www.minidrett.no/medlemskap/22173" target="_blank" rel="noopener">
               Meld deg inn i Lalm IL (MinIdrett)
             </a>
-            <a class="hero-btn-secondary" href="#priser">
-              Se LalmIL-priser
-            </a>
+            <a href="#priser" class="inline-link">Se priser i medlemskap-seksjonen ↓</a>
           </div>
         </div>
 
@@ -1296,7 +1313,7 @@
 
           <div class="panel-actions">
             <a class="hero-btn-primary" href="#priser">Velg medlemskap</a>
-            <a class="hero-btn-secondary" href="praktisk-info.html">Praktisk info</a>
+            <a href="praktisk-info.html" class="inline-link">Les praktisk info →</a>
           </div>
         </div>
 
