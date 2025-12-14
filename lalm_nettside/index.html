@@ -1139,6 +1139,16 @@
   text-underline-offset: 3px;
 }
 
+
+/* Tabs: keep active tab orange on hover */
+.tab-button:hover { background: transparent; } /* neutralize generic hover */
+.tab-button:not(.active):hover { background: #ffffffaa; }
+.tab-button.active:hover {
+  background: #ff7a00;
+  color: #fff;
+}
+.tab-button.active:hover span { color: #fff; }
+
 </style>
 </head>
 
@@ -1500,6 +1510,40 @@
           Object.keys(tabPanels).forEach((key) => {
             if (!tabPanels[key]) return;
             tabPanels[key].classList.toggle('active', key === target);
+      // -----------------------------
+      // Sørg for at alle medlemskapsbokser har "Velg medlemskap"-knapp
+      // (samme stil som drop-in-knappen). Knappen trigges ved å klikke på kortet.
+      // -----------------------------
+      function ensureMembershipButtons() {
+        const cards = document.querySelectorAll('.membership-grid .membership-card');
+        cards.forEach((card) => {
+          // Hvis vipps_web.js ikke har lagt inn knapp i kortet, legg til
+          if (!card.querySelector('.membership-button')) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'membership-button';
+            btn.textContent = 'Velg medlemskap';
+
+            btn.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              // Bruk eksisterende logikk ved å trigge klikk på kortet
+              card.click();
+            });
+
+            card.appendChild(btn);
+          }
+        });
+      }
+
+      // Kjør én gang ved load, og observer når planene renderes dynamisk
+      ensureMembershipButtons();
+      const grids = document.querySelectorAll('.membership-grid');
+      if (grids.length) {
+        const observer = new MutationObserver(() => ensureMembershipButtons());
+        grids.forEach((g) => observer.observe(g, { childList: true, subtree: true }));
+      }
+
           });
         });
       });
