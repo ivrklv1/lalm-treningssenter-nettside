@@ -1149,6 +1149,27 @@
 }
 .tab-button.active:hover span { color: #fff; }
 
+
+/* Medlemskapskort – vis knapp alltid (samme som drop-in) */
+.membership-button{
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  margin-top: 1.2rem;
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  background: #ff7a00;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+}
+.membership-card:hover .membership-button{
+  background: #ff8f2a;
+}
+
 </style>
 </head>
 
@@ -1570,5 +1591,28 @@
   <!-- Eksterne script -->
   <script src="lalm_nettside.js"></script>
   <script src="vipps_web.js"></script>
+<script>
+// Sikre at alle medlemskapskort har synlig knapp lik drop-in
+function ensureMembershipButtons() {
+  document.querySelectorAll('.membership-card').forEach(card => {
+    if (!card.querySelector('.membership-button')) {
+      const btn = document.createElement('button');
+      btn.className = 'membership-button';
+      btn.type = 'button';
+      btn.textContent = 'Velg medlemskap';
+
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        card.click();
+      });
+
+      // legg knappen nederst i kortet
+      card.appendChild(btn);
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', ensureMembershipButtons);
+</script>
 </body>
 </html>
