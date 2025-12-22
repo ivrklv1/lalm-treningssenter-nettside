@@ -2,9 +2,10 @@
 <html lang="nb">
 <head>
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
-<link rel="apple-touch-icon" href="images/favicon.png">
-<link rel="shortcut icon" href="images/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <link rel="shortcut icon" href="images/favicon.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personvernerklæring – Lalm Treningssenter</title>
@@ -34,31 +35,29 @@
     body {
       background: var(--bg);
       color: #111111;
-      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
     }
 
     a { color: inherit; text-decoration: none; }
 
-header {
-  background: #091C30;
-  height: 64px;      /* fast høyde – juster om du vil */
-  padding: 0;        /* fjern top/bottom padding */
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
+    header {
+      background: #091C30;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
-.topnav {
-  max-width: 1200px;
-  margin: 0 auto;            /* SENTRER HEADEREN */
-  padding: 0 1.4rem;
-  display: flex;
-  align-items: center;       /* SENTRER VERTIKALT */
-  justify-content: space-between;
-  height: 100%;              /* FYLLER HEADERENS HØYDE */
-}
+    .topnav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
 
     .topnav-left {
       display: flex;
@@ -66,12 +65,12 @@ header {
       gap: 2rem;
     }
 
-        .topnav-logo {
-  height: 150px;        /* eller høyden du bruker */
-  width: auto;
-  object-fit: contain;
-  margin-top: 8px;     /* justér denne for å flytte logoen ned */
-}
+    .topnav-logo {
+      height: 150px;
+      width: auto;
+      object-fit: contain;
+      margin-top: 8px;
+    }
 
     .topnav-links {
       display: flex;
@@ -119,8 +118,6 @@ header {
       border: none;
     }
 
-    .btn-join:hover { filter: brightness(1.08); }
-
     .btn-login {
       padding: 0.48rem 1.1rem;
       border: 2px solid #ffffff;
@@ -129,38 +126,6 @@ header {
       font-size: 0.85rem;
       font-weight: 600;
     }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      font-size: 2rem;
-      color: #ffffff;
-      border: none;
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: #ffffff;
-      padding: 1rem 1.2rem;
-      border-top: 1px solid #eaeaea;
-      position: absolute;
-      right: 0;
-      left: 0;
-    }
-
-    .mobile-nav a {
-      padding: 0.8rem 0;
-      border-bottom: 1px solid #eee;
-      color: #111;
-      font-size: 0.95rem;
-    }
-
-    .mobile-nav a:last-child { border-bottom: none; }
-
-    .mobile-nav.open { display: flex; }
 
     main {
       max-width: 900px;
@@ -176,7 +141,6 @@ header {
     .page-header h1 {
       font-size: 2rem;
       margin-bottom: 0.3rem;
-      letter-spacing: 0.02em;
     }
 
     .page-header p {
@@ -205,170 +169,131 @@ header {
 
     li { margin-bottom: 0.3rem; }
 
-    strong { font-weight: 600; }
-
     footer {
       padding: 1.5rem;
       text-align: center;
       font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: #6b6b6b;
       background: #091C30;
-    }
-
-    @media (max-width: 800px) {
-      .topnav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-      .btn-login, .btn-join { display: none; }
-      main { padding: 1.7rem 1rem 2.3rem; }
-      .page-card { padding: 1.4rem 1.2rem; }
-    }
-
-    @media (max-width: 600px) {
-      .page-header h1 { font-size: 1.7rem; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="topnav">
-      <div class="topnav-left">
-        <img src="images/lalm-il.logo.png" alt="Lalm logo" class="topnav-logo" />
-
-        <nav class="topnav-links">
-          <a href="index.html#priser">Medlemskap</a>
-          <a href="praktisk-info.html">Praktisk info</a>
-          <a href="vilkar.html">Vilkår</a>
-          <a href="personvern.html">Personvern</a>
-        </nav>
-      </div>
-
-      <div class="topnav-right">
-        <a href="index.html#priser" class="btn-join">BLI MEDLEM</a>
-        <a href="#" class="btn-login">LOGG INN</a>
-
-        <button class="mobile-menu-btn" type="button" onclick="toggleMenu()">
-          ☰
-        </button>
-      </div>
+<header>
+  <div class="topnav">
+    <div class="topnav-left">
+      <img src="images/lalm-il.logo.png" alt="Lalm logo" class="topnav-logo" />
+      <nav class="topnav-links">
+        <a href="index.html#priser">Medlemskap</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+        <a href="vilkar.html">Vilkår</a>
+        <a href="personvern.html" class="active">Personvern</a>
+      </nav>
     </div>
-
-    <nav class="mobile-nav" id="mobileNav">
-      <a href="index.html#priser" onclick="toggleMenu()">Medlemskap</a>
-      <a href="praktisk-info.html" onclick="toggleMenu()">Praktisk info</a>
-      <a href="vilkar.html" onclick="toggleMenu()">Vilkår</a>
-      <a href="personvern.html" onclick="toggleMenu()">Personvern</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="page-header">
-      <h1>Personvernerklæring</h1>
-      <p>Hvordan Lalm Treningssenter behandler dine personopplysninger.</p>
+    <div class="topnav-right">
+      <a href="index.html#priser" class="btn-join">BLI MEDLEM</a>
+      <a href="#" class="btn-login">LOGG INN</a>
     </div>
+  </div>
+</header>
 
-    <section class="page-card">
-      <h2>1. Behandlingsansvarlig</h2>
-      <p>
-        Det er <strong>Lalm Idrettslag</strong>, org.nr 975 439 453 som er eier og driver av Lalm treningssenter. Denne personvernerklæringen gir deg informasjon om vår behandling som behandlingsansvarlig av personopplysninger.
+<main>
+  <div class="page-header">
+    <h1>Personvernerklæring</h1>
+    <p>Hvordan Lalm Treningssenter behandler dine personopplysninger.</p>
+  </div>
 
-      <h2>2. Hvilke opplysninger vi samler inn</h2>
-      <ul>
-        <li>Navn</li>
-        <li>Kontaktinformasjon (telefonnummer, e-postadresse)</li>
-        <li>Fødselsår eller fødselsdato ved behov (for alderskontroll)</li>
-        <li>Medlemskapstype og betalingsstatus</li>
-        <li>Logg over adgang (registrering av når QR-kode brukes på døra)</li>
-      </ul>
+  <section class="page-card">
+    <h2>1. Behandlingsansvarlig</h2>
+    <p>
+      Det er <strong>Lalm Idrettslag</strong>, org.nr 975 439 453, som er eier og
+      driver av Lalm Treningssenter og behandlingsansvarlig for personopplysninger.
+    </p>
 
-      <h2>3. Formål med behandlingen</h2>
-      <ul>
-        <li>Administrere medlemskap og tilgang til treningssenteret.</li>
-        <li>Fakturering og håndtering av betaling.</li>
-        <li>Sikre trygg og korrekt bruk av adgangssystemet.</li>
-        <li>Sende nødvendig informasjon til medlemmer (for eksempel endringer i åpningstider eller vilkår).</li>
-      </ul>
+    <h2>2. Hvilke opplysninger vi samler inn</h2>
+    <ul>
+      <li>Navn</li>
+      <li>Kontaktinformasjon (telefonnummer, e-postadresse)</li>
+      <li>Fødselsår eller fødselsdato ved behov (alderskontroll)</li>
+      <li>Medlemskapstype og betalingsstatus</li>
+      <li>Adgangslogger (bruk av QR-kode)</li>
+    </ul>
 
-      <h2>4. Behandlingsgrunnlag</h2>
-      <p>
-        Behandling av personopplysninger skjer hovedsakelig på grunnlag av
-        <strong>avtale</strong> (medlemsavtalen) og <strong>rettslige forpliktelser</strong> (for eksempel
-        regnskapslovgivning). I enkelte tilfeller kan behandlingen baseres på innhentet samtykke.
-      </p>
+    <h2>3. Formål med behandlingen</h2>
+    <ul>
+      <li>Administrere medlemskap og tilgang</li>
+      <li>Fakturering og betaling</li>
+      <li>Sikker drift av adgangssystem</li>
+      <li>Nødvendig medlemskommunikasjon</li>
+    </ul>
 
-      <h2>5. Lagringstid</h2>
-      <ul>
-        <li>Opplysninger knyttet til medlemskap lagres så lenge du har aktivt medlemskap.</li>
-        <li>Regnskapsrelevante data lagres i henhold til gjeldende lovkrav.</li>
-        <li>Adgangslogger lagres kun så lenge det er nødvendig for drift og sikkerhet.</li>
-      </ul>
+    <h2>4. Behandlingsgrunnlag</h2>
+    <p>
+      Behandlingen skjer på grunnlag av avtale, rettslige forpliktelser
+      og i enkelte tilfeller samtykke.
+    </p>
 
-      <h2>6. Deling av opplysninger</h2>
-      <p>
-        Lalm Idrettslag deler ikke personopplysninger med tredjeparter utover det som er nødvendig for:
-      </p>
-      <ul>
-        <li>Betalingstjenester (for eksempel Vipps).</li>
-        <li>IT- og driftspartnere som bistår med medlemssystem, adgangskontroll og teknisk drift.</li>
-      </ul>
-      <p>
-        Slike leverandører har databehandleravtale og kan ikke bruke opplysningene til egne formål.
-      </p>
+    <h2>5. Lagringstid</h2>
+    <ul>
+      <li>Medlemsdata lagres så lenge medlemskapet er aktivt</li>
+      <li>Regnskapsdata lagres iht. lovkrav</li>
+      <li>Adgangslogger lagres kun så lenge det er nødvendig</li>
+    </ul>
 
-      <h2>7. Dine rettigheter</h2>
-      <p>Som registrert har du blant annet rett til:</p>
-      <ul>
-        <li>Innsyn i hvilke opplysninger vi har lagret om deg.</li>
-        <li>Rett til å få rettet uriktige eller ufullstendige opplysninger.</li>
-        <li>Rett til sletting der vilkårene er oppfylt.</li>
-        <li>Rett til begrensning av behandling i visse tilfeller.</li>
-      </ul>
-      <p>
-        Henvendelser om dette kan sendes til <a href="mailto:post@lalmil.no">post@lalmil.no</a>.
-      </p>
+    <h2>6. Kameraovervåkning</h2>
+    <p>
+      Lalm Treningssenter benytter kameraovervåkning i deler av lokalene
+      for å ivareta sikkerhet og forebygge uønskede hendelser.
+    </p>
+    <ul>
+      <li>Kameraer er plassert i fellesarealer og ved inngang</li>
+      <li>Det er ikke kameraovervåkning i garderober, toaletter eller dusj</li>
+      <li>Opptak lagres i inntil <strong>14 dager</strong> og slettes automatisk</li>
+      <li>Opptak gjennomgås kun ved reelt behov</li>
+    </ul>
+    <p>
+      Behandlingsgrunnlaget er berettiget interesse, jf. GDPR art. 6 nr. 1 f.
+    </p>
 
-      <h2>8. Informasjonssikkerhet</h2>
-      <p>
-        Vi arbeider for å beskytte dine personopplysninger gjennom tekniske og organisatoriske tiltak,
-        blant annet tilgangskontroll, logging og begrenset tilgang til systemer med persondata.
-      </p>
+    <h2>7. Deling av opplysninger</h2>
+    <p>
+      Personopplysninger deles kun med nødvendige leverandører
+      (betaling, IT og drift) under databehandleravtale.
+    </p>
 
-      <h2>9. Endringer i personvernerklæringen</h2>
-      <p>
-        Erklæringen kan oppdateres ved behov. Oppdatert versjon vil alltid være tilgjengelig på denne siden.
-      </p>
+    <h2>8. Dine rettigheter</h2>
+    <ul>
+      <li>Rett til innsyn</li>
+      <li>Rett til retting</li>
+      <li>Rett til sletting der vilkår er oppfylt</li>
+      <li>Rett til begrensning av behandling</li>
+    </ul>
 
-      <h2>10. Kontakt</h2>
-      <p>
-        Har du spørsmål om personvern eller hvordan vi behandler personopplysninger,
-        kan du kontakte oss på <a href="mailto:post@lalmil.no">post@lalmil.no</a>.
-      </p>
-    </section>
-  </main>
+    <h2>9. Informasjonssikkerhet</h2>
+    <p>
+      Vi benytter tekniske og organisatoriske tiltak for å beskytte personopplysninger,
+      inkludert tilgangskontroll og logging.
+    </p>
 
-  <footer>
-    © <script>document.write(new Date().getFullYear())</script>
-    Lalm Treningssenter – en del av Lalm Idrettslag, org.nr 975 439 453
-  </footer>
+    <h2>10. Endringer</h2>
+    <p>
+      Personvernerklæringen kan oppdateres ved behov. Gjeldende versjon
+      er alltid tilgjengelig på nettsiden.
+    </p>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobileNav");
-      menu.classList.toggle("open");
-    }
+    <h2>11. Kontakt</h2>
+    <p>
+      Spørsmål om personvern kan sendes til
+      <a href="mailto:post@lalmil.no">post@lalmil.no</a>.
+    </p>
+  </section>
+</main>
 
-    (function () {
-      const currentPage = window.location.pathname.split("/").pop();
-      const links = document.querySelectorAll(".topnav-links a");
+<footer>
+  © <script>document.write(new Date().getFullYear())</script>
+  Lalm Treningssenter – Lalm Idrettslag
+</footer>
 
-      links.forEach((link) => {
-        const href = link.getAttribute("href");
-        if (!href) return;
-        if (href === currentPage || (currentPage === "" && href === "index.html")) {
-          link.classList.add("active");
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
