@@ -117,10 +117,18 @@ function renderGroup(list, containerId) {
       card.className = 'membership-card';
 
       const isDropin = p.type === 'dropin';
+      const isShortTerm = p.type === 'short_term';
 
-      const priceText = isDropin
-        ? `${formatKr(p.amount)} <span>per gang</span>`
-        : `${formatKr(p.amount)} <span>/måned</span>`;
+      let priceText = '';
+
+      if (isDropin) {
+        priceText = `${formatKr(p.amount)} <span>per gang</span>`;
+      } else if (isShortTerm && p.shortTermDays) {
+        priceText = `${formatKr(p.amount)} <span>/ ${p.shortTermDays} dager</span>`;
+      } else {
+        priceText = `${formatKr(p.amount)} <span>/måned</span>`;
+      }
+
 
       const signupFeeHtml = p.signupFee
         ? `<div class="membership-meta">Innmeldingsavgift: ${formatKr(
